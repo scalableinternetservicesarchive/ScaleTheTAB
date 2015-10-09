@@ -6,7 +6,7 @@
 
 
 <h4> Team Members </h4>
-<ol>
+<ul>
 <li><p>Name: Goris Haghverdian</p>
 	<p>Email: gorishagh@ucla.edu</p>
 	
@@ -25,7 +25,7 @@
 	<p>Email: nmehta91@cs.ucla.edu</p>  
 </li>
 
-</ol>
+</ul>
 
 
 <h4> Pivital Tracker</h4>
