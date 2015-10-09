@@ -2,11 +2,30 @@
 
 
 <h4>Project Description</h4>
-<p></p>
+<p>Scale the Tab is a scalable platform for automation of placing orders in restaurants. </p>
 
 
 <h4> Team Members </h4>
-<p></p>
+<ol>
+<li><p>Name: Goris Haghverdian</p>
+	<p>Email: gorishagh@ucla.edu</p>
+	
+</li>
+
+<li>
+<p>Name:  Harsh Jain</p>
+	<p>Email: harshjain30@cs.ucla.edu</p>
+</li>
+<li>
+<p>Name: Tushar Bhat</p>
+	<p>Email: tushar@cs.ucla.edu</p>
+</li>
+<li>
+<p>Name:Nitish Mehta</p>
+	<p>Email: nmehta91@cs.ucla.edu</p>  
+</li>
+
+</ol>
 
 
 <h4> Pivital Tracker</h4>
