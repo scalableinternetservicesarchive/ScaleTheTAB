@@ -6,7 +6,7 @@
 
 
 <h4> Team Members </h4>
-<table width="100%">
+<table width="100%" border="0px">
 <tr width="100%">
 <td width = "25%">
 	<h5>Goris Haghverdian</h5>
