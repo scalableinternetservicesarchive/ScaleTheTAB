@@ -10,6 +10,7 @@
 <tr width="100%">
 <td width = "25%"><p>Name: Goris Haghverdian</p>
 	<p>Email: gorishagh@ucla.edu</p>
+	<img width="200px" height="150px" src="./profile pics/goris.png"/>
 	
 </td>
 
@@ -30,7 +31,7 @@
 
 
 <h4> Pivital Tracker</h4>
-<p>Click <a href = "https://www.pivotaltracker.com/n/projects/1446716">here </a> to access the pivotal tracker</p>.
+<p>Click <a href = "https://www.pivotaltracker.com/n/projects/1446716">here </a> to access the pivotal tracker</p>
 
 
 
