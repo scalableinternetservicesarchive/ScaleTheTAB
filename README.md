@@ -10,7 +10,7 @@
 <tr width="100%">
 <td width = "25%"><p>Name: Goris Haghverdian</p>
 	<p>Email: gorishagh@ucla.edu</p>
-	<img width="200px" height="150px" src="profile pics/goris.png"/>
+	<img width="200px" height="150px" src="../../profile pics/goris.png"/>
 	
 </td>
 
