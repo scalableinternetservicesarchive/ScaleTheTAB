@@ -8,9 +8,11 @@
 <h4> Team Members </h4>
 <table width="100%">
 <tr width="100%">
-<td width = "25%"><p>Goris Haghverdian</p>
-	<p>gorishagh@ucla.edu</p>
+<td width = "25%">
+	<h5>Goris Haghverdian</h5>
 	<img width="200px" height="120px" src="./profile pics/goris.png"/>
+	<p>gorishagh@ucla.edu</p>
+
 	
 </td>
 
