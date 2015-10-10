@@ -17,17 +17,17 @@
 </td>
 
 <td width = "25%">
-	<p>Harsh Jain</p>
+	<h5>Harsh Jain</h5>
 	<img width="200px" height="120px" src="https://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg"/>
 	<p>harshjain30@cs.ucla.edu</p>
 </td>
 <td width = "25%">
-	<p>Tushar Bhat</p>
+	<h5>Tushar Bhat</h5>
 	<img width="200px" height="120px" src="https://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg"/>
 	<p>tushar@cs.ucla.edu</p>
 </td>
 <td width = "25%">
-	<p>Nitish Mehta</p>
+	<h5>Nitish Mehta</h5>
 	<img width="200px" height="120px" src="https://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg"/>
 	<p>nmehta91@cs.ucla.edu</p>  
 </td>
