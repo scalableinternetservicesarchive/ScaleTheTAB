@@ -17,16 +17,19 @@
 </td>
 
 <td width = "25%">
-<p>Name:  Harsh Jain</p>
-	<p>Email: harshjain30@cs.ucla.edu</p>
+	<p>Harsh Jain</p>
+	<img width="200px" height="120px" src="https://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg"/>
+	<p>harshjain30@cs.ucla.edu</p>
 </td>
 <td width = "25%">
-<p>Name: Tushar Bhat</p>
-	<p>Email: tushar@cs.ucla.edu</p>
+	<p>Tushar Bhat</p>
+	<img width="200px" height="120px" src="https://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg"/>
+	<p>tushar@cs.ucla.edu</p>
 </td>
 <td width = "25%">
-<p>Name:Nitish Mehta</p>
-	<p>Email: nmehta91@cs.ucla.edu</p>  
+	<p>Nitish Mehta</p>
+	<img width="200px" height="120px" src="https://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg"/>
+	<p>nmehta91@cs.ucla.edu</p>  
 </td>
 </tr>
 </table>
