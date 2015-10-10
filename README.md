@@ -6,26 +6,27 @@
 
 
 <h4> Team Members </h4>
-<ul>
-<li><p>Name: Goris Haghverdian</p>
+<table width="100%">
+<tr width="100%">
+<td width = "25%"><p>Name: Goris Haghverdian</p>
 	<p>Email: gorishagh@ucla.edu</p>
 	
-</li>
+</td>
 
-<li>
+<td width = "25%">
 <p>Name:  Harsh Jain</p>
 	<p>Email: harshjain30@cs.ucla.edu</p>
-</li>
-<li>
+</td>
+<td width = "25%">
 <p>Name: Tushar Bhat</p>
 	<p>Email: tushar@cs.ucla.edu</p>
-</li>
-<li>
+</td>
+<td width = "25%">
 <p>Name:Nitish Mehta</p>
 	<p>Email: nmehta91@cs.ucla.edu</p>  
-</li>
-
-</ul>
+</td>
+</tr>
+</table>
 
 
 <h4> Pivital Tracker</h4>
