@@ -28,7 +28,7 @@
 </td>
 <td width = "25%">
 	<h5>Nitish Mehta</h5>
-	<img width="180px" height="120px" src="https://citizenmed.files.wordpress.com/2011/08/user-icon1.jpg"/>
+	<img width="180px" height="120px" src="./profile pics/nitish.png"/>
 	<p>nmehta91@cs.ucla.edu</p>  
 </td>
 </tr>
