@@ -1735,3 +1735,1010 @@ Processing by ItemsController#index as HTML
   [1m[36mItem Load (0.2ms)[0m  [1mSELECT `items`.* FROM `items`[0m
   Rendered items/index.html.erb within layouts/application (8.4ms)
 Completed 200 OK in 108ms (Views: 106.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 22:45:18 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (9.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (29.0ms)[0m  SELECT `items`.* FROM `items`
+  Rendered items/index.html.erb within layouts/application (209.3ms)
+Completed 200 OK in 944ms (Views: 897.8ms | ActiveRecord: 32.8ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 22:45:33 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT `items`.* FROM `items`[0m
+  Rendered items/index.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 193ms (Views: 191.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/scaffolds.self-1bc01741f207547b28e6fb32e1a915a90d20ae1b2fb81c03c82c03f8b6e74dc4.css?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/application.self-ec9db85de4427045e508e656d01cea8b0df1b21b762eb97706ff527b9a4043fa.css?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/tomatosoup-4f301671105537faff0c7e447ca41d9453e5d245b90ad78e7a69a079e6046299.jpg" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/assets/paneertikkamasala-1fd1cac5abf600281506e549f08a872ce6a064868d3d96ccebbafb9e81b61657.png" for ::1 at 2015-10-21 22:45:34 -0700
+
+
+Started GET "/store/index" for ::1 at 2015-10-21 22:46:41 -0700
+Processing by StoreController#index as HTML
+  Rendered store/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 3555ms (Views: 3554.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/store.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 22:46:45 -0700
+
+
+Started GET "/" for ::1 at 2015-10-21 22:49:49 -0700
+Processing by StoreController#index as HTML
+  Rendered store/index.html.erb within layouts/application (0.1ms)
+Completed 200 OK in 158ms (Views: 156.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:22:24 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (1.2ms)[0m  SELECT `items`.* FROM `items`
+  Rendered items/index.html.erb within layouts/application (263.1ms)
+Completed 200 OK in 830ms (Views: 726.0ms | ActiveRecord: 93.6ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/store.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/scaffolds.self-1bc01741f207547b28e6fb32e1a915a90d20ae1b2fb81c03c82c03f8b6e74dc4.css?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/application.self-ec9db85de4427045e508e656d01cea8b0df1b21b762eb97706ff527b9a4043fa.css?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:22:25 -0700
+
+
+Started GET "/assets/store.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:22:26 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-10-21 23:22:26 -0700
+
+
+Started GET "/assets/paneertikkamasala-1fd1cac5abf600281506e549f08a872ce6a064868d3d96ccebbafb9e81b61657.png" for ::1 at 2015-10-21 23:22:26 -0700
+
+
+Started GET "/assets/tomatosoup-4f301671105537faff0c7e447ca41d9453e5d245b90ad78e7a69a079e6046299.jpg" for ::1 at 2015-10-21 23:22:26 -0700
+
+
+Started GET "/" for ::1 at 2015-10-21 23:35:16 -0700
+Processing by StoreController#index as HTML
+  [1m[36mItem Load (22.7ms)[0m  [1mSELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC[0m
+  Rendered store/index.html.erb within layouts/application (99.3ms)
+Completed 200 OK in 249ms (Views: 225.7ms | ActiveRecord: 22.7ms)
+
+
+Started GET "/" for ::1 at 2015-10-21 23:35:52 -0700
+Processing by StoreController#index as HTML
+  [1m[35mItem Load (0.2ms)[0m  SELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC
+  Rendered store/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 110ms (Views: 109.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:35:52 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT `items`.* FROM `items`[0m
+  Rendered items/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 123ms (Views: 122.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:35:53 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (0.2ms)[0m  SELECT `items`.* FROM `items`
+  Rendered items/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 129ms (Views: 128.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items/new" for ::1 at 2015-10-21 23:35:56 -0700
+Processing by ItemsController#new as HTML
+  Rendered items/_form.html.erb (65.9ms)
+  Rendered items/new.html.erb within layouts/application (98.3ms)
+Completed 200 OK in 202ms (Views: 201.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/items" for ::1 at 2015-10-21 23:36:03 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+S/9GbqiPFQi96xV0Z70K/9caFKdouLm/vaqtE08s6DZ3sOkSjNlCi2NJqoB4KDQgyfMb1SMR8NFEgmgWALKkg==", "item"=>{"title"=>"asbsad", "description"=>"asdad", "image_url"=>"as dad", "price"=>"asdad"}, "commit"=>"Create Item"}
+  [1m[36m (12.4ms)[0m  [1mBEGIN[0m
+  [1m[35mItem Exists (35.7ms)[0m  SELECT  1 AS one FROM `items` WHERE `items`.`title` = BINARY 'asbsad' LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  Rendered items/_form.html.erb (3.9ms)
+  Rendered items/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 193ms (Views: 103.9ms | ActiveRecord: 48.6ms)
+
+
+Started POST "/items" for ::1 at 2015-10-21 23:36:19 -0700
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KzViHRexc6q5cQ1xZmLD7T1pLbMYcYlyJZ/5XGCeujwLxFyg5yAq9LYLh462HJcWQRKJjtFfLFeee1pIdaDDDg==", "item"=>{"title"=>"asbsad", "description"=>"asdad", "image_url"=>"", "price"=>"1"}, "commit"=>"Create Item"}
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mItem Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM `items` WHERE `items`.`title` = BINARY 'asbsad' LIMIT 1[0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO `items` (`title`, `description`, `image_url`, `price`, `created_at`, `updated_at`) VALUES ('asbsad', 'asdad', '', 1.0, '2015-10-22 06:36:19', '2015-10-22 06:36:19')
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/items/4
+Completed 302 Found in 12ms (ActiveRecord: 7.1ms)
+
+
+Started GET "/items/4" for ::1 at 2015-10-21 23:36:19 -0700
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mItem Load (6.6ms)[0m  SELECT  `items`.* FROM `items` WHERE `items`.`id` = 4 LIMIT 1
+  Rendered items/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 142ms (Views: 113.8ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:36:21 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT `items`.* FROM `items`[0m
+  Rendered items/index.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 105ms (Views: 104.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for ::1 at 2015-10-21 23:36:31 -0700
+Processing by StoreController#index as HTML
+  [1m[35mItem Load (0.3ms)[0m  SELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC
+  Rendered store/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 164ms (Views: 163.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-10-21 23:36:31 -0700
+Processing by StoreController#index as HTML
+  [1m[36mItem Load (1.8ms)[0m  [1mSELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC[0m
+  Rendered store/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 162ms (Views: 159.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:37:22 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (0.2ms)[0m  SELECT `items`.* FROM `items`
+  Rendered items/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 115ms (Views: 114.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:37:22 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT `items`.* FROM `items`[0m
+  Rendered items/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 125ms (Views: 124.4ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/items/4" for ::1 at 2015-10-21 23:37:26 -0700
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"eM+4IToU9HZEkYROnYKP9W1ZR8DWrcuN0qFuQP7FHFBYPoacyoWtKEvrDrFN/NsOESLj/R+DbqhpRc1U6/tlYg==", "id"=>"4"}
+  [1m[35mItem Load (0.3ms)[0m  SELECT  `items`.* FROM `items` WHERE `items`.`id` = 4 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (16.0ms)[0m  DELETE FROM `items` WHERE `items`.`id` = 4
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/items
+Completed 302 Found in 20ms (ActiveRecord: 16.9ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:37:26 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (0.2ms)[0m  SELECT `items`.* FROM `items`
+  Rendered items/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 98ms (Views: 96.9ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/items/3" for ::1 at 2015-10-21 23:37:31 -0700
+Processing by ItemsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PW0fEVEC8cdeQt3iu62IbXviM16ir3vAIlhtiZgh97YdnCGsoZOomVE4Vx1r09yWB5mXY2uB3uWZvM6djR+OhA==", "id"=>"3"}
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  `items`.* FROM `items` WHERE `items`.`id` = 3 LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM `items` WHERE `items`.`id` = 3[0m
+  [1m[35m (6.2ms)[0m  COMMIT
+Redirected to http://localhost:3000/items
+Completed 302 Found in 9ms (ActiveRecord: 6.8ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:37:31 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mItem Load (0.2ms)[0m  [1mSELECT `items`.* FROM `items`[0m
+  Rendered items/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 118ms (Views: 117.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-10-21 23:37:36 -0700
+Processing by StoreController#index as HTML
+  [1m[35mItem Load (0.3ms)[0m  SELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC
+  Rendered store/index.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 121ms (Views: 120.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-10-21 23:37:37 -0700
+Processing by StoreController#index as HTML
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC[0m
+  Rendered store/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 139ms (Views: 137.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-10-21 23:38:56 -0700
+Processing by StoreController#index as HTML
+  [1m[35mItem Load (0.3ms)[0m  SELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC
+  Rendered store/index.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 139ms (Views: 137.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/scaffolds.self-1bc01741f207547b28e6fb32e1a915a90d20ae1b2fb81c03c82c03f8b6e74dc4.css?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/store.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/application.self-ec9db85de4427045e508e656d01cea8b0df1b21b762eb97706ff527b9a4043fa.css?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/store.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/paneertikkamasala-1fd1cac5abf600281506e549f08a872ce6a064868d3d96ccebbafb9e81b61657.png" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/assets/tomatosoup-4f301671105537faff0c7e447ca41d9453e5d245b90ad78e7a69a079e6046299.jpg" for ::1 at 2015-10-21 23:38:56 -0700
+
+
+Started GET "/" for ::1 at 2015-10-21 23:43:23 -0700
+Processing by StoreController#index as HTML
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC[0m
+  Rendered store/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 133ms (Views: 132.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/scaffolds.self-1bc01741f207547b28e6fb32e1a915a90d20ae1b2fb81c03c82c03f8b6e74dc4.css?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/application.self-ec9db85de4427045e508e656d01cea8b0df1b21b762eb97706ff527b9a4043fa.css?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/store.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/store.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/paneertikkamasala-1fd1cac5abf600281506e549f08a872ce6a064868d3d96ccebbafb9e81b61657.png" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/assets/tomatosoup-4f301671105537faff0c7e447ca41d9453e5d245b90ad78e7a69a079e6046299.jpg" for ::1 at 2015-10-21 23:43:23 -0700
+
+
+Started GET "/" for ::1 at 2015-10-21 23:47:05 -0700
+Processing by StoreController#index as HTML
+  [1m[35mItem Load (0.3ms)[0m  SELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC
+  Rendered store/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 157ms (Views: 156.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/scaffolds.self-1bc01741f207547b28e6fb32e1a915a90d20ae1b2fb81c03c82c03f8b6e74dc4.css?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/store.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/application.self-ec9db85de4427045e508e656d01cea8b0df1b21b762eb97706ff527b9a4043fa.css?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/store.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/paneertikkamasala-1fd1cac5abf600281506e549f08a872ce6a064868d3d96ccebbafb9e81b61657.png" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/assets/tomatosoup-4f301671105537faff0c7e447ca41d9453e5d245b90ad78e7a69a079e6046299.jpg" for ::1 at 2015-10-21 23:47:06 -0700
+
+
+Started GET "/" for ::1 at 2015-10-21 23:47:49 -0700
+Processing by StoreController#index as HTML
+  [1m[36mItem Load (0.4ms)[0m  [1mSELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC[0m
+  Rendered store/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 126ms (Views: 125.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/scaffolds.self-1bc01741f207547b28e6fb32e1a915a90d20ae1b2fb81c03c82c03f8b6e74dc4.css?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/store.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/application.self-ec9db85de4427045e508e656d01cea8b0df1b21b762eb97706ff527b9a4043fa.css?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/store.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/tomatosoup-4f301671105537faff0c7e447ca41d9453e5d245b90ad78e7a69a079e6046299.jpg" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/assets/paneertikkamasala-1fd1cac5abf600281506e549f08a872ce6a064868d3d96ccebbafb9e81b61657.png" for ::1 at 2015-10-21 23:47:49 -0700
+
+
+Started GET "/" for ::1 at 2015-10-21 23:50:27 -0700
+Processing by StoreController#index as HTML
+  [1m[35mItem Load (0.3ms)[0m  SELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC
+  Rendered store/index.html.erb within layouts/application (20.5ms)
+Completed 500 Internal Server Error in 24ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"items_controller"}):
+    27:   </tbody>
+    28: </table>
+    29: 
+    30: <% link_to 'Add/Remove Items', :controller => 'items_controller', :action => 'new' %>
+  app/views/store/index.html.erb:30:in `_app_views_store_index_html_erb__225564414214808500_70338566706000'
+
+
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (5.5ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (62.9ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (47.6ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.4ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (133.5ms)
+
+
+Started GET "/" for ::1 at 2015-10-21 23:50:49 -0700
+Processing by StoreController#index as HTML
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC[0m
+  Rendered store/index.html.erb within layouts/application (9.2ms)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 0.3ms)
+
+ActionView::Template::Error (No route matches {:action=>"index", :controller=>"items_controller"}):
+    27:   </tbody>
+    28: </table>
+    29: 
+    30: <% link_to 'Add/Remove Items', :controller => 'items_controller', :action => 'index' %>
+  app/views/store/index.html.erb:30:in `_app_views_store_index_html_erb__225564414214808500_70338640678600'
+
+
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/actionpack-4.2.1/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (51.7ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_markup.html.erb (0.4ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.4ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.3ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/console.js.erb within layouts/javascript (38.5ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/main.js.erb within layouts/javascript (0.2ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.3ms)
+  Rendered /Users/Nitish/.rvm/gems/ruby-2.2.3/gems/web-console-2.2.1/lib/web_console/templates/index.html.erb (84.6ms)
+
+
+Started GET "/" for ::1 at 2015-10-21 23:52:07 -0700
+Processing by StoreController#index as HTML
+  [1m[35mItem Load (0.3ms)[0m  SELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC
+  Rendered store/index.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 156ms (Views: 155.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/scaffolds.self-1bc01741f207547b28e6fb32e1a915a90d20ae1b2fb81c03c82c03f8b6e74dc4.css?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/store.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/application.self-ec9db85de4427045e508e656d01cea8b0df1b21b762eb97706ff527b9a4043fa.css?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/tomatosoup-4f301671105537faff0c7e447ca41d9453e5d245b90ad78e7a69a079e6046299.jpg" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/store.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/assets/paneertikkamasala-1fd1cac5abf600281506e549f08a872ce6a064868d3d96ccebbafb9e81b61657.png" for ::1 at 2015-10-21 23:52:07 -0700
+
+
+Started GET "/" for ::1 at 2015-10-21 23:52:44 -0700
+Processing by StoreController#index as HTML
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC[0m
+  Rendered store/index.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 126ms (Views: 125.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/items.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/scaffolds.self-1bc01741f207547b28e6fb32e1a915a90d20ae1b2fb81c03c82c03f8b6e74dc4.css?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/store.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/application.self-ec9db85de4427045e508e656d01cea8b0df1b21b762eb97706ff527b9a4043fa.css?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/bootstrap/alert.self-a29e91e8cd3ddaba9bbc466901d53ec2127e9256b9b941905d525a3a716bd1a5.js?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/bootstrap/affix.self-d2b642d8fbfc1d7041e2edefd66683ada567a980789dcd6f94fddda0b33408b5.js?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/bootstrap/dropdown.self-9314126777c6be5443e37ea7f7967d7914d72b3e60449ba50edc967446373059.js?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/bootstrap/transition.self-09ff30b1e8a93d1f7728b9855f55d9c9d8d5734c8861e0d8139994e50944572a.js?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/bootstrap/modal.self-72f95ffa1071297725a9ac91989693d56d1abf23f441a47455073b0da2857a5b.js?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/bootstrap/popover.self-77d8e3a2499c1104ef146396a68b82469ee2bdb365199b874694698d10405e9a.js?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/bootstrap/button.self-a6cb16785434acb365ae426aef9f1fce05ed553cae7a965e4471c3da71509175.js?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/bootstrap/carousel.self-57eb8422043cf0a85b7a9dc6843916eb0a3e35b419c7798a5eb254b918997631.js?body=1" for ::1 at 2015-10-21 23:52:44 -0700
+
+
+Started GET "/assets/bootstrap/tab.self-122235057fbd4c6c7da377d59dc58f47b44cb1088a2e38e6ee6ce9d8ac29a26a.js?body=1" for ::1 at 2015-10-21 23:52:45 -0700
+
+
+Started GET "/assets/bootstrap/scrollspy.self-a155b9d4b2f978905f0326c0f6635e1134fe91c6bfbfcbad079fa24a9fef2b0e.js?body=1" for ::1 at 2015-10-21 23:52:45 -0700
+
+
+Started GET "/assets/bootstrap/tooltip.self-11cf547be953f25f511cec668f6690473fd97b2f65502e4032f4030999a3f0c3.js?body=1" for ::1 at 2015-10-21 23:52:45 -0700
+
+
+Started GET "/assets/bootstrap-sprockets.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for ::1 at 2015-10-21 23:52:45 -0700
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:52:45 -0700
+
+
+Started GET "/assets/bootstrap/collapse.self-7dc8bfbc2fbfabd2bad62c58ff8ffeaf8f20fb87c7ca6cd35f06d4dc19632587.js?body=1" for ::1 at 2015-10-21 23:52:45 -0700
+
+
+Started GET "/assets/tomatosoup-4f301671105537faff0c7e447ca41d9453e5d245b90ad78e7a69a079e6046299.jpg" for ::1 at 2015-10-21 23:52:45 -0700
+
+
+Started GET "/assets/store.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2015-10-21 23:52:45 -0700
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2015-10-21 23:52:45 -0700
+
+
+Started GET "/assets/paneertikkamasala-1fd1cac5abf600281506e549f08a872ce6a064868d3d96ccebbafb9e81b61657.png" for ::1 at 2015-10-21 23:52:45 -0700
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:52:47 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (0.3ms)[0m  SELECT `items`.* FROM `items`
+  Rendered items/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 96ms (Views: 95.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-10-21 23:52:50 -0700
+Processing by StoreController#index as HTML
+  [1m[36mItem Load (0.6ms)[0m  [1mSELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC[0m
+  Rendered store/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 118ms (Views: 116.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:56:15 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (0.3ms)[0m  SELECT `items`.* FROM `items`
+  Rendered items/index.html.erb within layouts/application (14.4ms)
+Completed 200 OK in 185ms (Views: 183.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/items/2/edit" for ::1 at 2015-10-21 23:56:21 -0700
+Processing by ItemsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  `items`.* FROM `items` WHERE `items`.`id` = 2 LIMIT 1[0m
+  Rendered items/_form.html.erb (3.4ms)
+  Rendered items/edit.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 206ms (Views: 204.5ms | ActiveRecord: 0.3ms)
+
+
+Started PATCH "/items/2" for ::1 at 2015-10-21 23:56:28 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aQ5ZD8P2UYBapjUPbrm9seigezIS0ejtNDb84/3NYOFJ/2eyM2cI3lXcv/C+x+lKlNvfD9v/TciP0l/36PMZ0w==", "item"=>{"title"=>"Tomato Soup", "description"=>"Yummy, Delicious", "image_url"=>"tomatosoup.jpg", "price"=>"6.5"}, "commit"=>"Update Item", "id"=>"2"}
+  [1m[35mItem Load (0.4ms)[0m  SELECT  `items`.* FROM `items` WHERE `items`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mItem Exists (8.1ms)[0m  SELECT  1 AS one FROM `items` WHERE (`items`.`title` = BINARY 'Tomato Soup' AND `items`.`id` != 2) LIMIT 1
+  [1m[36mSQL (4.2ms)[0m  [1mUPDATE `items` SET `description` = 'Yummy, Delicious', `updated_at` = '2015-10-22 06:56:28' WHERE `items`.`id` = 2[0m
+  [1m[35m (1.3ms)[0m  COMMIT
+Redirected to http://localhost:3000/items/2
+Completed 302 Found in 29ms (ActiveRecord: 14.2ms)
+
+
+Started GET "/items/2" for ::1 at 2015-10-21 23:56:28 -0700
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT  `items`.* FROM `items` WHERE `items`.`id` = 2 LIMIT 1[0m
+  Rendered items/show.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 314ms (Views: 312.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:56:31 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (0.6ms)[0m  SELECT `items`.* FROM `items`
+  Rendered items/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 186ms (Views: 184.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/items" for ::1 at 2015-10-21 23:56:37 -0700
+Processing by ItemsController#index as HTML
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT `items`.* FROM `items`[0m
+  Rendered items/index.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 199ms (Views: 197.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2015-10-21 23:56:38 -0700
+Processing by StoreController#index as HTML
+  [1m[35mItem Load (0.6ms)[0m  SELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC
+  Rendered store/index.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 211ms (Views: 209.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for ::1 at 2015-10-21 23:56:38 -0700
+Processing by StoreController#index as HTML
+  [1m[36mItem Load (0.8ms)[0m  [1mSELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC[0m
+  Rendered store/index.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 375ms (Views: 373.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/items" for ::1 at 2015-10-22 00:00:56 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (1.5ms)[0m  SELECT `items`.* FROM `items`
+  Rendered items/index.html.erb within layouts/application (39.7ms)
+Completed 200 OK in 352ms (Views: 344.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/items/2/edit" for ::1 at 2015-10-22 00:01:02 -0700
+Processing by ItemsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mItem Load (0.7ms)[0m  [1mSELECT  `items`.* FROM `items` WHERE `items`.`id` = 2 LIMIT 1[0m
+  Rendered items/_form.html.erb (11.8ms)
+  Rendered items/edit.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 231ms (Views: 228.9ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/items/2" for ::1 at 2015-10-22 00:01:09 -0700
+Processing by ItemsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/dojgovPKuatykGjQa09o0GUvvbegxngux1aICd1LjrdKx0/e15zuKKwy1yR02lYPe8ayxetvMUA+fk0MktXCA==", "item"=>{"title"=>"Tomato Soup", "description"=>"Yummy, Delicious, Creamy", "image_url"=>"tomatosoup.jpg", "price"=>"6.5"}, "commit"=>"Update Item", "id"=>"2"}
+  [1m[35mItem Load (0.6ms)[0m  SELECT  `items`.* FROM `items` WHERE `items`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mItem Exists (0.8ms)[0m  SELECT  1 AS one FROM `items` WHERE (`items`.`title` = BINARY 'Tomato Soup' AND `items`.`id` != 2) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mUPDATE `items` SET `description` = 'Yummy, Delicious, Creamy', `updated_at` = '2015-10-22 07:01:09' WHERE `items`.`id` = 2[0m
+  [1m[35m (1.8ms)[0m  COMMIT
+Redirected to http://localhost:3000/items/2
+Completed 302 Found in 31ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/items/2" for ::1 at 2015-10-22 00:01:09 -0700
+Processing by ItemsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mItem Load (1.3ms)[0m  [1mSELECT  `items`.* FROM `items` WHERE `items`.`id` = 2 LIMIT 1[0m
+  Rendered items/show.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 328ms (Views: 325.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/items" for ::1 at 2015-10-22 00:01:11 -0700
+Processing by ItemsController#index as HTML
+  [1m[35mItem Load (0.7ms)[0m  SELECT `items`.* FROM `items`
+  Rendered items/index.html.erb within layouts/application (10.4ms)
+Completed 200 OK in 227ms (Views: 225.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2015-10-22 00:01:23 -0700
+Processing by StoreController#index as HTML
+  [1m[36mItem Load (1.6ms)[0m  [1mSELECT `items`.* FROM `items`  ORDER BY `items`.`title` ASC[0m
+  Rendered store/index.html.erb within layouts/application (18.5ms)
+Completed 200 OK in 346ms (Views: 342.1ms | ActiveRecord: 1.6ms)
