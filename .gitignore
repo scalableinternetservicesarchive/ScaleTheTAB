@@ -1,0 +1,6 @@
+.DS_Store
+.swp
+*.cache
+/**/.DS_Store
+/**/.swp
+/**/*.cache
