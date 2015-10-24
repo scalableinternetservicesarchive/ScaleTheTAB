@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
+
   resources :restaurants
+  resources :tables
+
+
   get 'store/index'
 
   resources :items

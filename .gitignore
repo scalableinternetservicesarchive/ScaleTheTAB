@@ -4,4 +4,6 @@
 /**/.DS_Store
 /**/.swp
 /**/*.cache
-tmp/
+tmp/*
+.DS_Store*
+log/*
