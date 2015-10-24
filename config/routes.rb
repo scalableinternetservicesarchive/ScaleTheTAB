@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :tables
+  resources :tables
   get 'store/index'
 
   resources :items

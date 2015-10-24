@@ -18,7 +18,7 @@ class TablesControllerTest < ActionController::TestCase
 
   test "should create table" do
     assert_difference('Table.count') do
-      post :create, table: { name: @table.name }
+      post :create, table: { name: @table.name, restaurant_id: @table.restaurant_id }
     end
 
     assert_redirected_to table_path(assigns(:table))
@@ -35,7 +35,7 @@ class TablesControllerTest < ActionController::TestCase
   end
 
   test "should update table" do
-    patch :update, id: @table, table: { name: @table.name }
+    patch :update, id: @table, table: { name: @table.name, restaurant_id: @table.restaurant_id }
     assert_redirected_to table_path(assigns(:table))
   end
 
