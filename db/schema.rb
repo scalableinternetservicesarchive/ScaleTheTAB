@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024223745) do
+ActiveRecord::Schema.define(version: 20151024231531) do
 
   create_table "items", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20151024223745) do
     t.decimal  "price",                     precision: 8, scale: 2
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+    t.integer  "menu_id",     limit: 4
   end
 
   create_table "menus", force: :cascade do |t|

@@ -27,6 +27,10 @@
     <%= f.label :price %><br>
     <%= f.text_field :price %>
   </div>
+  <div class="field">
+    <%= f.label :menu_id %><br>
+    <%= f.select :menu_id, Menu.all.collect {|x| [x.title , x.id]} , {:include_blank => "Select One..."} %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

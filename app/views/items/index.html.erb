@@ -20,6 +20,11 @@
         <td><%= item.description %></td>
         <td><%= image_tag(item.image_url, class: 'img-rounded', size: "300x250") %></td>
         <td><%= item.price %></td>
+        <td><%= if item.menu 
+                    item.menu.title
+                else
+                    "No Menu"
+                end  %></td>
         <td><%= link_to 'Show', item %></td>
         <td><%= link_to 'Edit', edit_item_path(item) %></td>
         <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
