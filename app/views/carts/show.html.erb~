@@ -1,9 +1,11 @@
+<% if notice %>
 <p id="notice"><%= notice %></p>
+<% end %>
 
 <h2>Your tab</h2>
 <ul>
   <% @cart.line_items.each do |litem| %>
-    <li><%= litem.item.title %></li>
+    <li><%= litem.quantity %> &times; <%= litem.item.title %></li>
   <% end %>
 </ul>
 
