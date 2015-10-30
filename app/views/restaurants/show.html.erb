@@ -34,7 +34,7 @@
 
 <p>
   <strong>Tell:</strong>
-  <%= @restaurant.tell %>
+  <%= number_to_phone(@restaurant.tell) %>
 </p>
 
 <p>
@@ -53,7 +53,9 @@
     <span>
     <li>
       <div>
-        <span><%= link_to item.title , item %></span>
+
+        <span><%= link_to item.title , item %></span> 
+        <span><%= number_to_currency(item.price)  %></span> | 
         <span> <%= link_to "Add to Tab", new_item_path %></span>
       </div>
     </li>
@@ -63,14 +65,14 @@
 
   <br/>
 
-    <%= link_to "Add Item", new_item_path %>
+    <%= link_to "Add Item", new_item_path(menu_id: menu.id) %>
 
   </ul>
 </li>
 
 <br/>
 <% end %>
-<%= link_to "Add Menu", new_menu_path %>
+<%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
 </ul>
 
 <hr/>
@@ -82,7 +84,7 @@
 </li>
 <br/>
 <% end %>
-<%= link_to "Add Table", new_menu_path %>
+<%= link_to "Add Table", new_table_path %>
 </ul>
 
 
