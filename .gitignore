@@ -4,9 +4,11 @@
 /**/.DS_Store
 /**/.swp
 /**/*.cache
-<<<<<<< HEAD
-=======
+
 tmp/*
 .DS_Store*
 log/*
->>>>>>> e33fe256e2d8caae8ed4deaf2ef428fa1e745802
+
+tmp/**
+.DS_Store*
+log/**

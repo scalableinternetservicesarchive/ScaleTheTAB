@@ -1,14 +1,16 @@
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>
+<hr/>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h2>
   <%= @restaurant.name %>
-</p>
+</h2>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @restaurant.image_url %>
-</p>
+  <%= image_tag @restaurant.image_url, size: "200x150"%>
+
 
 <p>
   <strong>Description:</strong>
@@ -39,6 +41,36 @@
   <strong>Owner:</strong>
   <%= @restaurant.owner_id %>
 </p>
+<hr/>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<h3>Menus</h3>
+<ul>
+<% @menus.each do |menu|%>
+<li><%= link_to menu.title , menu %>
+  <ul>
+  <% menu.items.each do |item|%>
+  <li><%= link_to item.title , item %><li>
+  <% end %> 
+  <br/><%= link_to "Add Item", new_item_path %>  
+  </ul>
+</li>
+
+<br/>
+<% end %>
+<%= link_to "Add Menu", new_menu_path %>
+</ul>
+
+<hr/>
+
+<h3>Tables</h3>
+<ul>
+<% @tables.each do |table|%>
+<li><%= link_to table.name , table %>
+</li>
+<br/>
+<% end %>
+<%= link_to "Add Table", new_menu_path %>
+</ul>
+
+
+
