@@ -49,9 +49,22 @@
 <li><%= link_to menu.title , menu %>
   <ul>
   <% menu.items.each do |item|%>
-  <li><%= link_to item.title , item %><li>
+  <div>
+    <span>
+    <li>
+      <div>
+        <span><%= link_to item.title , item %></span>
+        <span> <%= link_to "Add to Tab", new_item_path %></span>
+      </div>
+    </li>
+    
+    
   <% end %> 
-  <br/><%= link_to "Add Item", new_item_path %>  
+
+  <br/>
+
+    <%= link_to "Add Item", new_item_path %>
+
   </ul>
 </li>
 
