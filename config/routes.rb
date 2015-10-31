@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
+
   get 'home/index'
 
+
+  resources :line_items
+  resources :carts
+  
   resources :menus
   resources :restaurants
   resources :tables
