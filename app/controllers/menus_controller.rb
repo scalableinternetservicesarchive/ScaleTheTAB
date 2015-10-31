@@ -14,8 +14,8 @@ class MenusController < ApplicationController
 
   # GET /menus/new
   def new
-    @menu = Menu.new
-    @restaurant = Restaurant.all
+    @menu = Menu.new(:restaurant_id =>params[:restaurant_id])
+    #@restaurant = Restaurant.all
   end
 
   # GET /menus/1/edit
