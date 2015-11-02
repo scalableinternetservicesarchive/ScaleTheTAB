@@ -14,23 +14,7 @@
   </thead>
 
   <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.title %></td>
-        <td><%= item.description %></td>
-        <td><%= image_tag(item.image_url, class: 'img-rounded', size: "300x250") %></td>
-        <td><%= item.price %></td>
-	<td><%= button_to 'Order', line_items_path(item_id: item) %>
-        <td><%= if item.menu 
-                    item.menu.title
-                else
-                    "No Menu"
-                end  %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <%= render(@items) %>
   </tbody>
 </table>
 
