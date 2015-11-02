@@ -1,4 +1,6 @@
 class MenusController < ApplicationController
+  include CurrentCart
+  before_action :set_cart
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
   # GET /menus
