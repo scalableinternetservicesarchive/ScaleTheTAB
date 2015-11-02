@@ -1,39 +1,38 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="columns">
+    <div id="side">
+      <div id="cart">
+        <%= render(@cart)
+      </div>
+    
+    <div id="main">
 
-<h1>Listing Items</h1>
+	<p id="notice"><%= notice %></p>
 
-<table class = "table">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Image url</th>
-      <th>Price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+	<h1>Listing Items</h1>
 
-  <tbody>
-    <% @items.each do |item| %>
-      <tr>
-        <td><%= item.title %></td>
-        <td><%= item.description %></td>
-        <td><%= image_tag(item.image_url, class: 'img-rounded', size: "300x250") %></td>
-        <td><%= item.price %></td>
-	<td><%= button_to 'Order', line_items_path(item_id: item) %>
-        <td><%= if item.menu 
-                    item.menu.title
-                else
-                    "No Menu"
-                end  %></td>
-        <td><%= link_to 'Show', item %></td>
-        <td><%= link_to 'Edit', edit_item_path(item) %></td>
-        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+	<table class = "table">
+	  <thead>
+	    <tr>
+	      <th>Title</th>
+	      <th>Description</th>
+	      <th>Image url</th>
+	      <th>Price</th>
+	      <th colspan="3"></th>
+	    </tr>
+	  </thead>
 
-<br>
+	  <tbody>
+	    <%= render(@items) %>
+	  </tbody>
+	</table>
 
-<%= link_to 'New Item', new_item_path %>
+	<br>
+
+	<%= link_to 'New Item', new_item_path %>
+  </div>
+</div>
+</body>
+</html>
