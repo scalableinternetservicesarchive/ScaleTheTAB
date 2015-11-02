@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028073226) do
+ActiveRecord::Schema.define(version: 20151102005154) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -19,21 +19,24 @@ ActiveRecord::Schema.define(version: 20151028073226) do
   end
 
   create_table "items", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.text     "description", limit: 65535
-    t.string   "image_url",   limit: 255
-    t.decimal  "price",                     precision: 8, scale: 2
-    t.datetime "created_at",                                        null: false
-    t.datetime "updated_at",                                        null: false
-    t.integer  "menu_id",     limit: 4
+    t.string   "title",              limit: 255
+    t.text     "description",        limit: 65535
+    t.string   "image_url",          limit: 255
+    t.decimal  "price",                            precision: 8, scale: 2
+    t.datetime "created_at",                                               null: false
+    t.datetime "updated_at",                                               null: false
+    t.integer  "menu_id",            limit: 4
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "item_id",    limit: 4
     t.integer  "cart_id",    limit: 4
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.integer  "quantity",   limit: 4, default: 1
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   add_index "line_items", ["cart_id"], name: "index_line_items_on_cart_id", using: :btree
@@ -48,16 +51,20 @@ ActiveRecord::Schema.define(version: 20151028073226) do
   end
 
   create_table "restaurants", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "image_url",   limit: 255
-    t.text     "description", limit: 65535
-    t.string   "address",     limit: 255
-    t.string   "city",        limit: 255
-    t.integer  "zip_code",    limit: 4
-    t.string   "tell",        limit: 255
-    t.integer  "owner_id",    limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.string   "name",               limit: 255
+    t.string   "image_url",          limit: 255
+    t.text     "description",        limit: 65535
+    t.string   "address",            limit: 255
+    t.string   "city",               limit: 255
+    t.integer  "zip_code",           limit: 4
+    t.string   "tell",               limit: 255
+    t.integer  "owner_id",           limit: 4
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
   end
 
   create_table "tables", force: :cascade do |t|

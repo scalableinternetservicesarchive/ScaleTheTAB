@@ -9,7 +9,7 @@
   <%= @restaurant.name %>
 </h2>
 
-  <%= image_tag @restaurant.image_url, size: "200x150"%>
+<%= image_tag @restaurant.image.url(:medium) %>
 
 
 <p>
