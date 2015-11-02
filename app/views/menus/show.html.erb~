@@ -6,6 +6,9 @@
       <div id="cart">
         <%= render(@cart) %>
       </div>
+      <div id="tab">
+        <%= render(@tab) %>
+      </div>
     </div>
   <div id="main">
     <p id="notice"><%= notice %></p>
@@ -13,13 +16,7 @@
     <h2>Items on this menu</h2>
     <table>
       <% @menu.items.each do |item| %>
-      <tr>
-        <td><%= item.title %></td>
-        <td><%= item.description %></td>
-        <td><%= item.image_url %></td>
-        <td><%= item.price %></td>
-        <td><%= button_to 'Order', line_items_path(item_id: item), remote: true %>
-      </tr>
+      
       <% end %>
     </table>
 

@@ -2,7 +2,7 @@
 <table>
   <% tab.carts.each do |cart| %>
     <tr>
-      <td><%= render :partial => 'cart', :locals => {:with_confirm_order_button => false } %></td>
+      <td><%= render :partial => cart, :locals => {:with_confirm_order_button => false } %></td>
     </tr>
   <% end %>
 
