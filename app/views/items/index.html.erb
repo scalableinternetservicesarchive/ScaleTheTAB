@@ -18,7 +18,7 @@
       <tr>
         <td><%= item.title %></td>
         <td><%= item.description %></td>
-        <td><%= image_tag(item.image_url, class: 'img-rounded', size: "300x250") %></td>
+        <td><%= image_tag item.image.url(:medium) %></td>
         <td><%= item.price %></td>
 	<td><%= button_to 'Order', line_items_path(item_id: item) %>
         <td><%= if item.menu 

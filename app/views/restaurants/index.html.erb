@@ -8,7 +8,7 @@
 <% @restaurants.each do |r| %>
   
   <h3><%= link_to r.name , r %></h3>
-  <%=image_tag r.image_url, size: "200x150", alt: r.name%>
+  <%=image_tag r.image.url(:medium) %>
   <p>
     <strong>Description: </strong>
     <br/>
