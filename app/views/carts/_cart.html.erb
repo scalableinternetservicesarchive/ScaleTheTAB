@@ -1,4 +1,4 @@
-<h2>Cart <%= cart.id %></h2>
+<h2>Round <%= cart.id %></h2>
  <table>
   <%= render(cart.line_items) %>
 
@@ -8,4 +8,7 @@
   </tr>
 </table>
 
-<%= button_to "Confirm Order", { :controller => "carts", :action => "add_to_order", :id => cart.id } %>
+<% defined?(with_confirm_order_button) or with_confirm_order_button = true %>
+<% if (with_confirm_order_button) %>
+  <%= button_to "Confirm Order", { :controller => "carts", :action => "add_to_order", :id => cart.id } %>
+<% end %>

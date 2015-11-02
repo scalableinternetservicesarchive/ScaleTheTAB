@@ -18,7 +18,7 @@
         <td><%= item.description %></td>
         <td><%= item.image_url %></td>
         <td><%= item.price %></td>
-        <td><%= button_to 'Order', line_items_path(item_id: item) %>
+        <td><%= button_to 'Order', line_items_path(item_id: item), remote: true %>
       </tr>
       <% end %>
     </table>

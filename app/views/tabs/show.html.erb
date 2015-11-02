@@ -1,13 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h2>Your tab</h2>
-<table>
-  <% @tab.carts.each do |cart| %>
-    <tr>
-      <td><%= render(cart) %></td>
-    </tr>
-  <% end %>
-</table>
+<%= render @tab %>
 
+<%= link_to 'Back to Menu', @tab.carts[0].line_items[0].item.menu %>
 <%= link_to 'Edit', edit_tab_path(@tab) %> |
 <%= link_to 'Back', tabs_path %>

@@ -1,0 +1,13 @@
+<h2>Your tab</h2>
+<table>
+  <% tab.carts.each do |cart| %>
+    <tr>
+      <td><%= render :partial => 'cart', :locals => {:with_confirm_order_button => false } %></td>
+    </tr>
+  <% end %>
+
+  <tr>
+    <td colspan="2"><strong>Total</strong></td>
+    <td><strong><%= number_to_currency(tab.total_bill) %></strong></td>
+  </tr>
+</table>
