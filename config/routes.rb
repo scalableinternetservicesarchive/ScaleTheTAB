@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :tabs
   get 'home/index'
 
 
