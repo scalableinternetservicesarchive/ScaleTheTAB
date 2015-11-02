@@ -1,4 +1,4 @@
-<h2>Your Tab</h2>
+<h2>Cart <%= cart.id %></h2>
  <table>
   <%= render(cart.line_items) %>
 
@@ -7,3 +7,5 @@
     <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
   </tr>
 </table>
+
+<%= button_to "Confirm Order", { :controller => "carts", :action => "add_to_order", :id => cart.id } %>

@@ -2,7 +2,7 @@
 
 <h2>Your tab</h2>
 <table>
-  <% @tab.carts.each do |cart| %>
+  <%= @tab.carts.each do |cart| %>
     <tr>
       <td><%= render(cart) %></td>
     </tr>
