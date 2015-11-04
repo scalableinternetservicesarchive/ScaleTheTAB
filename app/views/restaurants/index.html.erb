@@ -1,10 +1,15 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 <br/><br/><br/>
 
-<%= link_to 'Add New Restaurant', new_restaurant_path %>
+<div class="row">
+    <div align="right">
+      <%= button_to "Add Restaurant", new_restaurant_path, :method => "get", :class => "btn btn-default" %>
+    </div>
+</div>
+
 <hr/>
 
-<div class="container">
 <% @restaurants.each do |r| %>
 <div class="panel panel-default">
   <div class="panel-heading">
