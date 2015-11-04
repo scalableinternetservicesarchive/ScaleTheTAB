@@ -1,32 +1,44 @@
 <p id="notice"><%= notice %></p>
-<h2>Restaurants</h2>
+<br/><br/><br/>
 
 <%= link_to 'Add New Restaurant', new_restaurant_path %>
 <hr/>
 
-
+<div class="container">
 <% @restaurants.each do |r| %>
-  
-  <h3><%= link_to r.name , r %></h3>
-  <%=image_tag r.image.url(:medium) %>
-  <p>
-    <strong>Description: </strong>
-    <br/>
-    <%=r.description%>
-  </p>
-  <p>
-    <strong>Address: </strong>
-    <br/>
-    <%=r.address%>
-    <br/>
-    <%=r.city + r.zip_code.to_s%>
-  </p>
-  <p>
-    <strong>Tell: </strong>
-    <br/>
-    <%=number_to_phone(r.tell)%>
-  </p>
-  <hr/>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= link_to r.name , r %></h3>
+    <!-- <h3 class="panel-title">Panel title</h3> -->
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <%=image_tag r.image.url(:medium) %>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+          <tr>
+            <td><strong>Description:   </strong></td>
+            <td> <%= r.description %> </td>
+          </tr>
+          <tr>
+            <td><strong> Address: </strong></td>
+            <td> <%= r.address %></td>
+          </tr>
+           <tr>
+            <td><strong> Telephone No: </strong></td>
+            <td> <%= number_to_phone(r.tell) %></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
+</div>
+
+
+  
 
 
