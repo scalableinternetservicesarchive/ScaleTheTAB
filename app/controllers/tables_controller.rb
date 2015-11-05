@@ -14,7 +14,7 @@ class TablesController < ApplicationController
 
   # GET /tables/new
   def new
-    @table = Table.new
+    @table = Table.new(:restaurant_id =>params[:restaurant_id])
   end
 
   # GET /tables/1/edit
@@ -28,7 +28,7 @@ class TablesController < ApplicationController
 
     respond_to do |format|
       if @table.save
-        format.html { redirect_to @table, notice: 'Table was successfully created.' }
+        format.html { redirect_to @table.restaurant, notice: 'Table was successfully created.' }
         format.json { render :show, status: :created, location: @table }
       else
         format.html { render :new }
