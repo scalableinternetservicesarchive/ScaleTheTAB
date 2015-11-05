@@ -46,33 +46,43 @@
 <h3>Menus</h3>
 <ul>
 <% @menus.each do |menu|%>
-<li><%= link_to menu.title , menu %>
-  <ul>
-  <% menu.items.each do |item|%>
-  <div>
-    <span>
-    <li>
-      <div>
 
-        <span><%= link_to item.title , item %></span> 
-        <span><%= number_to_currency(item.price)  %></span> | 
-        <span> <%= link_to "Add to Tab", new_item_path %></span>
-      </div>
-    </li>
-    
-    
-  <% end %> 
+<li><strong><%= link_to menu.title , menu %></strong></li>
+<br/>
+  <div>
+    <table >
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Desc
+        </th>
+        <th>
+          Image
+        </th>
+        <th>
+          Price
+        </th>
+        <th>
+          Operations
+        </th>
+
+      </tr>
+      <%=render(menu.items)%>
+    </table>
+  
 
   <br/>
 
-    <%= link_to "Add Item", new_item_path(menu_id: menu.id) %>
+    <%= button_to "Add Item", new_item_path(menu_id: menu.id) %>
 
-  </ul>
-</li>
+  </div>
+
 
 <br/>
 <% end %>
-<%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
+<%= button_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
 </ul>
 
 <hr/>
@@ -84,7 +94,7 @@
 </li>
 <br/>
 <% end %>
-<%= link_to "Add Table", new_table_path %>
+<%= button_to "Add Table", new_table_path %>
 </ul>
 
 
