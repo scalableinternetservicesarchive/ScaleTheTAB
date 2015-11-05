@@ -1,53 +1,64 @@
 <br><br><br>
-<%= form_for @restaurant, html: { multipart: true} do |f| %>
-  <% if @restaurant.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
+<div class="container">
+  <div class="row" align="center">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">New Restaurant</h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for @restaurant, html: { multipart: true} do |f| %>
+        <% if @restaurant.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@restaurant.errors.count, "error") %> prohibited this restaurant from being saved:</h2>
 
-      <ul>
-      <% @restaurant.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @restaurant.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+        <% end %>
+        <table class="table">
+          <tr>
+            <td><%= f.label :name %></td>
+            <td><%= f.text_field :name %></td>
+          </tr>    
+          <tr>
+            <td><%= f.label :image %></td>
+            <td><%= f.file_field :image %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :description %></td>
+            <td><%= f.text_area :description %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :address %></td>
+            <td><%= f.text_field :address %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :city %></td>
+            <td><%= f.text_field :city %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :zip_code %></td>
+            <td><%= f.number_field :zip_code %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :tell %></td>
+            <td><%= f.text_field :tell %></td>
+          </tr>
+          <tr>
+            <td><%= f.label :owner_id %></td>
+            <td><%= f.number_field :owner_id %></td>
+          </tr>
+        </table>
+        </div>
+      </div>
     </div>
+    <div class="row" align="center">
+      <%= f.submit 'Create Restaurant', :class => 'btn btn-primary' %>
+    </div>
+  </div>
+
+
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :zip_code %><br>
-    <%= f.number_field :zip_code %>
-  </div>
-  <div class="field">
-    <%= f.label :tell %><br>
-    <%= f.text_field :tell %>
-  </div>
-  <div class="field">
-    <%= f.label :owner_id %><br>
-    <%= f.number_field :owner_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-</div>
-
-
-<% end %>
