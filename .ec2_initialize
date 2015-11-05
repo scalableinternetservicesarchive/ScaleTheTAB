@@ -1,5 +1,4 @@
 sudo yum install -y patch
 sudo yum install -y sqlite-devel
 
-sudo apt-get update
-sudo apt-get install imagemagick --fix-missing
+sudo yum install -y ImageMagick
