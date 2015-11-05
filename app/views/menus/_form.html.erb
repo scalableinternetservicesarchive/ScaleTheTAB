@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for(@menu) do |f| %>
   <% if @menu.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +13,29 @@
   <% end %>
 
  
-  <div class="field">
+ <div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title" id="title">New Menu</h3>
+  </div>
+  <div class="panel-body">
+    <table class="table">
+      <tr>
+        <td> <%= f.label :title %></td>
+        <td> <%= f.text_field :title %> </td>
+      </tr>
+      <tr>
+        <td> <%= f.label :description %> </td>
+        <td> <%= f.text_area :description %> </td>
+      </tr>
+      <tr>
+        <td> <%=f.label :restaurant_id %> </td>
+        <td> <%= f.select :restaurant_id, Restaurant.all.collect {|x| [x.name , x.id]} , {:include_blank => "Select One..."} %></td>
+      </tr>
+
+    </table>
+  </div>
+</div>
+  <!-- <div class="field">
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
@@ -23,9 +46,10 @@
  <div class="field">
     <%= f.label :restaurant_id %><br>
     <%= f.select :restaurant_id, Restaurant.all.collect {|x| [x.name , x.id]} , {:include_blank => "Select One..."} %>
-  </div>
+  </div> -->
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions" align="center">
+    <%= f.submit 'Create Menu', :class => 'btn btn-primary' %>
   </div>
+</div>
 <% end %>
