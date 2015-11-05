@@ -75,14 +75,14 @@
 
   <br/>
 
-    <%= button_to "Add Item", new_item_path(menu_id: menu.id) %>
+    <%= link_to "Add Item", new_item_path(menu_id: menu.id) %>
 
   </div>
 
 
 <br/>
 <% end %>
-<%= button_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
+<%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
 </ul>
 
 <hr/>
@@ -94,7 +94,7 @@
 </li>
 <br/>
 <% end %>
-<%= button_to "Add Table", new_table_path %>
+<%= link_to "Add Table", new_table_path %>
 </ul>
 
 
