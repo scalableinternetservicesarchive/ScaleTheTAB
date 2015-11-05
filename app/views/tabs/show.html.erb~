@@ -1,0 +1,7 @@
+<p id="notice"><%= notice %></p>
+
+<%= render @tab %>
+
+<%= link_to 'Back to Menu', @tab.carts[0].line_items[0].menu %>
+<%= link_to 'Edit', edit_tab_path(@tab) %> |
+<%= link_to 'Back', tabs_path %>

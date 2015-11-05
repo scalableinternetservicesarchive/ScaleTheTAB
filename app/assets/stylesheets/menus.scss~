@@ -22,7 +22,7 @@
  
     input {
       font-size: small;
-      color: #000;
+      color: #000
     }
 
     table {

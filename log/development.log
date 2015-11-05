@@ -5940,6 +5940,60 @@ FOREIGN KEY (`cart_id`)
   [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
   [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
   [1m[36m (1.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+  [1m[36m (189.1ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (16.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateItems (20151022002618)
+  [1m[35m (10.7ms)[0m  CREATE TABLE `items` (`id` int(11) auto_increment PRIMARY KEY, `title` varchar(255), `description` text, `image_url` varchar(255), `price` decimal(8,2), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151022002618')
+  [1m[36m (3.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTables (20151024200344)
+  [1m[35m (15.0ms)[0m  CREATE TABLE `tables` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `restaurant_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151024200344')
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateRestaurants (20151024202225)
+  [1m[35m (9.9ms)[0m  CREATE TABLE `restaurants` (`id` int(11) auto_increment PRIMARY KEY, `name` varchar(255), `image_url` varchar(255), `description` text, `address` varchar(255), `city` varchar(255), `zip_code` int(11), `tell` varchar(255), `owner_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151024202225')
+  [1m[36m (33.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateMenus (20151024223745)
+  [1m[35m (20.7ms)[0m  CREATE TABLE `menus` (`id` int(11) auto_increment PRIMARY KEY, `restaurant_id` int(11), `title` varchar(255), `description` text, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151024223745')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+Migrating to AddMenuIdToItem (20151024231531)
+  [1m[35m (14.0ms)[0m  ALTER TABLE `items` ADD `menu_id` int(11)
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151024231531')
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCarts (20151028060435)
+  [1m[35m (9.2ms)[0m  CREATE TABLE `carts` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151028060435')
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateLineItems (20151028060640)
+  [1m[35m (14.0ms)[0m  CREATE TABLE `line_items` (`id` int(11) auto_increment PRIMARY KEY, `item_id` int(11), `cart_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL,  INDEX `index_line_items_on_item_id`  (`item_id`) ,  INDEX `index_line_items_on_cart_id`  (`cart_id`) ) ENGINE=InnoDB
+  [1m[36m (17.4ms)[0m  [1mALTER TABLE `line_items` ADD CONSTRAINT `fk_rails_d159f7f5fb`
+FOREIGN KEY (`item_id`)
+  REFERENCES `items` (`id`)
+[0m
+  [1m[35m (14.8ms)[0m  ALTER TABLE `line_items` ADD CONSTRAINT `fk_rails_af645e8e5f`
+FOREIGN KEY (`cart_id`)
+  REFERENCES `carts` (`id`)
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151028060640')
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to AddQuantityToLineItems (20151028073226)
+  [1m[35m (16.1ms)[0m  ALTER TABLE `line_items` ADD `quantity` int(11) DEFAULT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151028073226')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+>>>>>>> feature/tab
       ,fk.referenced_column_name as 'primary_key'
       ,fk.column_name as 'column'
       ,fk.constraint_name as 'name'
@@ -5979,7 +6033,11 @@ WHERE fk.referenced_column_name is not null
   AND fk.table_name = 'menus'
 [0m
   [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `menus`
+<<<<<<< HEAD
   [1m[36m (0.1ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+=======
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+>>>>>>> feature/tab
       ,fk.referenced_column_name as 'primary_key'
       ,fk.column_name as 'column'
       ,fk.constraint_name as 'name'
@@ -5999,6 +6057,7 @@ WHERE fk.referenced_column_name is not null
   AND fk.table_name = 'tables'
 [0m
   [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `tables`
+<<<<<<< HEAD
 
 
 Started GET "/" for ::1 at 2015-11-01 11:57:18 -0800
@@ -6635,6 +6694,26 @@ Migrating to AddAttachmentImageToRestaurants (20151101205950)
   [1m[35m (12.1ms)[0m  COMMIT
   [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
   [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+=======
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateTabs (20151102041037)
+  [1m[35m (44.7ms)[0m  CREATE TABLE `tabs` (`id` int(11) auto_increment PRIMARY KEY, `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151102041037')
+  [1m[36m (2.2ms)[0m  [1mCOMMIT[0m
+Migrating to AddTabToCart (20151102041114)
+  [1m[35m (24.6ms)[0m  ALTER TABLE `carts` ADD `tab_id` int(11)
+  [1m[36m (16.6ms)[0m  [1mCREATE  INDEX `index_carts_on_tab_id`  ON `carts` (`tab_id`) [0m
+  [1m[35m (23.4ms)[0m  ALTER TABLE `carts` ADD CONSTRAINT `fk_rails_8320227baa`
+FOREIGN KEY (`tab_id`)
+  REFERENCES `tabs` (`id`)
+
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20151102041114')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+>>>>>>> feature/tab
       ,fk.referenced_column_name as 'primary_key'
       ,fk.column_name as 'column'
       ,fk.constraint_name as 'name'
@@ -6642,9 +6721,15 @@ FROM information_schema.key_column_usage fk
 WHERE fk.referenced_column_name is not null
   AND fk.table_schema = 'ScaleTheTab_development'
   AND fk.table_name = 'carts'
+<<<<<<< HEAD
 
   [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `carts`[0m
   [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+=======
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `carts`
+  [1m[36m (0.6ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+>>>>>>> feature/tab
       ,fk.referenced_column_name as 'primary_key'
       ,fk.column_name as 'column'
       ,fk.constraint_name as 'name'
@@ -6652,9 +6737,15 @@ FROM information_schema.key_column_usage fk
 WHERE fk.referenced_column_name is not null
   AND fk.table_schema = 'ScaleTheTab_development'
   AND fk.table_name = 'items'
+<<<<<<< HEAD
 
   [1m[36m (0.1ms)[0m  [1mSHOW CREATE TABLE `items`[0m
   [1m[35m (0.2ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+=======
+[0m
+  [1m[35m (0.4ms)[0m  SHOW CREATE TABLE `items`
+  [1m[36m (0.3ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+>>>>>>> feature/tab
       ,fk.referenced_column_name as 'primary_key'
       ,fk.column_name as 'column'
       ,fk.constraint_name as 'name'
@@ -6662,9 +6753,15 @@ FROM information_schema.key_column_usage fk
 WHERE fk.referenced_column_name is not null
   AND fk.table_schema = 'ScaleTheTab_development'
   AND fk.table_name = 'line_items'
+<<<<<<< HEAD
 
   [1m[36m (0.3ms)[0m  [1mSHOW CREATE TABLE `line_items`[0m
   [1m[35m (0.7ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+=======
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `line_items`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+>>>>>>> feature/tab
       ,fk.referenced_column_name as 'primary_key'
       ,fk.column_name as 'column'
       ,fk.constraint_name as 'name'
@@ -6672,9 +6769,15 @@ FROM information_schema.key_column_usage fk
 WHERE fk.referenced_column_name is not null
   AND fk.table_schema = 'ScaleTheTab_development'
   AND fk.table_name = 'menus'
+<<<<<<< HEAD
 
   [1m[36m (0.4ms)[0m  [1mSHOW CREATE TABLE `menus`[0m
   [1m[35m (0.8ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+=======
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `menus`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+>>>>>>> feature/tab
       ,fk.referenced_column_name as 'primary_key'
       ,fk.column_name as 'column'
       ,fk.constraint_name as 'name'
@@ -6682,9 +6785,15 @@ FROM information_schema.key_column_usage fk
 WHERE fk.referenced_column_name is not null
   AND fk.table_schema = 'ScaleTheTab_development'
   AND fk.table_name = 'restaurants'
+<<<<<<< HEAD
 
   [1m[36m (0.6ms)[0m  [1mSHOW CREATE TABLE `restaurants`[0m
   [1m[35m (0.3ms)[0m  SELECT fk.referenced_table_name as 'to_table'
+=======
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `restaurants`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+>>>>>>> feature/tab
       ,fk.referenced_column_name as 'primary_key'
       ,fk.column_name as 'column'
       ,fk.constraint_name as 'name'
@@ -6692,6 +6801,7 @@ FROM information_schema.key_column_usage fk
 WHERE fk.referenced_column_name is not null
   AND fk.table_schema = 'ScaleTheTab_development'
   AND fk.table_name = 'tables'
+<<<<<<< HEAD
 
   [1m[36m (0.2ms)[0m  [1mSHOW CREATE TABLE `tables`[0m
 
@@ -9111,3 +9221,17 @@ Processing by ItemsController#index as HTML
   [1m[35mMenu Load (0.3ms)[0m  SELECT  `menus`.* FROM `menus` WHERE `menus`.`id` = 1 LIMIT 1
   Rendered items/index.html.erb within layouts/application (4.9ms)
 Completed 200 OK in 161ms (Views: 159.7ms | ActiveRecord: 0.8ms)
+=======
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `tables`
+  [1m[36m (0.2ms)[0m  [1mSELECT fk.referenced_table_name as 'to_table'
+      ,fk.referenced_column_name as 'primary_key'
+      ,fk.column_name as 'column'
+      ,fk.constraint_name as 'name'
+FROM information_schema.key_column_usage fk
+WHERE fk.referenced_column_name is not null
+  AND fk.table_schema = 'ScaleTheTab_development'
+  AND fk.table_name = 'tabs'
+[0m
+  [1m[35m (0.1ms)[0m  SHOW CREATE TABLE `tabs`
+>>>>>>> feature/tab
