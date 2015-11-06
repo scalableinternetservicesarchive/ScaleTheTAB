@@ -13,6 +13,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @menus = @restaurant.menus
     @tables = @restaurant.tables
+    @table_id = params[:table_id]
 
   end
 
