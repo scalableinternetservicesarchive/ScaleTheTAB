@@ -1,14 +1,29 @@
+
+<%stylesheet_link_tag "print.css"%>
+
 <p id="notice"><%= notice %></p>
 
-<p>
+<h3>
   <strong>Name:</strong>
   <%= @table.name %>
-</p>
+</h3>
 
 <p>
   <strong>Restaurant:</strong>
-  <%= @table.restaurant_id %>
+  <%= @table.restaurant.name %>
 </p>
 
+<p>
+  
+
+</p>
+<%=image_tag src="https://chart.googleapis.com/chart?chs=345x345&cht=qr&chl=#{@qr_url}&choe=UTF-8&chld=L|0"%>
+<br/>
+
+
+<%= link_to "PRINT", '#', onclick: "printpage()" %>
+<br/>
+<p>
 <%= link_to 'Edit', edit_table_path(@table) %> |
 <%= link_to 'Back', tables_path %>
+</p>

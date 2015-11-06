@@ -10,6 +10,7 @@ class TablesController < ApplicationController
   # GET /tables/1
   # GET /tables/1.json
   def show
+    @qr_url = request.protocol + request.host_with_port + "/restaurants/" + @table.restaurant_id.to_s + "?table_id:" + @table.id.to_s
   end
 
   # GET /tables/new
@@ -60,6 +61,8 @@ class TablesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
