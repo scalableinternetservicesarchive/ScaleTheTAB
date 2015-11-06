@@ -1,54 +1,54 @@
-
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<br><br><br>
+ 
+<%= button_to "Back", restaurants_path, :method => "get", :class => "btn btn-default", :style => "margin-left:20px" %>
 <hr/>
 
 <p id="notice"><%= notice %></p>
 
-<h2>
-  <%= @restaurant.name %>
-</h2>
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title" style="align: left"><%= @restaurant.name %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <%=image_tag @restaurant.image.url(:medium) %>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+          <tr>
+            <td><strong>Description:   </strong></td>
+            <td> <%= @restaurant.description %> </td>
+          </tr>
+          <tr>
+            <td><strong> Address: </strong></td>
+            <td> <%= @restaurant.address %></td>
+          </tr>
+           <tr>
+            <td><strong> Telephone No: </strong></td>
+            <td> <%= number_to_phone(@restaurant.tell) %></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+</div>
+<div class="row" align="right" style="margin-right:20px">
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant), :method => "get", :class => "btn btn-default"%>
+</div>
+ 
+</div>
 
-<%= image_tag @restaurant.image.url(:medium) %>
-
-
-<p>
-  <strong>Description:</strong>
-  <%= @restaurant.description %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @restaurant.city %>
-</p>
-
-<p>
-  <strong>Zip code:</strong>
-  <%= @restaurant.zip_code %>
-</p>
-
-<p>
-  <strong>Tell:</strong>
-  <%= number_to_phone(@restaurant.tell) %>
-</p>
-
-<p>
-  <strong>Owner:</strong>
-  <%= @restaurant.owner_id %>
-</p>
 <hr/>
 
 <h3>Menus</h3>
 <ul>
 <% @menus.each do |menu|%>
 
+
 <li><strong><%= link_to menu.title , menu %></strong></li>
 <br/>
+
   <div>
     <table >
       <tr>

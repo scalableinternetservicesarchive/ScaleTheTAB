@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
-
+<div class="container">
 <h1>Listing Menus</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Restaurant</th>
@@ -28,4 +28,7 @@
 
 <br>
 
-<%= link_to 'New Menu', new_menu_path %>
+<div class="row" align="right">
+<%= button_to 'New Menu', new_menu_path, :method => "get", :class => 'btn btn-primary' %>
+</div>
+</div>
