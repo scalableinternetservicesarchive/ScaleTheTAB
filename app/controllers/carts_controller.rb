@@ -1,6 +1,6 @@
 class CartsController < ApplicationController
   include CurrentTab
-  before_action :set_tab, only: [:add_to_order]
+  before_action :set_tab, only: [:add_to_order, :create]
   before_action :set_cart, only: [:show, :edit, :update, :destroy, :add_to_order]
 
   # GET /carts
@@ -26,8 +26,8 @@ class CartsController < ApplicationController
   # POST /carts
   # POST /carts.json
   def create
-    @cart = Cart.new(cart_params)
-
+    @cart = Cart.new
+    @cart.round_number = 2
     respond_to do |format|
       if @cart.save
         format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
