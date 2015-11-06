@@ -1,89 +1,114 @@
 <br><br><br>
- 
+
 <%= button_to "Back", restaurants_path, :method => "get", :class => "btn btn-default", :style => "margin-left:20px" %>
 <hr/>
 
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-<div class="panel panel-default">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title" style="align: left"><%= @restaurant.name %></h3>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <%=image_tag @restaurant.image.url(:medium) %>
+        </div>
+        <div class="col-md-6">
+          <table class="table">
+            <tr>
+              <td><strong>Description:   </strong></td>
+              <td> <%= @restaurant.description %> </td>
+            </tr>
+            <tr>
+              <td><strong> Address: </strong></td>
+              <td> <%= @restaurant.address %></td>
+            </tr>
+            <tr>
+              <td><strong> Telephone No: </strong></td>
+              <td> <%= number_to_phone(@restaurant.tell) %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="row" align="right" style="margin-right:20px">
+      <%= link_to 'Edit', edit_restaurant_path(@restaurant), :method => "get", :class => "btn btn-default"%>
+    </div>
+
+  </div>
+
+  <hr/>
+
+  <% @menus.each do |menu|%>
+  <div class="panel panel-default">
   <div class="panel-heading">
-    <h3 class="panel-title" style="align: left"><%= @restaurant.name %></h3>
+    <h3 class="panel-title"> <%= link_to menu.title , menu %> </h3>
   </div>
   <div class="panel-body">
-    <div class="row">
-      <div class="col-md-6">
-        <%=image_tag @restaurant.image.url(:medium) %>
-      </div>
-      <div class="col-md-6">
-        <table class="table">
-          <tr>
-            <td><strong>Description:   </strong></td>
-            <td> <%= @restaurant.description %> </td>
-          </tr>
-          <tr>
-            <td><strong> Address: </strong></td>
-            <td> <%= @restaurant.address %></td>
-          </tr>
-           <tr>
-            <td><strong> Telephone No: </strong></td>
-            <td> <%= number_to_phone(@restaurant.tell) %></td>
-          </tr>
-        </table>
-      </div>
+    <% menu.items.each do |item| %>
+    <table class="table">
+      <tr>
+        <td> <%= link_to item.title , item %> </td>
+      </tr>
+      <tr>
+        <td> <%= number_to_currency(item.price) %> </td>
+      </tr>
+      <tr>
+        <td><%= button_to "Add to Tab", new_item_path, :class => 'btn btn-primary' %></td>
+      </tr>
+    </table>
+    <% end %> 
+
+    <br><%= button_to "Add Item", new_item_path(menu_id: menu.id), :class => 'btn btn-primary'  %>
   </div>
 </div>
-<div class="row" align="right" style="margin-right:20px">
-  <%= link_to 'Edit', edit_restaurant_path(@restaurant), :method => "get", :class => "btn btn-default"%>
-</div>
- 
-</div>
+<% end %> 
 
-<hr/>
-
-<h3>Menus</h3>
-<ul>
-<% @menus.each do |menu|%>
-<li><%= link_to menu.title , menu %>
+  <h3>Menus</h3>
   <ul>
-  <% menu.items.each do |item| %>
-  <div>
-    <span>
-    <li>
-      <div>
+    <% @menus.each do |menu|%>
+    <li><%= link_to menu.title , menu %>
+      <ul>
+        <% menu.items.each do |item| %>
+        <div>
+          <span>
+            <li>
+              <div>
 
-        <span><%= link_to item.title , item %></span> 
-        <span><%= number_to_currency(item.price)  %></span> | 
-        <span> <%= link_to "Add to Tab", new_item_path %></span>
-      </div>
-    </li>
-    
-    
-  <% end %> 
+                <span><%= link_to item.title , item %></span> 
+                <span><%= number_to_currency(item.price)  %></span> | 
+                <span> <%= link_to "Add to Tab", new_item_path %></span>
+              </div>
+            </li>
 
-  <br/>
 
-    <%= link_to "Add Item", new_item_path(menu_id: menu.id) %>
+            <% end %> 
 
-  </ul>
-</li>
+            <br/>
 
-<br/>
-<% end %>
-<%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
-</ul>
+            <%= link_to "Add Item", new_item_path(menu_id: menu.id) %>
 
-<hr/>
+          </ul>
+        </li>
 
-<h3>Tables</h3>
-<ul>
-<% @tables.each do |table|%>
-<li><%= link_to table.name , table %>
-</li>
-<br/>
-<% end %>
-<%= link_to "Add Table", new_table_path %>
-</ul>
+        <br/>
+        <% end %>
+        <%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
+      </ul>
 
+      <hr/>
+
+      <h3>Tables</h3>
+      <ul>
+        <% @tables.each do |table|%>
+        <li><%= link_to table.name , table %>
+        </li>
+        <br/>
+        <% end %>
+        <%= link_to "Add Table", new_table_path %>
+      </ul>
+    </div>
 
 
