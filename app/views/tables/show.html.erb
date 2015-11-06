@@ -1,14 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @table.name %>
-</p>
-
-<p>
-  <strong>Restaurant:</strong>
-  <%= @table.restaurant_id %>
-</p>
+<div class="container">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">Restaurant id: <%= @table.restaurant_id %></h3>
+		</div>
+		<div class="panel-body">
+			<p>
+				<strong>Name:</strong>
+				<%= @table.name %>
+			</p>
+		</div>
+	</div>
+</div>
 
 <%= link_to 'Edit', edit_table_path(@table) %> |
 <%= link_to 'Back', tables_path %>

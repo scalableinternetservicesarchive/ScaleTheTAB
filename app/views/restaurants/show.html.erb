@@ -40,33 +40,31 @@
   </div>
 
   <hr/>
-
+  <h3>Menus</h3>
   <% @menus.each do |menu|%>
   <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title"> <%= link_to menu.title , menu %> </h3>
-  </div>
-  <div class="panel-body">
-    <% menu.items.each do |item| %>
-    <table class="table">
-      <tr>
-        <td> <%= link_to item.title , item %> </td>
-      </tr>
-      <tr>
-        <td> <%= number_to_currency(item.price) %> </td>
-      </tr>
-      <tr>
-        <td><%= button_to "Add to Tab", new_item_path, :class => 'btn btn-primary' %></td>
-      </tr>
-    </table>
-    <% end %> 
+    <div class="panel-heading">
+      <h3 class="panel-title"> <%= link_to menu.title , menu %> </h3>
+    </div>
+    <div class="panel-body">
+      <table class="table">
+        <% menu.items.each do |item| %>
+        <tr>
+          <td> <%= link_to item.title , item %> <br> <%=item.description%></td>
+          <td> <%= number_to_currency(item.price) %> </td>
+          <td><%= button_to "Add to Tab", new_item_path, :method => 'get', :class => 'btn btn-primary' %></td>
+        </tr>
+      </table>
+      <% end %> 
 
-    <br><%= button_to "Add Item", new_item_path(menu_id: menu.id), :class => 'btn btn-primary'  %>
+      <div class="row" align="right" style="margin-right:25px">
+        <br><%= button_to "Add Item", new_item_path(menu_id: menu.id), :method => 'get', :class => 'btn btn-primary' %>
+      </div>
+    </div>
   </div>
-</div>
-<% end %> 
+  <% end %> 
 
-  <h3>Menus</h3>
+  <!-- <h3>Menus</h3>
   <ul>
     <% @menus.each do |menu|%>
     <li><%= link_to menu.title , menu %>
@@ -96,7 +94,7 @@
         <br/>
         <% end %>
         <%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
-      </ul>
+      </ul> -->
 
       <hr/>
 

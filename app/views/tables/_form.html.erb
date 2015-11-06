@@ -1,25 +1,38 @@
-<%= form_for(@table) do |f| %>
-  <% if @table.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@table.errors.count, "error") %> prohibited this table from being saved:</h2>
+<div class="container">
 
-      <ul>
-      <% @table.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Restaurant No: <%= %></h3>
     </div>
-  <% end %>
+    <div class="panel-body">
+      Panel content
+    </div>
+  </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <%= form_for(@table) do |f| %>
+  <% if @table.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@table.errors.count, "error") %> prohibited this table from being saved:</h2>
+
+    <ul>
+      <% @table.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
   </div>
-  <div class="field">
-    <%= f.label :restaurant_id %><br>
-    <%= f.select :restaurant_id, Restaurant.all.collect {|x| [x.name , x.id]} , {:include_blank => "Select One..."} %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <% end %>
+  <table class="table"> 
+    <tr>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </tr>
+    <tr>
+      <%= f.label :restaurant_id %><br>
+      <%= f.select :restaurant_id, Restaurant.all.collect {|x| [x.name , x.id]} , {:include_blank => "Select One..."} %>
+    </tr>
+    <tr>
+      <%= f.submit %>
+    </tr>
+  </table>
+</div>
 <% end %>

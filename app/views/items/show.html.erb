@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<%= button_to 'Back', items_path, :class => 'btn btn-default', :style => 'margin-left:20px' %>
+<%= button_to 'Back', items_path, :class => 'btn btn-default', :method => 'get', :style => 'margin-left:20px' %>
 <br>
 <div class="container">
 	<div class="row">
@@ -27,7 +27,7 @@
 	</div>
 
 	<div class="row" align="center">
-		<%= button_to 'Edit', edit_item_path(@item), :class => 'btn btn-default' %>
+		<%= button_to 'Edit', edit_item_path(@item), :method => 'get', :class => 'btn btn-default' %>
 	</div>
 </div>
 
