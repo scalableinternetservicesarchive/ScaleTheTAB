@@ -105,8 +105,11 @@
         </li>
         <br/>
         <% end %>
-        <%= link_to "Add Table", new_table_path %>
       </ul>
+      <div class="row" align="center">
+        <%= button_to "Add Table", new_table_path, :method => 'get', :class => 'btn btn-primary' %>
+      </div>
     </div>
-
+  </div>
+</div>
 

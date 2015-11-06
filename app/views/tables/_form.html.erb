@@ -1,14 +1,6 @@
 <div class="container">
 
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h3 class="panel-title">Restaurant No: <%= %></h3>
-    </div>
-    <div class="panel-body">
-      Panel content
-    </div>
-  </div>
-
+  <table class="table">
   <%= form_for(@table) do |f| %>
   <% if @table.errors.any? %>
   <div id="error_explanation">
@@ -21,18 +13,18 @@
     </ul>
   </div>
   <% end %>
-  <table class="table"> 
+   
     <tr>
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <td><%= f.label :name %></td>
+      <td><%= f.text_field :name %></td>
     </tr>
     <tr>
-      <%= f.label :restaurant_id %><br>
-      <%= f.select :restaurant_id, Restaurant.all.collect {|x| [x.name , x.id]} , {:include_blank => "Select One..."} %>
+      <td><%= f.label :restaurant_id %><br></td>
+      <td><%= f.select :restaurant_id, Restaurant.all.collect {|x| [x.name , x.id]} , {:include_blank => "Select One..."} %></td>
     </tr>
-    <tr>
+    </table>
+    <div class="row" align="center">
       <%= f.submit %>
-    </tr>
-  </table>
+    </div>
 </div>
 <% end %>
