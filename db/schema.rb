@@ -11,17 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20151106061907) do
-=======
 ActiveRecord::Schema.define(version: 20151113100603) do
->>>>>>> new-devise
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "tab_id",       limit: 4
-    t.integer  "round_number",	limit: 4, null: false
+    t.integer  "round_number", limit: 4
   end
 
   add_index "carts", ["tab_id"], name: "index_carts_on_tab_id", using: :btree
@@ -102,8 +98,7 @@ ActiveRecord::Schema.define(version: 20151113100603) do
   end
 
   create_table "tabs", force: :cascade do |t|
-	t.integer "table_id", 	limit: 4    
-	t.datetime "created_at", null: false
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
@@ -128,5 +123,4 @@ ActiveRecord::Schema.define(version: 20151113100603) do
   add_foreign_key "carts", "tabs"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "items"
-	add_foreign_key "tabs", "tables"
 end
