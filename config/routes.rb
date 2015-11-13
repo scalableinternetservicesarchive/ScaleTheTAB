@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'messages/new'
+
   get 'conversations/index'
 
   devise_for :users
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
   resources :menus
 
   resources :conversations, only: [:index, :show, :destroy]
+  resources :messages, only: [:new, :create]
+
   get 'store/index'
 
   resources :items
@@ -23,7 +27,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index', as: 'Home'
+  root to: 'home#index'
 
   # Example of regular route: 
   #   get 'products/:id' => 'catalog#view'
