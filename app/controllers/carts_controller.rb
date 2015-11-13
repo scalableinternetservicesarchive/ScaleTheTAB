@@ -1,5 +1,7 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: [:show, :edit, :update, :destroy]
+  include CurrentTab
+  before_action :set_tab, only: [:add_to_order, :create]
+  before_action :set_cart, only: [:show, :edit, :update, :destroy, :add_to_order]
 
   # GET /carts
   # GET /carts.json
@@ -14,7 +16,7 @@ class CartsController < ApplicationController
 
   # GET /carts/new
   def new
-    @cart = Cart.new
+    @cart = Cart.new(round_number: '2')
   end
 
   # GET /carts/1/edit
@@ -24,8 +26,7 @@ class CartsController < ApplicationController
   # POST /carts
   # POST /carts.json
   def create
-    @cart = Cart.new(cart_params)
-
+    @cart = Cart.new
     respond_to do |format|
       if @cart.save
         format.html { redirect_to @cart, notice: 'Cart was successfully created.' }
@@ -54,9 +55,26 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart.destroy
+    if not @cart.line_items.empty?
+      @cart.destroy if @cart.id == session[:cart_id]
+      session[:cart_id] = nil
+    end
     respond_to do |format|
-      format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Cart was successfully destroyed.' }
+      format.js
+      format.json { head :no_content }
+    end
+  end
+
+  def add_to_order
+
+	#send message to kitchen
+
+    @tab.carts << @cart
+    session[:cart_id] = nil
+    respond_to do |format|
+      format.html { redirect_to @cart.line_items[0].item.menu.restaurant }
+      format.js
       format.json { head :no_content }
     end
   end

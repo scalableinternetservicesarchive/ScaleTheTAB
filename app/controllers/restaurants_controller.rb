@@ -1,4 +1,8 @@
 class RestaurantsController < ApplicationController
+  include CurrentCart
+  include CurrentTab
+  before_action :set_cart
+  before_action :set_tab
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   # GET /restaurants
@@ -13,6 +17,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     @menus = @restaurant.menus
     @tables = @restaurant.tables
+    @table_id = params[:table_id]
 
   end
 

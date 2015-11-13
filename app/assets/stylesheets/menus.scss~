@@ -1,0 +1,49 @@
+// Place all the styles related to the menus controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com//*
+
+#columns {
+  #main {
+    margin-left: 17em;
+    padding: 1em;
+    background: white;
+  }
+
+//#START:side
+  #side {
+    background: #333333;
+    float: left;
+    padding: 1em 2em;
+
+/* START_HIGHLIGHT */
+    form, div {
+      display: inline;
+    }  
+ 
+    input {
+      font-size: small;
+      color: #000
+    }
+
+    table {
+        border-top:    1px dotted #595;
+        border-bottom: 1px dotted #595;
+        margin-bottom: 10px;
+      }
+
+    #cart {
+      font-size: smaller;
+      color:     white;
+    }
+
+    #tab{
+      font-size: smaller;
+      color:     white;
+    }
+
+/* END_HIGHLIGHT */
+//#END:side
+  }
+//#END:columns
+}
+

@@ -1,4 +1,4 @@
-<h2>Your Tab</h2>
+<h2>Round <%= cart.id %></h2>
  <table>
   <%= render(cart.line_items) %>
 
@@ -7,3 +7,9 @@
     <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
   </tr>
 </table>
+
+<% defined?(with_buttons) or with_buttons = true %>
+<% if (with_buttons) %>
+  <%= button_to "Confirm Order", { :controller => "carts", :action => "add_to_order", :id => cart.id } %>
+  <%= button_to "Clear Items", @cart, method: :delete, data: {confirm: 'Clear all items?', remote: true } %>
+<% end %>

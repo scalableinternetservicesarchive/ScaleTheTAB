@@ -12,6 +12,13 @@
   <tbody>
     <% @carts.each do |cart| %>
       <tr>
+	<% if cart.round_number %>
+	  <td>
+	    <%= cart.round_number %>
+	  </td>
+	<% else %>
+	    <%= "no" %>
+	<% end %>
         <td><%= link_to 'Show', cart %></td>
         <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
         <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>

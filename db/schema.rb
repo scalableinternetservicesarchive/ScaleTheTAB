@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20151113041753) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
     t.integer  "tab_id",     limit: 4
+
+ActiveRecord::Schema.define(version: 20151106061907) do
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "tab_id",       limit: 4
+    t.integer  "round_number",	limit: 4, null: false
+
   end
 
   add_index "carts", ["tab_id"], name: "index_carts_on_tab_id", using: :btree
@@ -132,6 +142,7 @@ ActiveRecord::Schema.define(version: 20151113041753) do
   end
 
   create_table "tabs", force: :cascade do |t|
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -162,4 +173,15 @@ ActiveRecord::Schema.define(version: 20151113041753) do
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
+
+	t.integer "table_id", 	limit: 4    
+	t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "carts", "tabs"
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "items"
+	add_foreign_key "tabs", "tables"
+
 end

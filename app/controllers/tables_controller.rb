@@ -10,11 +10,12 @@ class TablesController < ApplicationController
   # GET /tables/1
   # GET /tables/1.json
   def show
+    @qr_url = request.protocol + request.host_with_port + "/restaurants/" + @table.restaurant_id.to_s + "?table_id:" + @table.id.to_s
   end
 
   # GET /tables/new
   def new
-    @table = Table.new
+    @table = Table.new(:restaurant_id =>params[:restaurant_id])
   end
 
   # GET /tables/1/edit
@@ -28,7 +29,7 @@ class TablesController < ApplicationController
 
     respond_to do |format|
       if @table.save
-        format.html { redirect_to @table, notice: 'Table was successfully created.' }
+        format.html { redirect_to @table.restaurant, notice: 'Table was successfully created.' }
         format.json { render :show, status: :created, location: @table }
       else
         format.html { render :new }
@@ -60,6 +61,8 @@ class TablesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
