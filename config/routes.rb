@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'conversations/index'
+
   devise_for :users
   get 'home/index'
 
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   resources :tables
   resources :menus
 
+  resources :conversations, only: [:index, :show, :destroy]
   get 'store/index'
 
   resources :items
