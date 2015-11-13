@@ -75,3 +75,6 @@ bower.json
 
 .powenv
 
+# .DS_Store
+
+.DS_Store
