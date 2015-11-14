@@ -1,0 +1,4 @@
+class AddRoundNumberToCart < ActiveRecord::Migration
+  def change
+  end
+end

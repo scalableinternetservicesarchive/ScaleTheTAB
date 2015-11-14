@@ -87,7 +87,29 @@
                             </li>
                         </ul>
                     </li> -->
-                    <li><button type="button" class="btn btn-default navbar-btn">Sign in</button></li>
+                    <% if user_signed_in? %>
+                    <li><button type="button" class="btn btn-default navbar-btn">Logged in as <strong><%= current_user.email %></strong>.</button></li>
+                    <li><button type="button" class="btn btn-default navbar-btn">
+                        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+                    </li>
+                    <% elsif owner_signed_in? %>
+                    <li><button type="button" class="btn btn-default navbar-btn">Logged in as <strong><%= current_owner.email %></strong>.</button></li>
+                    <li><button type="button" class="btn btn-default navbar-btn">
+                        <%= link_to "Logout", destroy_owner_session_path, method: :delete %>
+                    </li>
+                    <% else %>
+                    <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'User Sign In', new_user_session_path %>
+                    </button>
+                    </li>
+                    <li><button type="button" class="btn btn-default navbar-btn"><%= link_to 'Owner Sign In', new_owner_session_path %>
+                    </button>
+                    </li>
+                    <!--
+                    <li><button type="button" class="btn btn-default navbar-btn">User Sign in</button></li>
+                    <li><button type="button" class="btn btn-default navbar-btn">Owner Sign in</button>
+                    </li>
+                    -->
+                    <% end %>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -1,9 +1,24 @@
-<br><br><br>
- 
-<%= button_to "Back", restaurants_path, :method => "get", :class => "btn btn-default", :style => "margin-left:20px" %>
-<hr/>
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="columns">
+    <div id="side">
+      <div id="cart">
+        <%= render(@cart) %>
+      </div>
+      <div id="tab">
+        <%= render(@tab) %>
+      </div>
+    </div>
+  <div id="main">
+    <p id="notice"><%= notice %></p>
 
-<p id="notice"><%= notice %></p>
+
+<div class="row" align="left" style="margin-left:20px">
+<%= button_to "Back", restaurants_path, :method => "get", :class => "btn btn-default" %>
+</div>
+
+<br><br><br>
 
 <div class="container">
 <div class="panel panel-default">

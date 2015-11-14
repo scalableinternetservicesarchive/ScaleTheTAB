@@ -1,6 +1,55 @@
 <div style="margin-top: 150px"> 
 <ul>
+	<% if owner_signed_in? %>
 	<li><%= link_to "Restaurants Administration" , restaurants_path %></li>
 	<li><%= link_to "Menus Administration" , menus_path %></li>
+	<% elsif user_signed_in? %>
+	Welcome <%= current_user.email %>!
+	Your previous orders are:<br>
+	(In progress)
+	<br><br>
+	Please check out the list of available restaurants below:
+	<h3>Restaurants</h3>
+	<% if @restaurants.blank? %>
+	Sorry, no restaurants have currently been registered
+	<% else %>
+		<div>
+
+			<% @restaurants.each do |r| %>
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title"><%= link_to r.name , r %></h3>
+			    <!-- <h3 class="panel-title">Panel title</h3> -->
+			  </div>
+			  <div class="panel-body">
+			    <div class="row">
+			      <div class="col-md-6">
+			        <%=image_tag r.image.url(:medium) %>
+			      </div>
+			      <div class="col-md-6">
+			        <table class="table">
+			          <tr>
+			            <td><strong>Description:   </strong></td>
+			            <td> <%= r.description %> </td>
+			          </tr>
+			          <tr>
+			            <td><strong> Address: </strong></td>
+			            <td> <%= r.address %></td>
+			          </tr>
+			           <tr>
+			            <td><strong> Telephone No: </strong></td>
+			            <td> <%= number_to_phone(r.tell) %></td>
+			          </tr>
+			        </table>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<% end %>
+		</div>
+	<% end %>
+	<% else %>
+	Welcome to ScaleTheTab, Please sign in!
+	<% end%>
 </ul>
 </div>
