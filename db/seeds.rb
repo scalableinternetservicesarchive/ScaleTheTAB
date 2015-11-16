@@ -19,3 +19,18 @@ menu.items.create([{title: 'item1',price: 9.99},
 	{title: 'item3', price: 12.99},
 	{title: 'item4', price: 12.99},
 	{title: 'item5', price: 12.99}])
+
+
+
+Owner.create({email: 'o1@seed.com' , password: '12345678' , password_confirmation: '12345678'})
+Owner.create({email: 'o2@seed.com' , password: '12345678' , password_confirmation: '12345678'})
+Owner.create({email: 'o3@seed.com' , password: '12345678' , password_confirmation: '12345678'})
+Owner.create({email: 'o4@seed.com' , password: '12345678' , password_confirmation: '12345678'})
+Owner.create({email: 'o5@seed.com' , password: '12345678' , password_confirmation: '12345678'})
+
+
+User.create({email: 'u1@seed.com' , password: '12345678' , password_confirmation: '12345678'})
+User.create({email: 'u2@seed.com' , password: '12345678' , password_confirmation: '12345678'})
+User.create({email: 'u3@seed.com' , password: '12345678' , password_confirmation: '12345678'})
+User.create({email: 'u4@seed.com' , password: '12345678' , password_confirmation: '12345678'})
+User.create({email: 'u5@seed.com' , password: '12345678' , password_confirmation: '12345678'})
