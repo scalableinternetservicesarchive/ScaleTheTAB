@@ -1,14 +1,17 @@
 <div class="container">
 <p id="notice"><%= notice %></p>
-<br/><br/><br/>
+
 
 <div class="row">
+    
+    <h3 align = "left"> Restaurants </h3>
+  
     <div align="right">
       <%= button_to "Add Restaurant", new_restaurant_path, :method => "get", :class => "btn btn-primary" %>
     </div>
 </div>
 
-<h3> Restaurants </h3>
+
 <hr/>
 
 <% @restaurants.each do |r| %>

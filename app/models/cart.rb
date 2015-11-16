@@ -1,6 +1,7 @@
 class Cart < ActiveRecord::Base
   has_many :line_items, dependent: :destroy
-
+  belongs_to :tab
+  
   def add_product(item_id)
     current_item = line_items.find_by(item_id: item_id)
     if current_item

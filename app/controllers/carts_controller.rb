@@ -71,6 +71,9 @@ class CartsController < ApplicationController
 	#send message to kitchen
 
     @tab.carts << @cart
+    puts "***************************************"
+    puts @cart.inspect
+    puts "***************************************"
     session[:cart_id] = nil
     respond_to do |format|
       format.html { redirect_to @cart.line_items[0].item.menu.restaurant }
