@@ -29,7 +29,7 @@ class TablesController < ApplicationController
 
     respond_to do |format|
       if @table.save
-         response.headers['id']=@table.id.to_s
+         response.headers['createdId']=@table.id.to_s
         format.html { redirect_to @table.restaurant, notice: 'Table was successfully created.' }
         format.json { render :show, status: :created, location: @table }
       else

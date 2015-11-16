@@ -38,7 +38,7 @@ class RestaurantsController < ApplicationController
     respond_to do |format|
 
       if @restaurant.save
-         response.headers['id']=@restaurant.id.to_s
+         response.headers['createdId']=@restaurant.id.to_s
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
         format.json { render :show, status: :created, location: @restaurant }
       else
