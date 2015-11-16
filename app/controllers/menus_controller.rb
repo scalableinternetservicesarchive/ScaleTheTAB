@@ -33,6 +33,7 @@ class MenusController < ApplicationController
 
     respond_to do |format|
       if @menu.save
+         response.headers['id']=@menu.id.to_s
         format.html { redirect_to @menu.restaurant, notice: 'Menu was successfully created.' }
         format.json { render :show, status: :created, location: @menu }
       else
