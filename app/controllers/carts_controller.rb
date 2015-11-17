@@ -1,5 +1,7 @@
 class CartsController < ApplicationController
   include CurrentTab
+  include ApplicationHelper
+
   before_action :set_tab, only: [:add_to_order, :create]
   before_action :set_cart, only: [:show, :edit, :update, :destroy, :add_to_order]
 
@@ -73,7 +75,17 @@ class CartsController < ApplicationController
     @tab.carts << @cart
     puts "***************************************"
     puts @cart.inspect
+    puts @cart[:cart_id]
     puts "***************************************"
+    temp = @cart.line_items[0].item.menu.restaurant
+    temp1 = @cart.line_items[0].item
+    puts "///////////////////////////////////////////////////"
+    puts temp
+    puts temp.id
+    puts temp1.inspect
+
+    sendmsg(temp.id, temp1.title)
+    
     session[:cart_id] = nil
     respond_to do |format|
       format.html { redirect_to @cart.line_items[0].item.menu.restaurant }

@@ -12,4 +12,5 @@ class ApplicationController < ActionController::Base
 	def redirect_back_or(path)
 	  redirect_to request.referer || path
 	end
+
 end
