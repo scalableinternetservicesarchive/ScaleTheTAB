@@ -17,15 +17,20 @@ Rails.application.routes.draw do
 
 
   resources :line_items
-  
   resources :carts
-
   resources :menus
   resources :restaurants
   resources :tables
-  resources :menus
-
-  resources :conversations, only: [:index, :show, :destroy]
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+    end
+    collection do
+      delete :empty_trash
+    end
+  end
   resources :messages, only: [:new, :create]
 
   get 'store/index'
