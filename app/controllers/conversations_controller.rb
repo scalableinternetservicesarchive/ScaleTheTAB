@@ -50,6 +50,7 @@ class ConversationsController < ApplicationController
     redirect_to conversations_path
   end
   
+
   private
 
   def get_mailbox
