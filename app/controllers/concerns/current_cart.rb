@@ -6,7 +6,8 @@ module CurrentCart
     def set_cart 
       @cart = Cart.find(session[:cart_id])
     rescue ActiveRecord::RecordNotFound
-      @cart = Cart.create
+	  @tab = Tab.find(session[:tab_id])
+      @cart = Cart.create({round_number: @tab.carts.length+1})
       session[:cart_id] = @cart.id
     end
 end
