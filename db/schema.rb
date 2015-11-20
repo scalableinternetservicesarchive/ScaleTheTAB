@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151113100603) do
+ActiveRecord::Schema.define(version: 20151120063256) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at",             null: false
@@ -98,9 +98,12 @@ ActiveRecord::Schema.define(version: 20151113100603) do
   end
 
   create_table "tabs", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "user_id",    limit: 4
   end
+
+  add_index "tabs", ["user_id"], name: "index_tabs_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -123,4 +126,5 @@ ActiveRecord::Schema.define(version: 20151113100603) do
   add_foreign_key "carts", "tabs"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "items"
+  add_foreign_key "tabs", "users"
 end
