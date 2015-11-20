@@ -4,6 +4,7 @@ class RestaurantsController < ApplicationController
   before_action :set_tab
   before_action :set_cart
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_owner!, except: [ :index, :show ]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -34,6 +35,7 @@ class RestaurantsController < ApplicationController
   # POST /restaurants.json
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.owner_id = current_owner.id
 
     respond_to do |format|
       if @restaurant.save
@@ -79,6 +81,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :image, :description, :address, :city, :zip_code, :tell, :owner_id)
+      params.require(:restaurant).permit(:name, :image, :description, :address, :city, :zip_code, :tell)
     end
 end
