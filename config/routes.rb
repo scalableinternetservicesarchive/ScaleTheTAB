@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
 
+  resources :checkouts
   devise_for :owners
   devise_for :users
   resources :tabs

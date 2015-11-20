@@ -2,5 +2,8 @@
 
 <%= render @tab %>
 
+<%= button_to "Close Tab", checkouts_path(tab_id: @tab) %>
+
+<%= link_to 'Back to Menu', @tab.carts[0].line_items[0].item.menu %>
 <%= link_to 'Edit', edit_tab_path(@tab) %> |
 <%= link_to 'Back', tabs_path %>

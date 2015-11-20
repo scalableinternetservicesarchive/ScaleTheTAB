@@ -63,16 +63,16 @@ class TabsController < ApplicationController
 
 	def checkout
 		if @tab.carts.length != 0
-			
 			respond_to do |format|
       	format.html { redirect_to @tab, notice: '' }
      		format.json { head :no_content }
     	end
+		else
+			respond_to do |format|
+      	format.html { redirect_to :back, notice: '' }
+     		format.json { head :no_content }
+    	end
 		end
-		respond_to do |format|
-      format.html { redirect_to :back, notice: '' }
-     	format.json { head :no_content }
-    end
 	end
 
   private
