@@ -1,6 +1,5 @@
 class CartsController < ApplicationController
   include CurrentTab
-  include CurrentCart
   before_action :set_tab, only: [:add_to_order]
   before_action :set_cart, only: [:show, :edit, :update, :destroy, :add_to_order]
 

@@ -10,7 +10,7 @@
         <%= render(@tab) %>
       </div>
 	  <div id="checkout">
-		<%= button_to "Checkout", { :controller => "tabs", :action => "checkout", :id => @tab.id} %>
+		<%= button_to "Checkout", { :controller => "tabs", :action => "checkout"} %>
 	  </div>
     </div>
   <div id="main">
