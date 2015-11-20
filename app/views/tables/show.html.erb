@@ -24,6 +24,8 @@
 <%= link_to "PRINT", '#', onclick: "printpage()" %>
 <br/>
 <p>
+<% if owner_signed_in? %>
 <%= link_to 'Edit', edit_table_path(@table) %> |
+<% end %>
 <%= link_to 'Back', tables_path %>
 </p>

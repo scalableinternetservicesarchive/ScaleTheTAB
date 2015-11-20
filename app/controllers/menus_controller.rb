@@ -4,6 +4,7 @@ class MenusController < ApplicationController
   before_action :set_cart
   before_action :set_tab
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_owner!, except: [ :index, :show ]
 
   # GET /menus
   # GET /menus.json

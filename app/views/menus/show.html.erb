@@ -38,9 +38,11 @@
   </div>
 </div>
 </div>
+<% if owner_signed_in? %>
 <div class="row" align="center">
 <%= button_to "Edit", edit_menu_path(@menu), :method => "get", :class => "btn btn-default" %>
 </div>
+<% end %>
 <!-- <p>
   <strong>Restaurant:</strong>
   <%= @menu.restaurant_id %>

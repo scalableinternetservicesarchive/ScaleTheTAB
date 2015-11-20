@@ -2,11 +2,13 @@
 <p id="notice"><%= notice %></p>
 <br/><br/><br/>
 
+<% if owner_signed_in? %>
 <div class="row">
     <div align="right">
       <%= button_to "Add Restaurant", new_restaurant_path, :method => "get", :class => "btn btn-primary" %>
     </div>
 </div>
+<% end %>
 
 <h3> Restaurants </h3>
 <hr/>

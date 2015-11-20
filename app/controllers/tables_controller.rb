@@ -1,5 +1,6 @@
 class TablesController < ApplicationController
   before_action :set_table, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_owner!, except: [ :index, :show ]
 
   # GET /tables
   # GET /tables.json
