@@ -18,7 +18,9 @@ class RestaurantsController < ApplicationController
     @menus = @restaurant.menus
     @tables = @restaurant.tables
     @table_id = params[:table_id]
-
+    puts "***********************Current User ID*************************"
+    puts current_user.id
+    puts "***********************Current User ID*************************"
   end
 
   # GET /restaurants/new
