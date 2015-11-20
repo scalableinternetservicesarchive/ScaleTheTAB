@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
 
 
+  devise_for :installs
   resources :checkouts
   devise_for :owners
   devise_for :users
