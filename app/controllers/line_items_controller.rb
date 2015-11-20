@@ -31,6 +31,8 @@ class LineItemsController < ApplicationController
 
     respond_to do |format|
       if @line_item.save
+        response.headers['createdId']=@line_item.id.to_s
+        response.headers['cart_id']=@line_item.cart.id.to_s
         format.html { redirect_to @line_item.item.menu.restaurant, notice: 'Line item was successfully created.' }
         format.js
         format.json { render :show, status: :created, location: @line_item }
