@@ -11,9 +11,13 @@ default: &default
   username: root
   password:
   socket: /var/run/mysqld/mysqld.sock
+
 development:
   <<: *default
   database: ScaleTheTab_development
+
+  #access_key_id: 
+  #secret_access_key: 
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,7 +25,6 @@ development:
 test:
   <<: *default
   database: ScaleTheTab_test
-
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
 # ever seen by anyone, they now have access to your database.
@@ -45,4 +48,8 @@ production:
   <<: *default
   database: ScaleTheTab_production
   username: scaletheTab
-  password: <%= ENV['SCALETHETAB_DATABASE_PASSWORD'] %>
+  password: <%= ENV['SCALETHETAB_DATABASE_PASSWORD']
+  bucket:   scalableinternetservices/ScaleTheTAB
+  access_key_id: AKIAJDRANJLHHDSFC5RA
+  secret_access_key:  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
+  %>
