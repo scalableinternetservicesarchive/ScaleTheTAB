@@ -2,17 +2,19 @@
 <html>
 <body>
   <div id="columns">
-    <div id="side">
-      <div id="cart">
-        <%= render(@cart) %>
-      </div>
-      <div id="tab">
-        <%= render(@tab) %>
-      </div>
-	  <div id="checkout">
-		<%= button_to "Checkout", { :controller => "tabs", :action => "checkout"} %>
-	  </div>
-    </div>
+		<% if user_signed_in? %>
+    	<div id="side">
+      	<div id="cart">
+      	  <%= render(@cart) %>
+      	</div>
+      	<div id="tab">
+        	<%= render(@tab) %>
+      	</div>
+	  		<div id="checkout">
+					<%= button_to "Checkout", { :controller => "tabs", :action => "checkout", :id => @tab.id} %>
+				</div>
+    	</div>
+		<% end %>
   <div id="main">
     <p id="notice"><%= notice %></p>
 
@@ -51,9 +53,11 @@
       </div>
   </div>
 </div>
+<% if owner_signed_in? %>
 <div class="row" align="right" style="margin-right:20px">
   <%= link_to 'Edit', edit_restaurant_path(@restaurant), :method => "get", :class => "btn btn-default"%>
 </div>
+<% end %>
  
 </div>
 
@@ -92,15 +96,17 @@
   
 
   <br/>
-
+    <% if owner_signed_in? %>
     <%= link_to "Add Item", new_item_path(menu_id: menu.id) %>
-
+    <% end %>
   </div>
 
 
 <br/>
 <% end %>
+<% if owner_signed_in? %>
 <%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
+<% end %>
 </ul>
 
 <hr/>
@@ -112,7 +118,9 @@
 </li>
 <br/>
 <% end %>
+<% if owner_signed_in? %>
 <%= link_to "Add Table", new_table_path(restaurant_id: @restaurant.id) %>
+<% end %>
 </ul>
 
 

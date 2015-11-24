@@ -1,8 +1,6 @@
 class RestaurantsController < ApplicationController
   include CurrentCart
   include CurrentTab
-  before_action :set_tab
-  before_action :set_cart
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_owner!, except: [ :index, :show ]
 
@@ -19,6 +17,10 @@ class RestaurantsController < ApplicationController
     @menus = @restaurant.menus
     @tables = @restaurant.tables
     @table_id = params[:table_id]
+		if not owner_signed_in?
+			@tab = set_tab
+			@cart = set_cart
+		end
 
   end
 
