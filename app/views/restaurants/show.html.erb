@@ -2,17 +2,19 @@
 <html>
 <body>
   <div id="columns">
-    <div id="side">
-      <div id="cart">
-        <%= render(@cart) %>
-      </div>
-      <div id="tab">
-        <%= render(@tab) %>
-      </div>
-	  <div id="checkout">
-		<%= button_to "Checkout", { :controller => "tabs", :action => "checkout", :id => @tab.id} %>
-	  </div>
-    </div>
+		<% if not owner_signed_in? %>
+    	<div id="side">
+      	<div id="cart">
+      	  <%= render(@cart) %>
+      	</div>
+      	<div id="tab">
+        	<%= render(@tab) %>
+      	</div>
+	  		<div id="checkout">
+					<%= button_to "Checkout", { :controller => "tabs", :action => "checkout", :id => @tab.id} %>
+				</div>
+    	</div>
+		<% end %>
   <div id="main">
     <p id="notice"><%= notice %></p>
 
