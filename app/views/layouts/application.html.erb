@@ -13,18 +13,17 @@
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
-                <%= link_to 'SCALETheTAB', root_path, id: 'brand', class: 'navbar-brand' %>
+                <%= link_to '/ SCALETheTAB \\', root_path, id: 'brand', class: 'navbar-brand' %>
             </div>
             <ul class="nav navbar-nav pull-right">
                 <% if user_signed_in? %>
-                <li><button type="button" class="btn btn-default navbar-btn">Logged in as <strong><%= current_user.email %></strong>.</button></li>
-                <li><button type="button" class="btn btn-default navbar-btn">
-                    <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-                </li>
+                <p id = "signedinname" class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%= current_user.email %></a><br>
+                <%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
+
                 <% elsif owner_signed_in? %>
-                <li><button type="button" class="btn btn-default navbar-btn">Logged in as <strong><%= current_owner.email %></strong>.</button></li>
-                <li><button type="button" class="btn btn-default navbar-btn">
-                    <%= link_to "Logout", destroy_owner_session_path, method: :delete %>
+                <li>Logged in as <span class="text-color"><%= current_owner.email %></span>.</button></li>
+                <li>
+                    <%= link_to "Logout", destroy_owner_session_path, method: :delete, class:"logout" %>
                 </li>
                 <% else %>
 
