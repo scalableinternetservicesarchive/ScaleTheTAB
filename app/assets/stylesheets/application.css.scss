@@ -42,7 +42,7 @@
 .border-form-div {
   max-width: 300px;
   padding: 19px 29px 29px;
-  margin-top: 75px;
+  margin-top: 120px;
   background-color: #fff;
   border: 1px solid #800080;
   -webkit-border-radius: 10px;
@@ -90,3 +90,10 @@
     border-color: #800080;
 }
 
+.offset{
+	margin-top:100px;
+}
+
+.med-text{
+	font-size:120%;
+}
