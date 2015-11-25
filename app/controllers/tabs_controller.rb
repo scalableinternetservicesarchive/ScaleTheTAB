@@ -1,5 +1,5 @@
 class TabsController < ApplicationController
-  before_action :set_tab, only: [:show, :edit, :update, :destroy]
+	before_action :set_tab, only: [:show, :edit, :update, :destroy, :checkout]
 
   # GET /tabs
   # GET /tabs.json
@@ -60,6 +60,20 @@ class TabsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+	def checkout
+		if @tab.carts.length != 0
+			respond_to do |format|
+      	format.html { redirect_to @tab, notice: '' }
+     		format.json { head :no_content }
+    	end
+		else
+			respond_to do |format|
+      	format.html { redirect_to :back, notice: '' }
+     		format.json { head :no_content }
+    	end
+		end
+	end
 
   private
     # Use callbacks to share common setup or constraints between actions.

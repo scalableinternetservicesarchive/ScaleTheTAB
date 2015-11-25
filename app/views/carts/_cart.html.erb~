@@ -10,6 +10,6 @@
 
 <% defined?(with_buttons) or with_buttons = true %>
 <% if (with_buttons) %>
-  <%= button_to "Confirm Order", { :controller => "carts", :action => "add_to_order", :id => cart.id } %>
+  <%= button_to "Confirm Order", { :controller => "carts", :action => "add_to_order"} %>
   <%= button_to "Clear Items", @cart, method: :delete, data: {confirm: 'Clear all items?', remote: true } %>
 <% end %>

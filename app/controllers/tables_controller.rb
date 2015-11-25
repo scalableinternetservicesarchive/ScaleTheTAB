@@ -1,5 +1,6 @@
 class TablesController < ApplicationController
   before_action :set_table, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_owner!, except: [ :index, :show ]
 
   # GET /tables
   # GET /tables.json
@@ -29,6 +30,7 @@ class TablesController < ApplicationController
 
     respond_to do |format|
       if @table.save
+         response.headers['id']=@table.id.to_s
         format.html { redirect_to @table.restaurant, notice: 'Table was successfully created.' }
         format.json { render :show, status: :created, location: @table }
       else

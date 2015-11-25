@@ -39,7 +39,6 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Use devise for login authorization
 gem 'devise'
 
 group :development, :test do

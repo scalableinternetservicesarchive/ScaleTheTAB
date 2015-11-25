@@ -1,9 +1,8 @@
 class RestaurantsController < ApplicationController
   include CurrentCart
   include CurrentTab
-  before_action :set_cart
-  before_action :set_tab
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_owner!, except: [ :index, :show ]
 
   # GET /restaurants
   # GET /restaurants.json
@@ -18,9 +17,12 @@ class RestaurantsController < ApplicationController
     @menus = @restaurant.menus
     @tables = @restaurant.tables
     @table_id = params[:table_id]
-    puts "***********************Current User ID*************************"
-    puts current_user.id
-    puts "***********************Current User ID*************************"
+
+		if not owner_signed_in?
+			@tab = set_tab
+			@cart = set_cart
+		end
+
   end
 
   # GET /restaurants/new
@@ -36,9 +38,11 @@ class RestaurantsController < ApplicationController
   # POST /restaurants.json
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    @restaurant.owner_id = current_owner.id
 
     respond_to do |format|
       if @restaurant.save
+         response.headers['id']=@restaurant.id.to_s
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
         format.json { render :show, status: :created, location: @restaurant }
       else
@@ -80,6 +84,6 @@ class RestaurantsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :image, :description, :address, :city, :zip_code, :tell, :owner_id)
+      params.require(:restaurant).permit(:name, :image, :description, :address, :city, :zip_code, :tell)
     end
 end

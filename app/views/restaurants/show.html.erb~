@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <div id="columns">
+		<% if user_signed_in? %>
+    	<div id="side">
+      	<div id="cart">
+      	  <%= render(@cart) %>
+      	</div>
+      	<div id="tab">
+        	<%= render(@tab) %>
+      	</div>
+	  		<div id="checkout">
+					<%= button_to "Checkout", { :controller => "tabs", :action => "checkout", :id => @tab.id} %>
+				</div>
+    	</div>
+		<% end %>
+  <div id="main">
+    <p id="notice"><%= notice %></p>
+
+
+<div class="row" align="left" style="margin-left:20px">
+<%= button_to "Back", restaurants_path, :method => "get", :class => "btn btn-default" %>
+</div>
+
+<br><br><br>
+
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title" style="align: left"><%= @restaurant.name %></h3>
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <%=image_tag @restaurant.image.url(:medium) %>
+      </div>
+      <div class="col-md-6">
+        <table class="table">
+          <tr>
+            <td><strong>Description:   </strong></td>
+            <td> <%= @restaurant.description %> </td>
+          </tr>
+          <tr>
+            <td><strong> Address: </strong></td>
+            <td> <%= @restaurant.address %></td>
+          </tr>
+           <tr>
+            <td><strong> Telephone No: </strong></td>
+            <td> <%= number_to_phone(@restaurant.tell) %></td>
+          </tr>
+        </table>
+      </div>
+  </div>
+</div>
+<% if owner_signed_in? %>
+<div class="row" align="right" style="margin-right:20px">
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant), :method => "get", :class => "btn btn-default"%>
+</div>
+<% end %>
+ 
+</div>
+
+<hr/>
+
+<h3>Menus</h3>
+<ul>
+<% @menus.each do |menu|%>
+
+
+<li><strong><%= link_to menu.title , menu %></strong></li>
+<br/>
+
+  <div>
+    <table >
+      <tr>
+        <th>
+          Title
+        </th>
+        <th>
+          Desc
+        </th>
+        <th>
+          Image
+        </th>
+        <th>
+          Price
+        </th>
+        <th>
+          Operations
+        </th>
+
+      </tr>
+      <%=render(menu.items)%>
+    </table>
+  
+
+  <br/>
+    <% if owner_signed_in? %>
+    <%= link_to "Add Item", new_item_path(menu_id: menu.id) %>
+    <% end %>
+  </div>
+
+
+<br/>
+<% end %>
+<% if owner_signed_in? %>
+<%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
+<% end %>
+</ul>
+
+<hr/>
+
+<h3>Tables</h3>
+<ul>
+<% @tables.each do |table|%>
+<li><%= link_to table.name , table%> 
+</li>
+<br/>
+<% end %>
+<% if owner_signed_in? %>
+<%= link_to "Add Table", new_table_path(restaurant_id: @restaurant.id) %>
+<% end %>
+</ul>
+
+
+

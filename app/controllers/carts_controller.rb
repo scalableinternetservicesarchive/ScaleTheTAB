@@ -1,8 +1,7 @@
 class CartsController < ApplicationController
   include CurrentTab
   include ApplicationHelper
-
-  before_action :set_tab, only: [:add_to_order, :create]
+  before_action :set_tab, only: [:add_to_order]
   before_action :set_cart, only: [:show, :edit, :update, :destroy, :add_to_order]
 
   # GET /carts
@@ -18,7 +17,7 @@ class CartsController < ApplicationController
 
   # GET /carts/new
   def new
-    @cart = Cart.new(round_number: '2')
+    @cart = Cart.new
   end
 
   # GET /carts/1/edit

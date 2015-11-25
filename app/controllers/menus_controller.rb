@@ -4,6 +4,7 @@ class MenusController < ApplicationController
   before_action :set_cart
   before_action :set_tab
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_owner!, except: [ :index, :show ]
 
   # GET /menus
   # GET /menus.json
@@ -33,6 +34,7 @@ class MenusController < ApplicationController
 
     respond_to do |format|
       if @menu.save
+         response.headers['id']=@menu.id.to_s
         format.html { redirect_to @menu.restaurant, notice: 'Menu was successfully created.' }
         format.json { render :show, status: :created, location: @menu }
       else

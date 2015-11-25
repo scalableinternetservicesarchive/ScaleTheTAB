@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_owner!, except: [ :index, :show ]
 
   # GET /items
   # GET /items.json
@@ -28,6 +29,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
+         response.headers['id']=@item.id.to_s
         format.html { redirect_to @item.menu.restaurant, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else

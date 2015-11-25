@@ -1,6 +1,15 @@
 <div style="margin-top: 150px"> 
-<ul>
-	<li><%= link_to "Restaurants Administration" , restaurants_path %></li>
-	<li><%= link_to "Menus Administration" , menus_path %></li>
-</ul>
+	<ul>
+		<% if owner_signed_in? %>
+		<li><%= link_to "Restaurants Administration" , restaurants_path %></li>
+		<!--li><%= link_to "Menus Administration" , menus_path %></li-->
+		<% elsif user_signed_in? %>
+		Welcome <%= current_user.email %>!
+		Please check out the list of available restaurants below:
+		<h3>Restaurants</h3>
+		<li><%= link_to "Restaurants" , restaurants_path %></li>
+		<% else %>
+		Welcome to ScaleTheTab, Please sign in!
+		<% end%>
+	</ul>
 </div>

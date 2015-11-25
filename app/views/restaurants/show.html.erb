@@ -1,130 +1,37 @@
-<!DOCTYPE html>
-<html>
-<body>
-  <p id="notice"><%= notice %></p>
-  <div class = "container">
-    
-    <div class = "row">
-      <div class = "col-xs-6 col-md-4" style = "background-color:grey">
-        <div id = "side">
-          <div id = "cart">
-            <%= render(@cart) %>
+<% if owner_signed_in? %>
+
+<div class="row row-custom">
+  
+    <h2><%= @restaurant.name %></h2> 
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6">
+            <%=image_tag @restaurant.image.url(:medium) %>
           </div>
-          <div id="tab">
-            <%= render(@tab) %>
-          </div>
-        </div>
-      </div>
-
-      <div class = "col-xs-12 col-md-8">
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3 class="panel-title" style="align: left"><%= @restaurant.name %></h3>
-          </div>
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-md-6">
-                <%=image_tag @restaurant.image.url(:medium) %>
-              </div>
-              <div class="col-md-6">
-                <div class = "table-responsive">
-                  <table class="table">
-                    <tr>
-                      <td><strong>Description:   </strong></td>
-                      <td> <%= @restaurant.description %> </td>
-                    </tr>
-                    <tr>
-                      <td><strong> Address: </strong></td>
-                      <td> <%= @restaurant.address %></td>
-                    </tr>
-                    <tr>
-                      <td><strong> Telephone No: </strong></td>
-                      <td> <%= number_to_phone(@restaurant.tell) %></td>
-                    </tr>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row" align="right" style="margin-right:20px">
-            <%= link_to 'Edit', edit_restaurant_path(@restaurant), :method => "get", :class => "btn btn-default"%>
-          </div>
-
-        </div>
-
-        <h3>Menus</h3>
-        <ul>
-          <% @menus.each do |menu|%>
-
-
-          <li><strong><%= link_to menu.title , menu %></strong></li>
-          <br/>
-
-          <div>
-            <table class="table">
+          <div class="col-md-6">
+            <table class="table table-bordered">
               <tr>
-                <th>
-                  Title
-                </th>
-                <th>
-                  Desc
-                </th>
-                <th>
-                  Image
-                </th>
-                <th>
-                  Price
-                </th>
-                <th>
-                  Operations
-                </th>
-
+                <td><strong>Description:   </strong></td>
+                <td> <%= @restaurant.description %> </td>
               </tr>
-              <%=render(menu.items)%>
+              <tr>
+                <td><strong> Address: </strong></td>
+                <td> <%= @restaurant.address %></td>
+              </tr>
+              <tr>
+                <td><strong> Telephone No: </strong></td>
+                <td> <%= number_to_phone(@restaurant.tell) %></td>
+              </tr>
             </table>
-
-
-            <br/>
-
-            <%= link_to "Add Item", new_item_path(menu_id: menu.id) %>
-
           </div>
-
-
-          <br/>
-          <% end %>
-          <%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
-        </ul>
-
-        <hr/>
-
-        <h3>Tables</h3>
-        <ul>
-          <% @tables.each do |table|%>
-          <li><%= link_to table.name , table%> 
-          </li>
-          <br/>
-          <% end %>
-          <%= link_to "Add Table", new_table_path(restaurant_id: @restaurant.id) %>
-        </ul>
-
-
+        </div>
       </div>
     </div>
-
-<!-- 
-  <div id="columns">
-    <div id="side">
-      <div id="cart">
-        <%= render(@cart) %>
-      </div>
-      <div id="tab">
-        <%= render(@tab) %>
-      </div>
-    </div> -->
+  
 </div>
 
+<% end %>
 
 
-
-
+  

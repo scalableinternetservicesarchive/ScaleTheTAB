@@ -19,8 +19,10 @@
         <td><%= menu.title %></td>
         <td><%= menu.description %></td>
         <td><%= link_to 'Show', menu %></td>
+        <% if owner_signed_in? %>
         <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
         <td><%= link_to 'Destroy', menu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -28,7 +30,9 @@
 
 <br>
 
+<% if owner_signed_in? %>
 <div class="row" align="right">
 <%= button_to 'New Menu', new_menu_path, :method => "get", :class => 'btn btn-primary' %>
+<% end %>
 </div>
 </div>
