@@ -3,29 +3,27 @@
 
 <p id="notice"><%= notice %></p>
 
-<h3>
-  <strong>Name:</strong>
-  <%= @table.name %>
-</h3>
 
-<p>
-  <strong>Restaurant:</strong>
-  <%= @table.restaurant.name %>
-</p>
+<div class="row offset" align="center">
 
-<p>
-  
-
-</p>
-<%=image_tag src="https://chart.googleapis.com/chart?chs=345x345&cht=qr&chl=#{@qr_url}&choe=UTF-8&chld=L|0"%>
-<br/>
+	<div class="panel panel-default">
+		<div class="panel-body">
+			<h2><%= @table.name %></h2><hr/>
+			<%= link_to "PRINT", '#', onclick: "printpage()" %>
+			<% if owner_signed_in? %>
+			<%= link_to 'Edit', edit_table_path(@table) %> 
+			<% end %>
+		</div>
+		<%=image_tag src="https://chart.googleapis.com/chart?chs=345x345&cht=qr&chl=#{@qr_url}&choe=UTF-8&chld=L|0"%>
+	</div>
+</div>
 
 
-<%= link_to "PRINT", '#', onclick: "printpage()" %>
-<br/>
-<p>
-<% if owner_signed_in? %>
-<%= link_to 'Edit', edit_table_path(@table) %> |
-<% end %>
-<%= link_to 'Back', tables_path %>
-</p>
+
+
+
+
+
+
+
+

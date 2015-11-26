@@ -36,9 +36,9 @@
 
 <div class="row">
   <h2> Menus </h2>
-<div align="right"> 
-      <%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id), :class => "link" %>
-    </div>
+  <div align="right"> 
+    <%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id), :class => "link" %>
+  </div>
 </div>
 
 <ul>
@@ -84,4 +84,111 @@
   </div>
 
 </ul>
+
+<!-- #########################Customer View########################## -->
+<% else %>
+<div class="row">
+  <!-- Restaurant div-->
+  <div class="col-xs-12 col-md-8">
+    <div class="row row-custom">
+
+      <h2><%= @restaurant.name %></h2> 
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6">
+              <%=image_tag @restaurant.image.url(:medium) %>
+            </div>
+            <div class="col-md-6">
+            <table class="table table-bordered">
+              <tr>
+                <td><strong>Description:   </strong></td>
+                <td> <%= @restaurant.description %> </td>
+              </tr>
+              <tr>
+                <td><strong> Address: </strong></td>
+                <td> <%= @restaurant.address %></td>
+              </tr>
+              <tr>
+                <td><strong> Telephone No: </strong></td>
+                <td> <%= number_to_phone(@restaurant.tell) %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+
+  <div class="row">
+    <h2> Menus </h2>
+  </div>
+
+  <ul>
+    <% @menus.each do |menu|%>
+    <div class="row">
+      <li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong></li>
+
+    </div>
+    <br/>
+
+    <div>
+      <table class="table">
+        <tr>
+          <th>Title</th>
+          <th>Desc</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Operations</th>
+        </tr>
+        <%=render(menu.items)%>
+      </table>
+    </div>
+    <% end %>
+
+
+  </ul>
+
+
+  <div class="row">
+    <h2> Tables </h2>
+  </div>
+  <ul>
+    <div class="row">
+      <% @tables.each do |table|%>
+      <li><%= link_to table.name , table%> 
+      </li>
+      <br/>
+      <% end %>
+    </div>
+
+  </ul>
+
+</div> 
+
+<div class="row">
+<!-- Cart div-->
+<div class="col-xs-6 col-md-4 offset">
+  <div id="columns">
+
+    <div id="side">
+      <div id="cart">
+        <%= render(@cart) %>
+      </div>
+      <div id="tab">
+        <%= render(@tab) %>
+      </div>
+      <div id="checkout">
+        <%= button_to "Checkout", { :controller => "tabs", :action => "checkout", :id => @tab.id} %>
+      </div>
+    </div>
+    
+    <div id="main">
+      <p id="notice"><%= notice %></p>
+    </div>
+  </div>
+</div>
+</div>
+</div>
 <% end %>

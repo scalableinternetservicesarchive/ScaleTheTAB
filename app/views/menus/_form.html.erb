@@ -1,55 +1,39 @@
-<div class="container">
-<%= form_for(@menu) do |f| %>
-  <% if @menu.errors.any? %>
+<div class="row offset" align="center">
+  <div class="border-form-div">
+    <%= form_for(@menu) do |f| %>
+    <% if @menu.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
 
       <ul>
-      <% @menu.errors.full_messages.each do |message| %>
+        <% @menu.errors.full_messages.each do |message| %>
         <li><%= message %></li>
-      <% end %>
+        <% end %>
       </ul>
     </div>
+    <% end %>
+
+    <h2>New Menu </h2>
+        
+          <div class="form-group">
+            <td> <%= f.text_field :title,:class => "form-control", :placeholder => "Menu Title" %> </td>
+          </div>
+          <div class="form-group">
+            
+            <td> <%= f.text_area :description, :class => "form-control", :placeholder => "Menu Description" %> </td>
+          </div>
+          <div class="form-group">
+            <td> <%= f.select :restaurant_id, Restaurant.all.collect {|x| [x.name , x.id]} , {:include_blank => "Select Restaurant..."} %></td>
+          </div>
+
+     
+
+    <div class="actions" align="center">
+      <%= f.submit 'Create Menu', :class => 'btn-custom btn' %>
+    </div>
+  </div>
   <% end %>
 
- 
- <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title" id="title">New Menu</h3>
-  </div>
-  <div class="panel-body">
-    <table class="table">
-      <tr>
-        <td> <%= f.label :title %></td>
-        <td> <%= f.text_field :title %> </td>
-      </tr>
-      <tr>
-        <td> <%= f.label :description %> </td>
-        <td> <%= f.text_area :description %> </td>
-      </tr>
-      <tr>
-        <td> <%=f.label :restaurant_id %> </td>
-        <td> <%= f.select :restaurant_id, Restaurant.all.collect {|x| [x.name , x.id]} , {:include_blank => "Select One..."} %></td>
-      </tr>
 
-    </table>
-  </div>
 </div>
-  <!-- <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
- <div class="field">
-    <%= f.label :restaurant_id %><br>
-    <%= f.select :restaurant_id, Restaurant.all.collect {|x| [x.name , x.id]} , {:include_blank => "Select One..."} %>
-  </div> -->
-
-  <div class="actions" align="center">
-    <%= f.submit 'Create Menu', :class => 'btn btn-primary' %>
-  </div>
 </div>
-<% end %>
