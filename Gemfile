@@ -10,6 +10,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem "paperclip", "~> 4.3"
+gem 'bootstrap-will_paginate'
+gem 'will_paginate'
+gem "mailboxer"
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

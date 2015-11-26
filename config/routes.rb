@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   resources :tables
 
 
+  resources :conversations, only: [:index, :show, :destroy]
+  resources :messages, only: [:new, :create]
+
+  
   get 'store/index'
   root to: 'restaurants#index'
   resources :items
