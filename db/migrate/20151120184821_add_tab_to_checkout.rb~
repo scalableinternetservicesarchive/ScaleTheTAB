@@ -1,0 +1,5 @@
+class AddTabToCheckout < ActiveRecord::Migration
+  def change
+		add_reference :checkout, :tab, index: true, foreign_key: true
+  end
+end

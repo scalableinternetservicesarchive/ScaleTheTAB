@@ -1,0 +1,16 @@
+ <div class="col-md-6">
+        <table class="table">
+          <tr>
+            <td><strong>Description:   </strong></td>
+            <td> <%= r.description %> </td>
+          </tr>
+          <tr>
+            <td><strong> Address: </strong></td>
+            <td> <%= r.address %></td>
+          </tr>
+           <tr>
+            <td><strong> Telephone No: </strong></td>
+            <td> <%= number_to_phone(r.tell) %></td>
+          </tr>
+        </table>
+      </div>s

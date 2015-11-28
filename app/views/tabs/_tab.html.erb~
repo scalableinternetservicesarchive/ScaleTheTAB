@@ -1,8 +1,8 @@
-<h2>Your tab</h2>
+<h2>Your tab <%= tab.user_id %> <%= tab.table_id %> </h2>
 <table>
   <% tab.carts.each do |cart| %>
     <tr>
-      <td><%= render :partial => cart, :locals => {:with_confirm_order_button => false } %></td>
+      <td><%= render :partial => cart, :locals => {:with_buttons => false } %></td>
     </tr>
   <% end %>
 

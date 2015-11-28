@@ -1,4 +1,7 @@
-<%= form_for(@table) do |f| %>
+<div class="row" align="center">
+<div class="border-form-div">
+  <h2>New Table</h2><hr/>
+  <%= form_for(@table) do |f| %>
   <% if @table.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@table.errors.count, "error") %> prohibited this table from being saved:</h2>
@@ -11,15 +14,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.text_field :name, :class => "form-control", :placeholder => "Table Name" %>
   </div>
-  <div class="field">
-    <%= f.label :restaurant_id %><br>
-    <%= f.select :restaurant_id, Restaurant.all.collect {|x| [x.name , x.id]} , {:include_blank => "Select One..."} %>
+  <div class="form-group">
+    <%= f.select :restaurant_id, Restaurant.all.collect {|x| [x.name , x.id]} , {:include_blank => "Select Restaurant"} %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <%= f.submit 'Create Table', :class => 'btn-custom btn'%>
+  
 <% end %>
+
+</div>
+</div>
+
