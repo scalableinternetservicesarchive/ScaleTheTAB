@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
 
 
+ get 'messages/new'
 
+  get 'conversations/index'
 
   devise_for :installs
   resources :checkouts
@@ -23,6 +25,7 @@ Rails.application.routes.draw do
 
     resources :conversations, only: [:index, :show, :destroy] do
     member do
+      post :reply
       post :restore
       post :mark_as_read
     end

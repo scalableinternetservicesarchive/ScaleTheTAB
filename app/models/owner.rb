@@ -7,5 +7,5 @@ class Owner < ActiveRecord::Base
 
   def mailboxer_email(object)
  	 email
-end
+  end
 end
