@@ -8,8 +8,8 @@ module RestaurantsHelper
 		"menu-#{menu.id}"
 	end
 
-	def cache_key_for_tables_row(table)
-		"table-#{table.id}"
+	def cache_key_for_menus_row(menu)
+		"menu-#{menu.id}"
 	end
 
 end
