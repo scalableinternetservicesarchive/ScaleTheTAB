@@ -17,7 +17,7 @@
             <ul class="nav navbar-nav pull-right">
                 <% if user_signed_in? %>
                 <p id = "signedinname" class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%= current_user.email %></a><br>
-                <%= link_to "Order History", user_order_historys_show_path %></p>
+                <%= link_to "Order History", "user_order_historys_show_path" %></p>
 		<%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
 
                 <% elsif owner_signed_in? %>

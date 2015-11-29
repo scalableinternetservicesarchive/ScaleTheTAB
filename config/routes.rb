@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-
-
-
+  get 'user_order_historys/show'
 
   devise_for :installs
   resources :checkouts
@@ -19,7 +17,6 @@ Rails.application.routes.draw do
   resources :menus
   resources :restaurants
   resources :tables
-
 
   get 'store/index'
   root to: 'restaurants#index'

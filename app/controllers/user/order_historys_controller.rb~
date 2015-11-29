@@ -1,0 +1,10 @@
+class User::OrderHistorysController < ApplicationController
+
+  def show
+		if user_signed_in?		
+			@tabs = Tab.where(user_id: current_user.id)
+			@checkouts = Checkout.where(tab_id: @tabs)		
+		end
+  end
+
+end
