@@ -1,6 +1,17 @@
 <div class="offset">
 	<h1>Your Order History</h1>
 	<% if defined?(@tabs) %>
-		<%= render @tabs %>
+		<table>
+			<th>
+				<td>Restaurant</td>
+				<td>Amount</td>
+			</th>
+			<% @info.each do |info| %>
+			<tr>
+				<td><%= info[0] %></td>
+				<td><%= info[1] %></td>
+			</tr>
+			<% end %>
+		</table>
 	<% end %> 
 </div>
