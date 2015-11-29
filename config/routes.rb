@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   resources :restaurants
   resources :tables
 
+
     resources :conversations, only: [:index, :show, :destroy] do
     member do
       post :reply
