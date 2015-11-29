@@ -144,7 +144,7 @@
           <th>Price</th>
           <th>Operations</th>
         </tr>
-        <%=render(menu.items)%>
+        <%=render(menu.items, :locals => { :set_tableid => @set_tableid })%>
       </table>
     </div>
     <% end %>
@@ -153,22 +153,9 @@
   </ul>
 
 
-  <div class="row">
-    <h2> Tables </h2>
-  </div>
-  <ul>
-    <div class="row">
-      <% @tables.each do |table|%>
-      <li><%= link_to table.name , table%> 
-      </li>
-      <br/>
-      <% end %>
-    </div>
-
-  </ul>
-
 </div> 
 
+<% if @set_tableid %>
 <div class="row">
 <!-- Cart div-->
 <div class="col-xs-6 col-md-4 offset">
@@ -192,5 +179,6 @@
   </div>
 </div>
 </div>
+<% end %>
 </div>
 <% end %>
