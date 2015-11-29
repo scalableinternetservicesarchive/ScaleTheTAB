@@ -20,8 +20,10 @@
 <div class = "row">
   <div class="col-xs-6 col-md-4">
     <% @restaurants.each do |r| %>
+    <% if not owner_signed_in? or (owner_signed_in? and r.owner_id == current_owner.id) %> 
     <p><%= link_to r.name , r %></p>
     <%=image_tag r.image.url(:medium) %>
+    <% end %>
     <% end %>
   </div>
 

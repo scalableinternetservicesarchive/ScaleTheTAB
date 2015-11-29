@@ -1,4 +1,7 @@
 <% if owner_signed_in? %>
+  <% if not @restaurant.owner_id == current_owner.id %>
+    <% controller.redirect_to root_path %>
+  <% end %>
 
 <div class="row row-custom">
 
