@@ -72,7 +72,8 @@ class CartsController < ApplicationController
 	#send message to kitchen
 
     @tab.carts << @cart
-    temp = @cart.line_items[0].item.menu.restaurant.owner_id
+    # temp = @cart.line_items[0].item.menu.restaurant.owner_id
+    temp = @tab.table.restaurant.owner_id
     temp1 = @cart.line_items[0].item
     s = ""
     noofitems = @cart.line_items.length
