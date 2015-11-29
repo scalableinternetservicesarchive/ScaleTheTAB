@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 1)
+    @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /restaurants/1
