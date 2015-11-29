@@ -1,33 +1,43 @@
 
-<p id="notice"><%= notice %></p>
-<br/><br/><br/>
+<!-- <p id="notice"><%= notice %></p>
+<br/><br/><br/> -->
 
-<% if owner_signed_in? %>
-<div class="row" style="margin-top: 75px">
-    <div align="right">
-      <%= button_to "Add Restaurant", new_restaurant_path, :method => "get", :class => " btn btn-default" %>
-    </div>
+
+<div class="row">
+	<% if owner_signed_in? %>
+	<% page_header 'Your Restaurants'%>
+	<div align="right">
+		<%= button_to "Add Restaurant", new_restaurant_path, :method => "get", :class => " btn-custom btn", :style =>"margin-top:-120px" %>
+	</div>
+	<% else %>
+	<% page_header 'Restaurants'%>
+	<% end %>
 </div>
-<% end %>
 
+<div align="center" style="margin-top: -50px">
+	<%= will_paginate @restaurants %>
+</div>
 
-<br>
-
-<h3> Restaurants </h3>
-<hr/>
-
-
-<div class = "row">
-  <div class="col-xs-6 col-md-4">
-    <% @restaurants.each do |r| %>
-    <% if not owner_signed_in? or (owner_signed_in? and r.owner_id == current_owner.id) %> 
-    <p><%= link_to r.name , r %></p>
+<% counter = 0 %>
+	<div class = "row">
+	<% @restaurants.each do |r| %>
+  	
+    
+    <% if counter % 3 == 0 and counter != 0 %>
+    	</div>
+    	<br>
+    	<div class = "row">
+    <% end %>	
+    	
+    	<div class="col-xs-6 col-md-4">
+    			<p><%= link_to r.name , r, :class => "link", :style => "font-size: 150%" %></p>
     <%=image_tag r.image.url(:medium) %>
-    <% end %>
-    <% end %>
-  </div>
+    	</div>
+    <% counter = counter + 1%>
+	<% end %>
+	</div>
 
-</div>
+
 
 
 

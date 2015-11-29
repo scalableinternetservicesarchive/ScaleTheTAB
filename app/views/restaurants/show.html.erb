@@ -47,8 +47,8 @@
 <ul>
   <% @menus.each do |menu|%>
   <div class="row">
-    <li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong></li>
-
+    <li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong> - [<%= link_to 'Delete Menu', menu, method: :delete, data: { confirm: 'Are you sure?' }, :class => "link" %>]</li>
+    
   </div>
   <br/>
 
@@ -132,7 +132,6 @@
     <% @menus.each do |menu|%>
     <div class="row">
       <li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong></li>
-
     </div>
     <br/>
 
@@ -145,7 +144,7 @@
           <th>Price</th>
           <th>Operations</th>
         </tr>
-        <%=render(menu.items)%>
+        <%=render(menu.items, :locals => { :set_tableid => @set_tableid })%>
       </table>
     </div>
     <% end %>
@@ -154,22 +153,9 @@
   </ul>
 
 
-  <div class="row">
-    <h2> Tables </h2>
-  </div>
-  <ul>
-    <div class="row">
-      <% @tables.each do |table|%>
-      <li><%= link_to table.name , table%> 
-      </li>
-      <br/>
-      <% end %>
-    </div>
-
-  </ul>
-
 </div> 
 
+<% if @set_tableid %>
 <div class="row">
 <!-- Cart div-->
 <div class="col-xs-6 col-md-4 offset">
@@ -193,5 +179,6 @@
   </div>
 </div>
 </div>
+<% end %>
 </div>
 <% end %>

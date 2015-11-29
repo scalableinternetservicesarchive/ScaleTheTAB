@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   include CurrentTab
+  include ApplicationHelper
   before_action :set_tab, only: [:add_to_order]
   before_action :set_cart, only: [:show, :edit, :update, :destroy, :add_to_order]
 
@@ -71,9 +72,27 @@ class CartsController < ApplicationController
 	#send message to kitchen
 
     @tab.carts << @cart
+    # temp = @cart.line_items[0].item.menu.restaurant.owner_id
+    temp = @tab.table.restaurant.owner_id
+    temp1 = @cart.line_items[0].item
+    s = ""
+    noofitems = @cart.line_items.length
+    @cart.line_items.each{|lineitem|
+      s = s  + lineitem.quantity.to_s + "X   "+lineitem.item.title + "\n"
+    }
+
+    temp2 = @tab.table_id
+    puts "*************************************"
+     puts temp2.inspect
+    # puts temp.inspect
+    # puts temp1.inspect
+    # puts "*************************************"
+
+    sendmsg(temp, temp2, s)
+    
     session[:cart_id] = nil
     respond_to do |format|
-      format.html { redirect_to @cart.line_items[0].item.menu.restaurant }
+      format.html { redirect_to :back}
       format.js
       format.json { head :no_content }
     end
