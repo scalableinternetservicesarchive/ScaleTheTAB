@@ -24,12 +24,9 @@ class CheckoutsController < ApplicationController
   # POST /checkouts
   # POST /checkouts.json
   def create
-#<<<<<<< HEAD
- #   @checkout = Checkout.new({tab_id: params[:tab_id]})
-#=======
     @checkout = Checkout.new({tab_id: session[:tab_id]})
-#>>>>>>> 7434722fcdd50cc5ec3b92ceed317af88383f2c3
     session[:tab_id] = nil
+    session[:cart_id] = nil
 
     respond_to do |format|
       if @checkout.save
