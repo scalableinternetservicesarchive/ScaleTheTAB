@@ -16,7 +16,7 @@
             </div>
             <ul class="nav navbar-nav pull-right">
                 <% if user_signed_in? %>
-                <p id = "signedinname" class="navbar-text navbar-right">Signed in as <a href="#" class="navbar-link"><%= current_user.email %></a><br>
+                <p id = "signedinname" class="navbar-text navbar-right" style="margin-top:20px">Signed in as <%= current_user.email %><br>
                 <%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
 
                 <% elsif owner_signed_in? %>
