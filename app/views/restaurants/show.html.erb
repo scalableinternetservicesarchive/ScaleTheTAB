@@ -47,8 +47,8 @@
 <ul>
   <% @menus.each do |menu|%>
   <div class="row">
-    <li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong></li>
-
+    <li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong> - [<%= link_to 'Delete Menu', menu, method: :delete, data: { confirm: 'Are you sure?' }, :class => "link" %>]</li>
+    
   </div>
   <br/>
 
@@ -132,7 +132,6 @@
     <% @menus.each do |menu|%>
     <div class="row">
       <li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong></li>
-
     </div>
     <br/>
 

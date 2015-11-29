@@ -16,6 +16,7 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+ @import 'bootstrap/theme';
 
 #brand{
 	color: #800080;
@@ -35,7 +36,7 @@
 }
 
 .row-custom {
-	margin-top:100px;
+	margin-top:15px;
 }
 
 
@@ -100,4 +101,15 @@
 
 .table, .table-default, .table-bordered{
 	border: none;
+}
+
+.messages {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 1em;
+  margin-top: 1em;
+}
+
+#emptytrash{
+	color: #FFFFFF;
 }
