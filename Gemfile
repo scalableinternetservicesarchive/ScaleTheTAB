@@ -13,6 +13,11 @@ gem "paperclip", "~> 4.3"
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem "mailboxer"
+
+#For AWS
+gem 'aws-sdk', '< 2.0'
+gem 'fog-aws'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
