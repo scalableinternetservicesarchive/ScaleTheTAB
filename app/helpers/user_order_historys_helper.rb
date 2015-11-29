@@ -1,0 +1,2 @@
+module UserOrderHistorysHelper
+end

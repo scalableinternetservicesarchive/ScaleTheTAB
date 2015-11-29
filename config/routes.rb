@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-
-
  get 'messages/new'
 
   get 'conversations/index'
+  get 'user_order_historys/show'
 
   devise_for :installs
   resources :checkouts
@@ -21,7 +20,6 @@ Rails.application.routes.draw do
   resources :menus
   resources :restaurants
   resources :tables
-
 
     resources :conversations, only: [:index, :show, :destroy] do
     member do
