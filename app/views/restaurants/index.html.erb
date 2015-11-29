@@ -7,22 +7,30 @@
 	<% if owner_signed_in? %>
 	<% page_header 'Your Restaurants'%>
 	<div align="right">
-		<%= button_to "Add Restaurant", new_restaurant_path, :method => "get", :class => " btn btn-default", :style =>"margin-top:-80px" %>
+		<%= button_to "Add Restaurant", new_restaurant_path, :method => "get", :class => " btn-custom btn", :style =>"margin-top:-120px" %>
 	</div>
 	<% else %>
 	<% page_header 'Restaurants'%>
 	<% end %>
 </div>
 
-<div class = "row">
-  <div class="col-xs-6 col-md-4">
-    <% @restaurants.each do |r| %>
-    <p><%= link_to r.name , r %></p>
+<% counter = 0 %>
+	<% @restaurants.each do |r| %>
+  	
+    
+    <% if counter % 3 == 0 %>
+    </div>
+    <div class = "row">
+    	
+    <% else %>
+    	<div class="col-xs-6 col-md-4">
+    			<p><%= link_to r.name , r, :class => "link", :style => "font-size: 150%" %></p>
     <%=image_tag r.image.url(:medium) %>
+    	</div>
     <% end %>
-  </div>
+    <% counter = counter + 1%>
+<% end %>
 
-</div>
 
 
 
