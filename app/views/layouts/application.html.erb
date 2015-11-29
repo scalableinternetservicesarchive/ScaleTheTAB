@@ -20,11 +20,15 @@
                 <%= link_to "Logout", destroy_user_session_path, method: :delete %></p>
 
                 <% elsif owner_signed_in? %>
-                <li>Logged in as <span class="text-color"><%= current_owner.email %></span>.</button></li>
-                <li>
-                    <%= link_to "Logout", destroy_owner_session_path, method: :delete, class:"logout" %>
-                </li>
-                <li><li><%= link_to 'Your Conversations', conversations_path %></li></li>
+                <div class="row" align="right" style="margin-right: 15px">
+                  <%= link_to 'Your Orders', conversations_path, :class => "link", :style => "font-size: 150%" %>
+                </div>
+                
+                <p id = "signedinname" class="navbar-text navbar-right" style="margin-top:20px">Signed in as <%= current_owner.email %><br>
+                
+                <%= link_to "Logout", destroy_owner_session_path, method: :delete, :class => "link"%>
+                
+                
                 <% else %>
 
                 <ul id="SignIn" class="nav navbar-nav navbar-right">
@@ -47,15 +51,17 @@
 
 <div class="container">
 
-    <% flash.each do |key, value| %>
+    
+
+  <div class="page-header">
+    <h1 class="offset"><%= yield :page_header %></h1>
+</div>
+
+<% flash.each do |key, value| %>
     <div class="alert alert-<%= key %>">
       <%= value %>
   </div>
   <% end %>
-
-  <div class="page-header">
-    <h1><%= yield :page_header %></h1>
-</div>
 
 
 <%= yield %>

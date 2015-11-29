@@ -1,21 +1,18 @@
 
-<p id="notice"><%= notice %></p>
-<br/><br/><br/>
+<!-- <p id="notice"><%= notice %></p>
+<br/><br/><br/> -->
 
-<% if owner_signed_in? %>
-<div class="row" style="margin-top: 75px">
-    <div align="right">
-      <%= button_to "Add Restaurant", new_restaurant_path, :method => "get", :class => " btn btn-default" %>
-    </div>
+
+<div class="row">
+	<% if owner_signed_in? %>
+	<% page_header 'Your Restaurants'%>
+	<div align="right">
+		<%= button_to "Add Restaurant", new_restaurant_path, :method => "get", :class => " btn btn-default", :style =>"margin-top:-80px" %>
+	</div>
+	<% else %>
+	<% page_header 'Restaurants'%>
+	<% end %>
 </div>
-<% end %>
-
-
-<br>
-
-<h3> Restaurants </h3>
-<hr/>
-
 
 <div class = "row">
   <div class="col-xs-6 col-md-4">
