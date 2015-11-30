@@ -14,7 +14,16 @@
 	<% end %>
 </div>
 
-<div align="center" style="margin-top: -50px">
+<div class="row">
+	<%= form_tag(restaurants_path, :method => "get", id: "search-form") do %>
+		<%= text_field_tag :search_name, params[:search_name], placeholder: "Search by Name" %>
+		<%= text_field_tag :search_city, params[:search_city], placeholder: "Search by City" %>
+		<%= text_field_tag :search_zip_code, params[:search_zip_code], placeholder: "Search by Zip Code" %>
+		<%= submit_tag "Search" %>
+	<% end %>
+</div>
+
+<div align="center" style="margin-top: 50px">
 	<%= will_paginate @restaurants %>
 </div>
 
