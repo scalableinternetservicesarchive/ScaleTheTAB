@@ -1,10 +1,14 @@
+<% cache("item-#{item.id}") do %>
 <tr >
   <td><%= item.title %></td>
   <td><%= item.description %></td>
   <td><%= image_tag(item.image.url(:medium), class: 'img-rounded', size: "150x100") %></td>
   <td><%= number_to_currency(item.price) %><!--</td>
   <td>-->
+    <% if not owner_signed_in?%>
+    
     <%= button_to 'Order', line_items_path(item_id: item), remote: true %>
+    <% end %>
  <!-- <td><%= if item.menu 
            " " + item.menu.title + " "
         else
@@ -17,3 +21,4 @@
   <% end %>
 </td>
 </tr>
+<% end %>
