@@ -1,42 +1,22 @@
-<!DOCTYPE html>
-<html>
-<body>
-  <div id="columns">
-		<% if user_signed_in? %>
-    	<div id="side">
-      	<div id="cart">
-      	  <%= render(@cart) %>
-      	</div>
-      	<div id="tab">
-        	<%= render(@tab) %>
-      	</div>
-	  		<div id="checkout">
-					<%= button_to "Checkout", { :controller => "tabs", :action => "checkout", :id => @tab.id} %>
-				</div>
-    	</div>
-		<% end %>
-  <div id="main">
-    <p id="notice"><%= notice %></p>
+<% if owner_signed_in? %>
+  <% if not @restaurant.owner_id == current_owner.id %>
+    <% controller.redirect_to root_path %>
+  <% end %>
 
-
-<div class="row" align="left" style="margin-left:20px">
-<%= button_to "Back", restaurants_path, :method => "get", :class => "btn btn-default" %>
-</div>
-
-<br><br><br>
-
-<div class="container">
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title" style="align: left"><%= @restaurant.name %></h3>
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-md-6">
-        <%=image_tag @restaurant.image.url(:medium) %>
-      </div>
-      <div class="col-md-6">
-        <table class="table">
+<div class="row row-custom">
+<% cache(cache_key_for_restaurants_row(@restaurant)) do %>
+  <h2><%= @restaurant.name %></h2> 
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-6">
+          <%=image_tag @restaurant.image.url(:medium) %>
+        </div>
+        <div class="col-md-6">
+         <div class="row" align="right" style="margin-right:10px">
+          <%= link_to 'Edit', edit_restaurant_path(@restaurant), :method => "get", :class => "link"%>
+        </div>
+        <table class="table table-bordered">
           <tr>
             <td><strong>Description:   </strong></td>
             <td> <%= @restaurant.description %> </td>
@@ -45,83 +25,188 @@
             <td><strong> Address: </strong></td>
             <td> <%= @restaurant.address %></td>
           </tr>
-           <tr>
+          <tr>
             <td><strong> Telephone No: </strong></td>
             <td> <%= number_to_phone(@restaurant.tell) %></td>
           </tr>
         </table>
       </div>
+    </div>
   </div>
 </div>
-<% if owner_signed_in? %>
-<div class="row" align="right" style="margin-right:20px">
-  <%= link_to 'Edit', edit_restaurant_path(@restaurant), :method => "get", :class => "btn btn-default"%>
 </div>
-<% end %>
- 
-</div>
-
 <hr/>
+<% end %>
 
-<h3>Menus</h3>
+<div class="row">
+  <h2> Menus </h2>
+  <div align="right"> 
+    <%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id), :class => "link" %>
+  </div>
+</div>
+
 <ul>
-<% @menus.each do |menu|%>
+  <% @menus.each do |menu|%>
+	<% cache (cache_key_for_menus_row(menu)) do %>
+  	<div class="row">
+    	<li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong></li>
+
+  	</div>
+  	<br/>
+
+  	<div>
+    	<table class="table">
+    	  <tr>
+    	    <th>Title</th>
+    	    <th>Desc</th>
+      	  <th>Image</th>
+      	  <th>Price</th>
+      	  <th>Operations</th>
+      	</tr>
+      	<%=render(menu.items)%>
+    	</table>
+    	<%= link_to "Add Item", new_item_path(menu_id: menu.id), :class => "link" %>
+  	</div>
+	<% end %>
+  <% end %>
 
 
-<li><strong><%= link_to menu.title , menu %></strong></li>
-<br/>
+</ul>
 
-  <div>
-    <table >
-      <tr>
-        <th>
-          Title
-        </th>
-        <th>
-          Desc
-        </th>
-        <th>
-          Image
-        </th>
-        <th>
-          Price
-        </th>
-        <th>
-          Operations
-        </th>
 
-      </tr>
-      <%=render(menu.items)%>
-    </table>
-  
-
-  <br/>
-    <% if owner_signed_in? %>
-    <%= link_to "Add Item", new_item_path(menu_id: menu.id) %>
+<div class="row">
+  <h2> Tables </h2>
+  <div align="right"> 
+    <%= link_to "Add Table", new_table_path(restaurant_id: @restaurant.id), :class => "link" %>
+  </div>
+</div>
+<ul>
+  <div class="row">
+    <% @tables.each do |table|%>
+			<% cache (cache_key_for_tables_row(table)) do %>
+    		<li><%= link_to table.name , table%> 
+    		</li>
+    		<br/>
+			<% end %>
     <% end %>
   </div>
 
-
-<br/>
-<% end %>
-<% if owner_signed_in? %>
-<%= link_to "Add Menu", new_menu_path(restaurant_id: @restaurant.id) %>
-<% end %>
 </ul>
 
-<hr/>
+<!-- #########################Customer View########################## -->
+<% else %>
+<div class="row">
+  <!-- Restaurant div-->
+	<% cache (cache_key_for_restaurants_row(@restaurant)) do %>
+  <div class="col-xs-12 col-md-8">
+    <div class="row row-custom">
 
-<h3>Tables</h3>
-<ul>
-<% @tables.each do |table|%>
-<li><%= link_to table.name , table%> 
-</li>
-<br/>
+      <h2><%= @restaurant.name %></h2> 
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-6">
+              <%=image_tag @restaurant.image.url(:medium) %>
+            </div>
+            <div class="col-md-6">
+            <table class="table table-bordered">
+              <tr>
+                <td><strong>Description:   </strong></td>
+                <td> <%= @restaurant.description %> </td>
+              </tr>
+              <tr>
+                <td><strong> Address: </strong></td>
+                <td> <%= @restaurant.address %></td>
+              </tr>
+              <tr>
+                <td><strong> Telephone No: </strong></td>
+                <td> <%= number_to_phone(@restaurant.tell) %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr/>
+	<% end %>
+
+  <div class="row">
+    <h2> Menus </h2>
+  </div>
+
+  <ul>
+    <% @menus.each do |menu|%>
+		<% cache (cache_key_for_menus_row(menu)) do %>
+    <div class="row">
+      <li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong></li>
+    </div>
+    <br/>
+
+    <div>
+      <table class="table">
+        <tr>
+          <th>Title</th>
+          <th>Desc</th>
+          <th>Image</th>
+          <th>Price</th>
+          <th>Operations</th>
+        </tr>
+        <%=render(menu.items, :locals => { :set_tableid => @set_tableid })%>
+      </table>
+    </div>
+		<% end %>
+    <% end %>
+
+
+  </ul>
+
+
+<<<<<<< HEAD
+=======
+  <div class="row">
+    <h2> Tables </h2>
+  </div>
+  <ul>
+    <div class="row">
+      <% @tables.each do |table|%>
+			<% cache (cache_key_for_tables_row(table)) do %>
+    		<li><%= link_to table.name , table%> 
+    		</li>
+    		<br/>
+			<% end %>
+    <% end %>
+    </div>
+
+  </ul>
+
+>>>>>>> adding fragment caching
+</div> 
+
+<% if @set_tableid %>
+<div class="row">
+<!-- Cart div-->
+<div class="col-xs-6 col-md-4 offset">
+  <div id="columns">
+
+    <div id="side">
+      <div id="cart">
+        <%= render(@cart) %>
+      </div>
+      <div id="tab">
+        <%= render(@tab) %>
+      </div>
+      <div id="checkout">
+        <%= button_to "Checkout", { :controller => "tabs", :action => "checkout", :id => @tab.id} %>
+      </div>
+    </div>
+    
+    <div id="main">
+      <p id="notice"><%= notice %></p>
+    </div>
+  </div>
+</div>
+</div>
 <% end %>
-<% if owner_signed_in? %>
-<%= link_to "Add Table", new_table_path(restaurant_id: @restaurant.id) %>
+</div>
 <% end %>
-</ul>
-
-
-

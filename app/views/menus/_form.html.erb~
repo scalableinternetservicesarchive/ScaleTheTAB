@@ -1,5 +1,9 @@
+<<<<<<< HEAD
+<div class="row" align="center">
+=======
 <% cache ("menu_form") do %>
 <div class="row offset" align="center">
+>>>>>>> adding fragment caching
   <div class="border-form-div">
     <%= form_for(@menu) do |f| %>
     <% if @menu.errors.any? %>

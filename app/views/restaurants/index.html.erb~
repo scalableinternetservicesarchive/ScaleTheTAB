@@ -18,6 +18,7 @@
 	<%= will_paginate @restaurants %>
 </div>
 
+<<<<<<< HEAD
 <% counter = 0 %>
 	<div class = "row">
 	<% @restaurants.each do |r| %>
@@ -35,6 +36,15 @@
     	</div>
 	<% end %>
     <% counter = counter + 1%>
+=======
+<div class = "row">
+  <div class="col-xs-6 col-md-4">
+    <% @restaurants.each do |r| %>
+			<% cache(cache_key_for_restaurants_row(r)) do %>
+				<p><%= link_to r.name , r %></p>
+    		<%=image_tag r.image.url(:medium) %>
+			<% end %>
+>>>>>>> adding fragment caching
     <% end %>
 	<% end %>
 	</div>

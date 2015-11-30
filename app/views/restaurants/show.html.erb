@@ -4,7 +4,7 @@
   <% end %>
 
 <div class="row row-custom">
-
+<% cache(cache_key_for_restaurants_row(@restaurant)) do %>
   <h2><%= @restaurant.name %></h2> 
   <div class="panel panel-default">
     <div class="panel-body">
@@ -36,6 +36,7 @@
 </div>
 </div>
 <hr/>
+<% end %>
 
 <div class="row">
   <h2> Menus </h2>
@@ -46,25 +47,27 @@
 
 <ul>
   <% @menus.each do |menu|%>
-  <div class="row">
-    <li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong> - [<%= link_to 'Delete Menu', menu, method: :delete, data: { confirm: 'Are you sure?' }, :class => "link" %>]</li>
-    
-  </div>
-  <br/>
+	<% cache (cache_key_for_menus_row(menu)) do %>
+  	<div class="row">
+    	<li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong></li>
 
-  <div>
-    <table class="table">
-      <tr>
-        <th>Title</th>
-        <th>Desc</th>
-        <th>Image</th>
-        <th>Price</th>
-        <th>Operations</th>
-      </tr>
-      <%=render(menu.items)%>
-    </table>
-    <%= link_to "Add Item", new_item_path(menu_id: menu.id), :class => "link" %>
-  </div>
+  	</div>
+  	<br/>
+
+  	<div>
+    	<table class="table">
+    	  <tr>
+    	    <th>Title</th>
+    	    <th>Desc</th>
+      	  <th>Image</th>
+      	  <th>Price</th>
+      	  <th>Operations</th>
+      	</tr>
+      	<%=render(menu.items)%>
+    	</table>
+    	<%= link_to "Add Item", new_item_path(menu_id: menu.id), :class => "link" %>
+  	</div>
+	<% end %>
   <% end %>
 
 
@@ -80,9 +83,11 @@
 <ul>
   <div class="row">
     <% @tables.each do |table|%>
-    <li><%= link_to table.name , table%> 
-    </li>
-    <br/>
+			<% cache (cache_key_for_tables_row(table)) do %>
+    		<li><%= link_to table.name , table%> 
+    		</li>
+    		<br/>
+			<% end %>
     <% end %>
   </div>
 
@@ -92,6 +97,7 @@
 <% else %>
 <div class="row">
   <!-- Restaurant div-->
+	<% cache (cache_key_for_restaurants_row(@restaurant)) do %>
   <div class="col-xs-12 col-md-8">
     <div class="row row-custom">
 
@@ -123,6 +129,7 @@
     </div>
   </div>
   <hr/>
+	<% end %>
 
   <div class="row">
     <h2> Menus </h2>
@@ -130,6 +137,7 @@
 
   <ul>
     <% @menus.each do |menu|%>
+		<% cache (cache_key_for_menus_row(menu)) do %>
     <div class="row">
       <li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong></li>
     </div>
@@ -147,6 +155,7 @@
         <%=render(menu.items, :locals => { :set_tableid => @set_tableid })%>
       </table>
     </div>
+		<% end %>
     <% end %>
 
 
