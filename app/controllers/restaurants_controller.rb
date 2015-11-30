@@ -7,6 +7,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
+
     if params[:search_name] or params[:search_city] or params[:search_zip_code]
       if not params[:search_name]
         search_name_field = '%'
@@ -31,6 +32,11 @@ class RestaurantsController < ApplicationController
         @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
       end
     end
+
+    @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
+    #Client Side Caching using etag
+    fresh_when(:etag => @restaurants)
+
   end
 
   # GET /restaurants/1
@@ -45,7 +51,9 @@ class RestaurantsController < ApplicationController
     @menus = @restaurant.menus
     @tables = @restaurant.tables
     @table_id = params[:table_id]
-		
+
+    #Client side Caching using Etag
+		fresh_when(:etag => [@restaurant, @menus])
 		#create tab and cart if user is signed in or is in guest mode AND table_id is set
 		if not owner_signed_in? and params[:table_id]
 			@tab = set_tab
