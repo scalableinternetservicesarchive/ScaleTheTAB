@@ -19,16 +19,22 @@
  @import 'bootstrap/theme';
 
 #brand{
-	color: #800080;
+	color: #FFFFFF;
 	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 250%;
 	margin-top: 25px;
 	text-decoration: overline;
 	letter-spacing: 3px;
+
 }
 
 #navbar{
-	height: 100px;
+	height: 75px;
+	
+}
+
+#nav{
+	background-color: #800080;
 }
 
 #SignIn{
@@ -79,12 +85,13 @@
 }
 
 .link:hover{
-	background: white;
+	background: #FFFFFF;
 	color: #800080;
 }
 
 #signedinname{
 	margin-top:60px;
+	color: #FFFFFF;
 }
 
 .panel-default {
@@ -112,4 +119,12 @@
 
 #emptytrash{
 	color: #FFFFFF;
+}
+
+.text{
+	color: #FFFFFF;
+}
+
+.form-control, .form-control:focus{
+	border: 1px solid #800080;
 }
