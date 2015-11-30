@@ -25,8 +25,12 @@ class CheckoutsController < ApplicationController
   # POST /checkouts.json
   def create
 		@tab_id = session[:tab_id]
-		@restaurant_name = Tab.find(@tab_id).table.restaurant.name
-    @checkout = Checkout.new({tab_id: session[:tab_id]})
+		@tab = Tab.find(@tab_id)
+		@restaurant_name = @tab.table.restaurant.name
+		@amount = @tab.carts.to_a.sum do |cart|
+			cart.total_price
+		end
+    @checkout = Checkout.new({tab_id: @tab_id, restaurant_name: @restaurant_name, amount: @amount})
     session[:tab_id] = nil
     session[:cart_id] = nil
 

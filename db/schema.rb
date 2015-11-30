@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151130005433) do
+ActiveRecord::Schema.define(version: 20151130021834) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at",             null: false
@@ -23,14 +23,16 @@ ActiveRecord::Schema.define(version: 20151130005433) do
   add_index "carts", ["tab_id"], name: "index_carts_on_tab_id", using: :btree
 
   create_table "checkouts", force: :cascade do |t|
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.integer  "tab_id",          limit: 4
     t.string   "restaurant_name", limit: 255
-    t.integer  "amount",          limit: 4
+    t.decimal  "amount",                      precision: 8, scale: 2
+    t.integer  "user_id",         limit: 4
   end
 
   add_index "checkouts", ["tab_id"], name: "index_checkouts_on_tab_id", using: :btree
+  add_index "checkouts", ["user_id"], name: "index_checkouts_on_user_id", using: :btree
 
   create_table "installs", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -208,6 +210,7 @@ ActiveRecord::Schema.define(version: 20151130005433) do
 
   add_foreign_key "carts", "tabs"
   add_foreign_key "checkouts", "tabs"
+  add_foreign_key "checkouts", "users"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "items"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
