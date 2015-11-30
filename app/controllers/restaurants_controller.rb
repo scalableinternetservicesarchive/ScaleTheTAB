@@ -25,7 +25,11 @@ class RestaurantsController < ApplicationController
       end
       @restaurants = Restaurant.search(search_name_field, search_city_field, search_zip_code_field).paginate(page: params[:page], per_page: 5)
     else
-      @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
+      if owner_signed_in?
+        @restaurants = Restaurant.where("owner_id = ?", current_owner.id).paginate(page: params[:page], per_page: 5)
+      else
+        @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
+      end
     end
   end
 
