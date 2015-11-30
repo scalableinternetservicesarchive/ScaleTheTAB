@@ -36,7 +36,7 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
     #Client Side Caching using etag
 
-    fresh_when(:etag => [@restaurants, current_user])
+    #fresh_when(:etag => @restaurants)
 
   end
 
@@ -53,8 +53,14 @@ class RestaurantsController < ApplicationController
     @tables = @restaurant.tables
     @table_id = params[:table_id]
 
+
+    # expires_in 0.5.minutes
     #Client side Caching using Etag
 		#fresh_when(:etag => [@restaurant, @menus])
+    # puts "*************************************"
+    # puts @menus.last.updated_at.utc
+    # puts @tables.inspect
+    # fresh_when(:etag => [@restaurant.updated_at.utc, @menus.last.updated_at.utc])
 		#create tab and cart if user is signed in or is in guest mode AND table_id is set
 		if not owner_signed_in? and params[:table_id]
 			@tab = set_tab
