@@ -1,4 +1,4 @@
-<h2>Your tab <%= tab.user_id %> <%= tab.table_id %> </h2>
+<h2>Your tab</h2>
 <table>
   <% tab.carts.each do |cart| %>
     <tr>
@@ -11,3 +11,22 @@
     <td><strong><%= number_to_currency(tab.total_bill) %></strong></td>
   </tr>
 </table>
+
+
+class User::OrderHistorysController < ApplicationController
+
+  def show
+		if user_signed_in?		
+			@tabs = Tab.where(user_id: current_user.id)
+			@checkouts = Checkout.where(tab_id: @tabs)	
+		end
+  end
+
+end
+<div class="offset">
+	<h1>Your Order History</h1>
+	<% if defined?(@tabs) %>
+		<% render @tabs %>
+	<% end %> 
+</div>
+
