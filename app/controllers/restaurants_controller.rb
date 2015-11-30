@@ -37,6 +37,10 @@ class RestaurantsController < ApplicationController
     #Client Side Caching using etag
 
 
+
+    fresh_when(:etag => [@restaurants, current_user])
+
+
     fresh_when(:etag => [@restaurants, current_user])
 
 
@@ -57,9 +61,13 @@ class RestaurantsController < ApplicationController
 
     #Client side Caching using Etag
 
+
 		#fresh_when(:etag => [@restaurant, @menus])
 
   	#fresh_when(:etag => [@restaurant, @menus])
+
+
+		#fresh_when(:etag => [@restaurant, @menus])
 
 		#create tab and cart if user is signed in or is in guest mode AND table_id is set
 		if not owner_signed_in? and params[:table_id]
