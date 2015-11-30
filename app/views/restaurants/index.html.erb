@@ -21,7 +21,7 @@
 <% counter = 0 %>
 	<div class = "row">
 	<% @restaurants.each do |r| %>
-  	
+  	<% if not owner_signed_in? or (owner_signed_in? and current_owner.id == r.owner_id) %>
     
     <% if counter % 3 == 0 and counter != 0 %>
     	</div>
@@ -34,6 +34,7 @@
     <%=image_tag r.image.url(:medium) %>
     	</div>
     <% counter = counter + 1%>
+    <% end %>
 	<% end %>
 	</div>
 
