@@ -37,10 +37,7 @@ class RestaurantsController < ApplicationController
     #Client Side Caching using etag
 
 
-
-
-
-    fresh_when(:etag => [@restaurants, current_user])
+    fresh_when(:etag => [@restaurants, current_owner, current_user])
 
 
   end
@@ -63,20 +60,11 @@ class RestaurantsController < ApplicationController
     #Client side Caching using Etag
 
 
-		#fresh_when(:etag => [@restaurant, @menus])
-
-  	#fresh_when(:etag => [@restaurant, @menus])
-
-
-		#fresh_when(:etag => [@restaurant, @menus])
-<<<<<<< 69379fe41cb4e2d1b180accdb69340125e406544
-
-=======
     # puts "*************************************"
     # puts @menus.last.updated_at.utc
     # puts @tables.inspect
     # fresh_when(:etag => [@restaurant.updated_at.utc, @menus.last.updated_at.utc])
->>>>>>> problems with caching
+
 		#create tab and cart if user is signed in or is in guest mode AND table_id is set
 		if not owner_signed_in? and params[:table_id]
 			@tab = set_tab
