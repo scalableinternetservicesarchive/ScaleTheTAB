@@ -39,7 +39,6 @@ class RestaurantsController < ApplicationController
 
     fresh_when(:etag => [@restaurants, current_owner, current_user])
 
-
   end
 
   # GET /restaurants/1
@@ -59,6 +58,7 @@ class RestaurantsController < ApplicationController
     # expires_in 0.5.minutes
     #Client side Caching using Etag
 
+		#fresh_when(:etag => [@restaurant, @menus])
 
     # puts "*************************************"
     # puts @menus.last.updated_at.utc
