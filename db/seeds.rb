@@ -14,7 +14,7 @@ Restaurant.delete_all
 User.delete_all
 
 
-for i in 0..10000 do
+for i in 0..10 do
 	owner = Owner.create({email: "o#{i}@seed.com" , password: '12345678' , password_confirmation: '12345678'})
 	restaurant = Restaurant.create({name: "Rest #{i}", description: "Rest #{i} Desc" , address: '123 Somewhere' , 
 		city: 'Los Angeles' , zip_code: '90001' , tell: "8001112233" , owner_id: owner.id})
@@ -27,7 +27,7 @@ for i in 0..10000 do
 end
 
 
-for u in 0..10000 do
+for u in 0..10 do
 	User.create({email: "u#{u}@seed.com" , password: '12345678' , password_confirmation: '12345678'})
 end
 
