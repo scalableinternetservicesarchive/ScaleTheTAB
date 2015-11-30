@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
-    @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 1)
+    @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /restaurants/1
@@ -22,11 +22,13 @@ class RestaurantsController < ApplicationController
     @menus = @restaurant.menus
     @tables = @restaurant.tables
     @table_id = params[:table_id]
-		if not owner_signed_in?
+		
+		#create tab and cart if user is signed in or is in guest mode AND table_id is set
+		if not owner_signed_in? and params[:table_id]
 			@tab = set_tab
 			@cart = set_cart
 		end
-
+		@tab.inspect
   end
 
   # GET /restaurants/new

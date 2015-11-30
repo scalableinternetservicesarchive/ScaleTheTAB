@@ -13,7 +13,7 @@ gem "paperclip", "~> 4.3"
 gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem "mailboxer"
-
+gem 'newrelic_rpm'
 #For AWS
 gem 'aws-sdk', '< 2.0'
 gem 'fog-aws'
