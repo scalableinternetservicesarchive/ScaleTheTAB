@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126033247) do
+ActiveRecord::Schema.define(version: 20151130005433) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at",             null: false
@@ -23,9 +23,11 @@ ActiveRecord::Schema.define(version: 20151126033247) do
   add_index "carts", ["tab_id"], name: "index_carts_on_tab_id", using: :btree
 
   create_table "checkouts", force: :cascade do |t|
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-    t.integer  "tab_id",     limit: 4
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "tab_id",          limit: 4
+    t.string   "restaurant_name", limit: 255
+    t.integer  "amount",          limit: 4
   end
 
   add_index "checkouts", ["tab_id"], name: "index_checkouts_on_tab_id", using: :btree
