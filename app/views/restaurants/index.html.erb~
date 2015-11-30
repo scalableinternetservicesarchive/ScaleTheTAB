@@ -44,7 +44,7 @@
 				<p><%= link_to r.name , r %></p>
     		<%=image_tag r.image.url(:medium) %>
 			<% end %>
->>>>>>> adding fragment caching
+>>>>>>> 1181102e1ccb14d2f427c605a01b546ba6ee3ad2
     <% end %>
 	<% end %>
 	</div>
