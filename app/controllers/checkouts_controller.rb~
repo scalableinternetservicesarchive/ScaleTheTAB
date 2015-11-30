@@ -24,11 +24,13 @@ class CheckoutsController < ApplicationController
   # POST /checkouts
   # POST /checkouts.json
   def create
-    @checkout = Checkout.new(tab_id: params[:tab_id])
+    @checkout = Checkout.new({tab_id: session[:tab_id]})
+    session[:tab_id] = nil
+    session[:cart_id] = nil
 
     respond_to do |format|
       if @checkout.save
-        format.html { redirect_to @checkout, notice: 'Checkout was successfully created.' }
+        format.html { redirect_to root_path, notice: 'The payment was successful . Thank you!' }
         format.json { render :show, status: :created, location: @checkout }
       else
         format.html { render :new }
