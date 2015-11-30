@@ -36,7 +36,7 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
     #Client Side Caching using etag
 
-    #fresh_when(:etag => @restaurants)
+    fresh_when(:etag => [@restaurants, current_owner, current_user])
 
   end
 
