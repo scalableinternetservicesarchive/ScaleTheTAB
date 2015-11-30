@@ -34,7 +34,7 @@ class LineItemsController < ApplicationController
         response.headers['createdId']=@line_item.id.to_s
         response.headers['cart_id']=@line_item.cart.id.to_s
 puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-        puts @line_item.cart.inspect
+        puts @line_item.cart.inspect  
        #  response.headers['tab_id']=@line_item.cart.tab.id.to_s
         format.html { redirect_to @line_item.item.menu.restaurant, notice: 'Line item was successfully created.' }
         format.js
@@ -49,7 +49,7 @@ puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
-    
+
     respond_to do |format|
       if @line_item.update(line_item_params)
         response.headers['createdId']=@line_item.id.to_s

@@ -95,12 +95,12 @@ class CartsController < ApplicationController
     
     session[:cart_id] = nil
     respond_to do |format|
-<<<<<<< HEAD
+#<<<<<<< HEAD
         response.headers['tab_id']=@tab.id.to_s
-      format.html { redirect_to @cart.line_items[0].item.menu.restaurant }
-=======
+#      format.html { redirect_to @cart.line_items[0].item.menu.restaurant }
+#=======
       format.html { redirect_to :back}
->>>>>>> dev
+#>>>>>>> dev
       format.js
       format.json { head :no_content }
     end
