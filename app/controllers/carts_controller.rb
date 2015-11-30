@@ -90,7 +90,7 @@ class CartsController < ApplicationController
     # puts temp.inspect
     # puts temp1.inspect
     # puts "*************************************"
-
+#
     sendmsg(temp, temp2, s)
     
     session[:cart_id] = nil
