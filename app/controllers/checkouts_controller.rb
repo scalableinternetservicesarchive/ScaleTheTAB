@@ -24,6 +24,9 @@ class CheckoutsController < ApplicationController
   # POST /checkouts
   # POST /checkouts.json
   def create
+		@tab_id = session[:tab_id]
+		@restaurant_name = Tab.find(@tab_id).table.restaurant.name
+		
     @checkout = Checkout.new({tab_id: session[:tab_id]})
     session[:tab_id] = nil
     session[:cart_id] = nil

@@ -1,0 +1,4 @@
+class AddAmountToCheckouts < ActiveRecord::Migration
+  def change
+  end
+end
