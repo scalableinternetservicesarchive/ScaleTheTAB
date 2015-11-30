@@ -17,6 +17,7 @@ gem 'newrelic_rpm'
 #For AWS
 gem 'aws-sdk', '< 2.0'
 gem 'fog-aws'
+gem 'seed_dump'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
