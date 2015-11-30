@@ -14,6 +14,7 @@ gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem "mailboxer"
 gem 'newrelic_rpm'
+gem 'ruby-prof'
 #For AWS
 gem 'aws-sdk', '< 2.0'
 gem 'fog-aws'
