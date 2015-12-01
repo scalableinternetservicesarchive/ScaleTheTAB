@@ -3,7 +3,9 @@
 # 1. add gem 'faker' into gemfile
 # 2. bundle install
 # 3. Place the AWS credentials in 'aws.yml' & 'aws_export.sh' before doing rake db:seed
-# 4. Run rake db:seed
+# 4. Create a folder '#{Rails-root}/load-test' and paste any jpg file in the folder 
+#    (you can copy the placeholder.jpg in this branch)
+# 5. Run rake db:seed
 #********************************************
 
 require 'Faker'
