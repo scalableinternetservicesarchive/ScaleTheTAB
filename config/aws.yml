@@ -1,11 +1,11 @@
 development:
-  access_key_id: AKIAJDRANJLHHDSFC5RA
-  secret_access_key: 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
+  access_key_id: 
+  secret_access_key: 
 
 test:
-  access_key_id: AKIAJDRANJLHHDSFC5RA
-  secret_access_key: 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
+  access_key_id: 
+  secret_access_key: 
 
 production:
-  access_key_id: AKIAJDRANJLHHDSFC5RA
-  secret_access_key: 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
+  access_key_id: 
+  secret_access_key: 
