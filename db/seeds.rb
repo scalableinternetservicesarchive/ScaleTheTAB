@@ -32,7 +32,7 @@ Owner.delete_all
 #***************************
 # Creating Users
 #***************************
-user_id_count = 1
+user_id_count = 2
 total_no_of_users.times{
   user = User.create(
     id: user_id_count,
@@ -41,12 +41,17 @@ total_no_of_users.times{
   )
   user_id_count = user_id_count + 1
 }
+user = User.create(
+    id: "1",
+    email: "u1@seed.com",
+    password: "password"
+  )
 
 
 #***************************
 # Creating Owners 
 #***************************
-owner_id_count = 1
+owner_id_count = 2
 total_no_of_owners.times{
   owner = Owner.create(
     id: owner_id_count,
@@ -55,6 +60,11 @@ total_no_of_owners.times{
   )
   owner_id_count = owner_id_count + 1
 }
+owner = Owner.create(
+    id: "1",
+    email: "o1@seed.com",
+    password: "password"
+  )
 
 #***************************
 # Creating Restaurants
