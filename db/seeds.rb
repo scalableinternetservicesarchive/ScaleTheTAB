@@ -17,14 +17,14 @@ total_no_of_items = 30
 total_no_of_tables = 10
 
 
-Menu.delete_all
-Item.delete_all
-Restaurant.delete_all
 LineItem.delete_all
+Item.delete_all
+Menu.delete_all
 Cart.delete_all
 Checkout.delete_all
 Tab.delete_all
 Table.delete_all
+Restaurant.delete_all
 User.delete_all
 Owner.delete_all
 
