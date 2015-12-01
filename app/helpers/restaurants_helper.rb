@@ -1,7 +1,7 @@
 module RestaurantsHelper
 
 	def cache_key_for_restaurants_row(rest)
-		"restaurant-#{rest.id}"
+		"restaurant-#{rest.id}-{rest.updated_at}"
 	end
 
 	def cache_key_for_menus_row(menu)

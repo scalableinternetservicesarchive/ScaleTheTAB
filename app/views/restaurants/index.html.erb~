@@ -37,19 +37,27 @@
 	<div class = "row">
 		<% @restaurants.each do |r| %>
 
-			<% if counter % 3 == 0 and counter != 0 %>
-				</div>
-				<br>
-				<div class = "row">
-    	<% end %>	
-    		<% cache(cache_key_for_restaurants_row(r)) do %>
-    			<div class="col-xs-6 col-md-4">
-    					<p><%= link_to r.name , r, :class => "link", :style => "font-size: 150%" %></p>
-    					<%=image_tag r.image.url(:medium) %>
-    			</div>
-    			<% counter = counter + 1%>
-    		<% end %>
-		<% end %>
+		<% if counter % 3 == 0 and counter != 0 %>
+	</div>
+	<br>
+	<div class = "row">
+	<% @restaurants.each do |r| %>
+  	<% if not owner_signed_in? or (owner_signed_in? and current_owner.id == r.owner_id) %>
+    
+    <% if counter % 3 == 0 and counter != 0 %>
+    	</div>
+    	<br>
+    	<div class = "row">
+    <% end %>	
+    	<% cache(cache_key_for_restaurants_row(r)) do %>
+    	<div class="col-xs-6 col-md-4">
+    			<p><%= link_to r.name , r, :class => "link", :style => "font-size: 150%" %></p>
+    <%=image_tag r.image.url(:medium) %>
+    	</div>
+	<% end %>
+    <% counter = counter + 1%>
+    <% end %>
+	<% end %>
 	</div>
 
 

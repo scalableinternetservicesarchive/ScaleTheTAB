@@ -4,7 +4,7 @@
   <% end %>
 
 <div class="row row-custom">
-<% cache(cache_key_for_restaurants_row(@restaurant)) do %>
+<% cache(cache_key_for_restaurants_page(@restaurant)) do %>
   <h2><%= @restaurant.name %></h2> 
   <div class="panel panel-default">
     <div class="panel-body">
@@ -161,26 +161,6 @@
 
   </ul>
 
-
-<<<<<<< HEAD
-=======
-  <div class="row">
-    <h2> Tables </h2>
-  </div>
-  <ul>
-    <div class="row">
-      <% @tables.each do |table|%>
-			<% cache (cache_key_for_tables_row(table)) do %>
-    		<li><%= link_to table.name , table%> 
-    		</li>
-    		<br/>
-			<% end %>
-    <% end %>
-    </div>
-
-  </ul>
-
->>>>>>> 1181102e1ccb14d2f427c605a01b546ba6ee3ad2
 </div> 
 
 <% if @set_tableid %>
