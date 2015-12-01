@@ -10,7 +10,7 @@ class UserOrderHistorysController < ApplicationController
 				end
 				@info << [@rest, @amount]
 			end
-
+			fresh_when(:etag => @info)
 		end  
 	end
 end

@@ -1,11 +1,12 @@
-<div class="offset">
-	<h1>Your Order History</h1>
+<div align = "center">
+	<% page_header 'Your Order History'%>
 	<% if defined?(@tabs) %>
-		<table class = "table">
-			<th>
-				<td>Restaurant</td>
-				<td>Amount</td>
-			</th>
+	<div class = "border-form-div" align="center" style="margin-top:-5px">
+		<table class = "table table-bordered">
+			<tr>
+				<th>Restaurant</th>
+				<th>Amount</th>
+			</tr>
 			<% @info.each do |info| %>
 			<tr>
 				<td><%= info[0] %></td>
@@ -13,5 +14,7 @@
 			</tr>
 			<% end %>
 		</table>
+	</div>
 	<% end %> 
+
 </div>

@@ -48,14 +48,20 @@ class RestaurantsController < ApplicationController
     @set_tableid = false
   end
     @menus = @restaurant.menus
+    
+    @items = []
+    @menus.each do |m|
+      @items << m.items
+    end
+    
+
     @tables = @restaurant.tables
     @table_id = params[:table_id]
-
 
     # expires_in 0.5.minutes
     #Client side Caching using Etag
 
-		#fresh_when(:etag => [@restaurant, @menus])
+		fresh_when(:etag => [@restaurant, @menus, @items, @tables, params[:table_id]])
 
     # puts "*************************************"
     # puts @menus.last.updated_at.utc
