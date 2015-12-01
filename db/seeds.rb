@@ -1,13 +1,17 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#********************************************
+# Steps:
+# 1. add gem 'faker' into gemfile
+# 2. bundle install
+# 3. Place the AWS credentials in 'aws.yml' & 'aws_export.sh' before doing rake db:seed
+# 4. Run rake db:seed
+#********************************************
 
 require 'Faker'
 include Faker
+
+total_no_of_users = 5
+total_no_of_owners = 5
+total_no_of_rest = 5
 
 Restaurant.delete_all
 LineItem.delete_all
@@ -17,44 +21,31 @@ Tab.delete_all
 User.delete_all
 Owner.delete_all
 
-
-# 1.times{
-# 	item = Item.create(
-# 		title: Company.name,
-# 		description: Lorem.paragraphs,
-# 		image_url: Company.bs,
-# 		price: Number.decimal(2),
-# 		menu_id: rand(1..10),
-# 		image_file_name: Company.name
-# 	)
-# 	puts item.inspect
-# }
-
-total_no_of_users = 5
-total_no_of_owners = 5
-total_no_of_rest = 5
-
-
-sample_restaurant_image = File.open("#{Rails.root}/load-tests/res4.jpg")
-
 #***************************
 # Creating Users
 #***************************
+user_id_count = 1
 total_no_of_users.times{
   user = User.create(
+    id: user_id_count,
     email: Internet.email,
     password: "password"
   )
+  user_id_count = user_id_count + 1
 }
+
 
 #***************************
 # Creating Owners 
 #***************************
+owner_id_count = 1
 total_no_of_owners.times{
   owner = Owner.create(
+    id: owner_id_count,
     email: Internet.email,
     password: "password"
   )
+  owner_id_count = owner_id_count + 1
 }
 
 #***************************
@@ -69,7 +60,7 @@ total_no_of_rest.times{
     city: Address.city_prefix,
     zip_code: Address.zip_code,
     tell: PhoneNumber.phone_number,
-    owner_id: rand(total_no_of_owners),
-    image_file_name: "res4.jpg"
+    owner_id: rand(1..total_no_of_owners),
+    image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
   )
 }
