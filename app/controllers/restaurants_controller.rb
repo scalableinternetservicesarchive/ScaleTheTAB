@@ -24,19 +24,16 @@ class RestaurantsController < ApplicationController
       else
         search_zip_code_field = params[:search_zip_code]
       end
-      @restaurants = Restaurant.search(search_name_field, search_city_field, search_zip_code_field).paginate(page: params[:page], per_page: 5)
+      @restaurants = Restaurant.search(search_name_field, search_city_field, search_zip_code_field).paginate(page: params[:page], per_page: 6)
     else
       if owner_signed_in?
-        @restaurants = Restaurant.where("owner_id = ?", current_owner.id).paginate(page: params[:page], per_page: 5)
+        @restaurants = Restaurant.where("owner_id = ?", current_owner.id).paginate(page: params[:page], per_page: 6)
       else
-        @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
+        @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 6)
       end
     end
-
-    @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
+    
     #Client Side Caching using etag
-
-
     fresh_when(:etag => [@restaurants, current_owner, current_user])
 
   end
