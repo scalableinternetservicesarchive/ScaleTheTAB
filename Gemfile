@@ -14,7 +14,7 @@ gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem "mailboxer"
 gem 'newrelic_rpm'
-gem 'faker'
+#gem 'faker'
 #For AWS
 gem 'aws-sdk', '< 2.0'
 gem 'fog-aws'
