@@ -310,6 +310,23 @@
         </http>
       </request>
       <thinktime value="2" random="true"/>
+
+
+
+        <request subst="true">
+        <http url="/menus/%%_created_menu_id%%/edit" version="1.1" method="GET"></http>
+      </request>
+
+      <thinktime value="2" random="true"/>
+
+      <request subst="true">
+        <http url="/menus/%%_created_mwnu_id_header" version="1.1" method="POST" contents="menu%5Btitle%5D=menu_updated_%%_random_menu_name%%&amp;menu%5Bdescription%5D=some_desc_%%_random_menu_name%%&amp;menu%5Brestaurant_id%5D=%%_created_restaurant_id%%&amp;commit=Create+Menu">
+        </http>
+      </request>
+      <thinktime value="2" random="true"/>
+
+
+
       <setdynvars sourcetype="random_number" start="1000" end="9999999">
         <var name="random_item_name"/>
       </setdynvars>
@@ -347,13 +364,6 @@
 
 	    <thinktime value="2" random="true"></thinktime>
 <!--
-                     <request subst="true">
-        <http url="%%_created_table_url%%" method="DELETE">
-        </http>
-      </request>
-
-      <thinktime value="2" random="true"/>
--->
       <request subst="true">
         <http url="%%_created_item_url%%" method="DELETE">
         </http>
@@ -365,13 +375,22 @@
         <http url="%%_created_menu_url%%" method="DELETE">
         </http>
       </request>
-      
+
+      <thinktime value="2" random="true"/>
+
+      <request subst="true">
+        <http url="%%_created_table_url%%" method="DELETE">
+        </http>
+      </request>
+
       <thinktime value="2" random="true"/>
       <request subst="true">
         <http url="%%_created_restaurant_url%%" method="DELETE">
         </http>
       </request>
       <thinktime value="2" random="true"/>
+
+    -->
       </session>
 
 
@@ -450,7 +469,7 @@
 
        <session name="Restaurant-Customer-LoggedIn" probability="0" type="ts_http">
         <request subst="true">
-        <http url="/users/sign_in" version="1.1" method="POST" contents="user%5Bemail%5D=u1@seed.com&amp;            user%5Bpassword%5D=12345678&amp;           commit=Sign In">
+        <http url="/users/sign_in" version="1.1" method="POST" contents="user%5Bemail%5D=u1@seed.com&amp;            user%5Bpassword%5D=password&amp;           commit=Sign In">
         </http>
       </request>
       <request>
