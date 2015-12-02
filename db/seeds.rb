@@ -90,18 +90,18 @@ total_no_of_rest.times{
   menu = Menu.create(
     id: rest_id_count,
     restaurant_id: rest_id_count,
-    title: Lorem.word,
-    description: Lorem.sentence(3)
+    title: Faker::Lorem.word,
+    description: Faker::Lorem.sentence(3)
   )
   puts menu.inspect
 
   item = Item.create(
     id: rest_id_count,
     menu_id: rest_id_count,
-    title: Lorem.word,
-    description: Lorem.sentence(3),
+    title: Faker::Lorem.word,
+    description: Faker::Lorem.sentence(3),
     image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
-    price: Commerce.price,
+    price: Faker::Commerce.price,
     
   )
 
@@ -110,7 +110,7 @@ total_no_of_rest.times{
   total_no_of_tables.times{
   table = Table.create(
     id: rest_id_count*10+table_id_count,
-    name: Lorem.word,
+    name: Faker::Lorem.word,
     restaurant_id: rest_id_count
   )
   puts table.inspect
