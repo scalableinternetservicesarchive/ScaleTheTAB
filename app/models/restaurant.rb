@@ -5,6 +5,6 @@ class Restaurant < ActiveRecord::Base
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
 	def self.search(name_field, city_field, zip_code_field)
-		where("name LIKE ? AND city LIKE ? AND zip_code LIKE ?", "%#{name_field}%", "%#{city_field}%", "%#{zip_code_field}%")
+		where("name LIKE ? AND city LIKE ? AND zip_code = ?", "%#{name_field}%", "%#{city_field}%", "%#{zip_code_field}%")
 	end
 end
