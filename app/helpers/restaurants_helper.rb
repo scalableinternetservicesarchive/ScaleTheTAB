@@ -1,7 +1,7 @@
 module RestaurantsHelper
 
 	def cache_key_for_restaurant_page(rest)
-		"restaurant-#{rest.id}-#{rest.updated_at}-#{current_user}-#{current_owner}"
+		"restaurant-#{rest.id}-#{rest.updated_at}-#{user_signed_in?}-#{owner_signed_in?}"
 	end
 
 	def cache_key_for_restaurants_row(rest)
@@ -21,7 +21,7 @@ module RestaurantsHelper
 	end
 	
 	def cache_key_for_items_row(item)
-		"item-#{item.id}-#{item.updated_at}-#{current_user}-#{current_owner}"
+		"item-#{item.id}-#{item.updated_at}-#{user_signed_in?}-#{owner_signed_in?}"
 	end
 
 	def cache_key_for_tables_row(table)

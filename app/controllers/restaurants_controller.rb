@@ -23,12 +23,15 @@ class RestaurantsController < ApplicationController
       else
         search_zip_code_field = params[:search_zip_code]
       end
-      @restaurants = Restaurant.search(search_name_field, search_city_field, search_zip_code_field).paginate(page: params[:page], per_page: 5)
+			@cache_key = "#{search_name_field}-#{search_city_field}-#{search_zip_code_field}-#{params[:page]}"
+      @restaurants = Rails.cache.fetch(@cache_key, expires_in: 24.hours) do
+				Restaurant.search(search_name_field, search_city_field, search_zip_code_field).paginate(page: params[:page], per_page: 5)
+			end
     else
       if owner_signed_in?
         @restaurants = Restaurant.where("owner_id = ?", current_owner.id).paginate(page: params[:page], per_page: 5)
       else
-        @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
+	      @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
       end
     end
   end
@@ -37,21 +40,18 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.json
   def show
     @restaurant = Restaurant.find(params[:id])
-    if params[:table_id]
-    @set_tableid = true
-  else
-    @set_tableid = false
-  end
-    @menus = @restaurant.menus
-    @tables = @restaurant.tables
     @table_id = params[:table_id]
+		if @table_id
+    	@set_tableid = true
+  	else
+    	@set_tableid = false
+  	end
 		
 		#create tab and cart if user is signed in or is in guest mode AND table_id is set
-		if not owner_signed_in? and params[:table_id]
+		if not owner_signed_in? and @table_id
 			@tab = set_tab
 			@cart = set_cart
 		end
-		@tab.inspect
   end
 
   # GET /restaurants/new

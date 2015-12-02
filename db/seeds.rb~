@@ -11,10 +11,10 @@
 
 total_no_of_users = 5
 total_no_of_owners = 5
-total_no_of_rest = 10
-total_no_of_menus = 25
-total_no_of_items = 30  
-total_no_of_tables = 10
+total_no_of_rest = 6
+total_no_of_menus = 4
+total_no_of_items = 3  
+total_no_of_tables = 3
 
 
 LineItem.delete_all

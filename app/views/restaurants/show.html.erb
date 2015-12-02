@@ -47,7 +47,7 @@
   </div>
 
   <ul>
-    <% @menus.each do |menu|%>
+    <% @restaurant.menus.each do |menu|%>
   	<% cache (cache_key_for_menus_row(menu)) do %>
     	<div class="row">
       	<li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong></li>
@@ -83,7 +83,7 @@
   </div>
   <ul>
     <div class="row">
-      <% @tables.each do |table|%>
+      <% @restaurant.tables.each do |table|%>
   			<% cache (cache_key_for_tables_row(table)) do %>
       		<li><%= link_to table.name , table%> 
       		</li>
@@ -137,7 +137,7 @@
     </div>
 
     <ul>
-      <% @menus.each do |menu|%>
+      <% @restaurant.menus.each do |menu|%>
   		<% cache (cache_key_for_menus_row(menu)) do %>
       <div class="row">
         <li><strong><%= link_to menu.title , menu, :class => "link med-text" %></strong></li>

@@ -11,7 +11,7 @@
 
 total_no_of_users = 5
 total_no_of_owners = 5
-total_no_of_rest = 3
+total_no_of_rest = 15
 total_no_of_menus = 4
 total_no_of_items = 3  
 total_no_of_tables = 3

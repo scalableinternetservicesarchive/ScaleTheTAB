@@ -1,14 +1,14 @@
 module RestaurantsHelper
 
 	def cache_key_for_restaurant_page(rest)
-		"restaurant-#{rest.id}-#{rest.updated_at}-#{current_user}-#{current_owner}"
+		"restaurant-#{rest.id}-#{rest.updated_at}-#{user_signed_in?}-#{owner_signed_in?}"
 	end
 
 	def cache_key_for_restaurants_row(rest)
 		"restaurant-#{rest.id}-#{rest.updated_at}"
 	end
 
-	def cache_key_for_restaurants_row(rest)
+	def cache_key_for_restaurants_form(rest)
 		"restaurant-#{rest.id}-#{rest.updated_at}"
 	end
 
