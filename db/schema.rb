@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201070320) do
+ActiveRecord::Schema.define(version: 20151202021527) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at",             null: false
@@ -177,10 +177,12 @@ ActiveRecord::Schema.define(version: 20151201070320) do
 
   create_table "tables", force: :cascade do |t|
     t.string   "name",          limit: 255
-    t.integer  "restaurant_id", limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "restaurant_id", limit: 4
   end
+
+  add_index "tables", ["restaurant_id"], name: "index_tables_on_restaurant_id", using: :btree
 
   create_table "tabs", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -220,6 +222,7 @@ ActiveRecord::Schema.define(version: 20151201070320) do
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
   add_foreign_key "menus", "restaurants"
   add_foreign_key "restaurants", "owners"
+  add_foreign_key "tables", "restaurants"
   add_foreign_key "tabs", "tables"
   add_foreign_key "tabs", "users"
 end
