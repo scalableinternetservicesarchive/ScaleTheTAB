@@ -80,3 +80,4 @@ bower.json
 .DS_Store
 
 config/aws.yml
+Gemfile.lock
