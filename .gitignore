@@ -79,4 +79,4 @@ bower.json
 
 .DS_Store
 
-aws.yml
+config/aws.yml
