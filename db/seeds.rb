@@ -2,8 +2,7 @@
 # Steps:
 # 1. add gem 'faker' into gemfile
 # 2. bundle install
-# 3. Place the AWS credentials in 'aws.yml' & 'aws_export.sh' before doing rake db:seed
-# 4. Run rake db:seed
+# 3. Run rake db:seed
 #********************************************
 
 require 'Faker'
