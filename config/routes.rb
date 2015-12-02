@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   get 'conversations/index'
   get 'user_order_historys/show'
 
-  devise_for :installs
   resources :checkouts
   devise_for :owners
   devise_for :users
