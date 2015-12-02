@@ -1,10 +1,11 @@
+<<<<<<< HEAD
 
 
-total_no_of_users = 1000
-total_no_of_owners = 1000
-total_no_of_rest = 1000
-total_no_of_menus = 1000
-total_no_of_items = 1000  
+total_no_of_users = 2
+total_no_of_owners = 2
+total_no_of_rest = 2
+total_no_of_menus = 2
+total_no_of_items = 2  
 total_no_of_tables = 2
 
 
@@ -12,6 +13,42 @@ total_no_of_tables = 2
 
 puts "Started creating users...."
 user_id_count = 2
+=======
+#********************************************
+# Steps:
+# 1. add gem 'faker' into gemfile
+# 2. bundle install
+# 3. Run rake db:seed
+#********************************************
+
+require 'Faker'
+include Faker
+
+total_no_of_users = 10
+total_no_of_owners = 10
+total_no_of_rest = 100
+total_no_of_menus = 10
+total_no_of_items = 20  
+total_no_of_tables = 5
+
+
+
+LineItem.delete_all
+Item.delete_all
+Menu.delete_all
+Cart.delete_all
+Checkout.delete_all
+Tab.delete_all
+Table.delete_all
+Restaurant.delete_all
+User.delete_all
+Owner.delete_all
+
+#***************************
+# Creating Users
+#***************************
+user_id_count = 1
+>>>>>>> Seeds up
 total_no_of_users.times{
   user = User.create(
     id: user_id_count,
