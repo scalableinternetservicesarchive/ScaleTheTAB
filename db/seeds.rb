@@ -9,12 +9,12 @@
 require 'Faker'
 include Faker
 
-total_no_of_users = 2
-total_no_of_owners = 2
-total_no_of_rest = 2
-total_no_of_menus = 2
-total_no_of_items = 2  
-total_no_of_tables = 3
+total_no_of_users = 10
+total_no_of_owners = 10
+total_no_of_rest = 100
+total_no_of_menus = 10
+total_no_of_items = 20  
+total_no_of_tables = 5
 
 
 
@@ -84,6 +84,17 @@ total_no_of_rest.times{
   )
   puts menu.inspect
 
+  item = Item.create(
+    id: rest_id_count,
+    menu_id: rest_id_count,
+    title: Lorem.word,
+    description: Lorem.sentence(3),
+    image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
+    price: Commerce.price,
+    
+  )
+
+
   table_id_count = 1
   total_no_of_tables.times{
   table = Table.create(
@@ -109,23 +120,13 @@ total_no_of_menus.times{
     title: Lorem.word,
     description: Lorem.sentence(3)
   )
-  
-
-  item = Item.create(
-    id: menu_id_count,
-    title: Lorem.word,
-    description: Lorem.sentence(3),
-    image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
-    price: Commerce.price,
-    menu_id: menu_id_count
-  )
 menu_id_count = menu_id_count + 1
 }
-
-#***************************
-# Creating Items
-#***************************
-item_id_count = menu_id_count + 1
+menu_id_count = menu_id_count - 1 
+# #***************************
+# # Creating Items
+# #***************************
+item_id_count = total_no_of_rest + 1
 total_no_of_items.times{
   item = Item.create(
     id: item_id_count,
