@@ -9,17 +9,17 @@ class RestaurantsController < ApplicationController
   def index
     if params[:search_name] or params[:search_city] or params[:search_zip_code]
       if not params[:search_name]
-        search_name_field = '%'
+        search_name_field = ''
       else
         search_name_field = params[:search_name]
       end
       if not params[:search_city]
-        search_city_field = '%'
+        search_city_field = ''
       else
         search_city_field = params[:search_city]
       end
       if not params[:search_zip_code]
-        search_zip_code_field = '%'
+        search_zip_code_field = ''
       else
         search_zip_code_field = params[:search_zip_code]
       end
