@@ -9,12 +9,13 @@
 require 'Faker'
 include Faker
 
-total_no_of_users = 5
-total_no_of_owners = 5
-total_no_of_rest = 10
-total_no_of_menus = 25
-total_no_of_items = 30  
-total_no_of_tables = 10
+total_no_of_users = 2
+total_no_of_owners = 2
+total_no_of_rest = 2
+total_no_of_menus = 2
+total_no_of_items = 2  
+total_no_of_tables = 3
+
 
 
 LineItem.delete_all
@@ -59,6 +60,7 @@ total_no_of_owners.times{
 # Creating Restaurants
 #***************************
 rest_id_count = 1
+
 total_no_of_rest.times{
   restaurant = Restaurant.create(
     id: rest_id_count,
@@ -72,13 +74,34 @@ total_no_of_rest.times{
     owner_id: rand(1..total_no_of_owners),
     image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
   )
+  
+  puts restaurant.inspect
+  menu = Menu.create(
+    id: rest_id_count,
+    restaurant_id: rest_id_count,
+    title: Lorem.word,
+    description: Lorem.sentence(3)
+  )
+  puts menu.inspect
+
+  table_id_count = 1
+  total_no_of_tables.times{
+  table = Table.create(
+    id: rest_id_count*10+table_id_count,
+    name: Lorem.word,
+    restaurant_id: rest_id_count
+  )
+  puts table.inspect
+  table_id_count = table_id_count + 1
+
+}#end of tables
   rest_id_count = rest_id_count + 1
 }
 
 #***************************
 # Creating Menus
 #***************************
-menu_id_count = 1
+menu_id_count = total_no_of_rest + 1
 total_no_of_menus.times{
   menu = Menu.create(
     id: menu_id_count,
@@ -86,13 +109,23 @@ total_no_of_menus.times{
     title: Lorem.word,
     description: Lorem.sentence(3)
   )
-  menu_id_count = menu_id_count + 1
+  
+
+  item = Item.create(
+    id: menu_id_count,
+    title: Lorem.word,
+    description: Lorem.sentence(3),
+    image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
+    price: Commerce.price,
+    menu_id: menu_id_count
+  )
+menu_id_count = menu_id_count + 1
 }
 
 #***************************
 # Creating Items
 #***************************
-item_id_count = 1
+item_id_count = menu_id_count + 1
 total_no_of_items.times{
   item = Item.create(
     id: item_id_count,
@@ -100,7 +133,7 @@ total_no_of_items.times{
     description: Lorem.sentence(3),
     image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
     price: Commerce.price,
-    menu_id: rand(1..total_no_of_menus)
+    menu_id: rand(1..menu_id_count)
   )
   item_id_count = item_id_count + 1
 }
@@ -108,12 +141,11 @@ total_no_of_items.times{
 #***************************
 # Creating Tables
 #***************************
-table_id_count = 1
-total_no_of_tables.times{
-  table = Table.create(
-    id: table_id_count,
-    name: Lorem.word,
-    restaurant_id: rand(1..total_no_of_rest)
-  )
-  table_id_count = table_id_count + 1
-}
+# total_no_of_tables.times{
+#   table = Table.create(
+#     id: table_id_count,
+#     name: Lorem.word,
+#     restaurant_id: rand(1..total_no_of_rest)
+#   )
+#   table_id_count = table_id_count + 1
+# }
