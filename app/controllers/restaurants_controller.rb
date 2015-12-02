@@ -51,7 +51,6 @@ class RestaurantsController < ApplicationController
 			@tab = set_tab
 			@cart = set_cart
 		end
-		@tab.inspect
   end
 
   # GET /restaurants/new
