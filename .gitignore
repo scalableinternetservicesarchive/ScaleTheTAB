@@ -78,3 +78,5 @@ bower.json
 # .DS_Store
 
 .DS_Store
+
+aws.yml
