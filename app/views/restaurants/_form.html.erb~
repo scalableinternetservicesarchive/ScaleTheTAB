@@ -1,4 +1,4 @@
-
+<% cache("rest_form") do %>
 <div class="row offset" align="center" style="margin-top: -10px">
 
   <div class="border-form-div"> 
@@ -51,3 +51,4 @@
 <% end %>
 
 </div>
+<% end %>

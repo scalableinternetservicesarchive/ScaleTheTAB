@@ -1,13 +1,5 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<div class="row" align="center">
-=======
 <% cache ("menu_form") do %>
 <div class="row offset" align="center">
->>>>>>> adding fragment caching
-=======
-<div class="row offset" align="center">
->>>>>>> 1181102e1ccb14d2f427c605a01b546ba6ee3ad2
   <div class="border-form-div">
     <%= form_for(@menu) do |f| %>
     <% if @menu.errors.any? %>
@@ -46,7 +38,4 @@
 
 </div>
 </div>
-<<<<<<< HEAD
 <% end %>
-=======
->>>>>>> 1181102e1ccb14d2f427c605a01b546ba6ee3ad2

@@ -1,4 +1,4 @@
-<% cache ("item_form") do %>
+<% cache (cache_key_for_form(item)) do %>
 <div class="row" align="center">
   
   <div class="border-form-div">
@@ -40,3 +40,4 @@
   </div>
 
 </div>
+<% end %>

@@ -8,6 +8,10 @@ module RestaurantsHelper
 		"restaurant-#{rest.id}-#{rest.updated_at}"
 	end
 
+	def cache_key_for_restaurants_row(rest)
+		"restaurant-#{rest.id}-#{rest.updated_at}"
+	end
+
 	def cache_key_for_menus_row(menu)
 		key = "menu-#{menu.id}-#{menu.updated_at}"		
 		menu.items.each do |item|
@@ -17,7 +21,7 @@ module RestaurantsHelper
 	end
 	
 	def cache_key_for_items_row(item)
-		"item-#{item.id}-#{item.updated_at}"
+		"item-#{item.id}-#{item.updated_at}-#{current_user}-#{current_owner}"
 	end
 
 	def cache_key_for_tables_row(table)

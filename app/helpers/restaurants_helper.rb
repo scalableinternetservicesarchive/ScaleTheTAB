@@ -8,6 +8,10 @@ module RestaurantsHelper
 		"restaurant-#{rest.id}-#{rest.updated_at}"
 	end
 
+	def cache_key_for_restaurants_form(rest)
+		"restaurant-#{rest.id}-#{rest.updated_at}"
+	end
+
 	def cache_key_for_menus_row(menu)
 		key = "menu-#{menu.id}-#{menu.updated_at}"		
 		menu.items.each do |item|
