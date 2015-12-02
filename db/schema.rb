@@ -170,12 +170,10 @@ ActiveRecord::Schema.define(version: 20151201070320) do
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
-    t.integer  "owner_id_id",        limit: 4
     t.integer  "owner_id",           limit: 4
   end
 
   add_index "restaurants", ["owner_id"], name: "index_restaurants_on_owner_id", using: :btree
-  add_index "restaurants", ["owner_id_id"], name: "index_restaurants_on_owner_id_id", using: :btree
 
   create_table "tables", force: :cascade do |t|
     t.string   "name",          limit: 255
