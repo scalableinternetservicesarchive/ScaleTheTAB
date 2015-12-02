@@ -8,12 +8,12 @@
 require 'Faker'
 include Faker
 
-total_no_of_users = 2
-total_no_of_owners = 2
-total_no_of_rest = 10
-total_no_of_menus = 2
+total_no_of_users = 10
+total_no_of_owners = 10
+total_no_of_rest = 100
+total_no_of_menus = 10
 total_no_of_items = 20  
-total_no_of_tables = 3
+total_no_of_tables = 5
 
 
 
