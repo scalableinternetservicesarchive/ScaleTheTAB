@@ -1,10 +1,11 @@
+<% cache(cache_key_for_rest_page(@restaurant)) do %>
 <% if owner_signed_in? %>
   <% if not @restaurant.owner_id == current_owner.id %>
     <% controller.redirect_to root_path %>
   <% end %>
 
 <div class="row row-custom">
-<% cache(cache_key_for_restaurants_page(@restaurant)) do %>
+<% cache(cache_key_for_restaurants_row(@restaurant)) do %>
   <h2><%= @restaurant.name %></h2> 
   <div class="panel panel-default">
     <div class="panel-body">
@@ -189,4 +190,5 @@
 </div>
 <% end %>
 </div>
+<% end %>
 <% end %>

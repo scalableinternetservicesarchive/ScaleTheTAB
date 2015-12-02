@@ -1,4 +1,4 @@
-<% cache("item-#{item.id}") do %>
+<% cache(cache_key_for_items_row(item)) do %>
 <tr >
   <td><%= item.title %></td>
   <td><%= item.description %></td>

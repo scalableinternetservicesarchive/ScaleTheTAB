@@ -1,3 +1,4 @@
+<% cache(cache_key_for_restaurant_page(@restaurant)) do %>
 <% if owner_signed_in? %>
   <% if not @restaurant.owner_id == current_owner.id %>
     <% controller.redirect_to root_path %>
@@ -189,4 +190,5 @@
 </div>
 <% end %>
 </div>
+<% end %>
 <% end %>
