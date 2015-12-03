@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.save
-         response.headers['id']=@item.id.to_s
+         response.headers['createdId']=@item.id.to_s
         format.html { redirect_to @item.menu.restaurant, notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else

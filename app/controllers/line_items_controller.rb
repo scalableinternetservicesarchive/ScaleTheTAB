@@ -28,9 +28,14 @@ class LineItemsController < ApplicationController
   def create
     item = Item.find(params[:item_id])
     @line_item = @cart.add_product(item.id)
-
+    
     respond_to do |format|
       if @line_item.save
+        response.headers['createdId']=@line_item.id.to_s
+        response.headers['cart_id']=@line_item.cart.id.to_s
+puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        puts @line_item.cart.inspect  
+       #  response.headers['tab_id']=@line_item.cart.tab.id.to_s
         format.html { redirect_to @line_item.item.menu.restaurant, notice: 'Line item was successfully created.' }
         format.js
         format.json { render :show, status: :created, location: @line_item }
@@ -44,8 +49,14 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
+
     respond_to do |format|
       if @line_item.update(line_item_params)
+        response.headers['createdId']=@line_item.id.to_s
+        response.headers['cart_id']=@line_item.cart.id.to_s
+        puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        puts @line_item.cart.inspect
+       # response.headers['tab_id']=@line_item.cart.tab.id.to_s
         format.html { redirect_to @line_item, notice: 'Line item was successfully updated.' }
         format.json { render :show, status: :ok, location: @line_item }
       else

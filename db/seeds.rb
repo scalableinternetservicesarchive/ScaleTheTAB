@@ -1,10 +1,9 @@
 
-
 total_no_of_users = 1000
 total_no_of_owners = 1000
 total_no_of_rest = 1000
-total_no_of_menus = 1000
-total_no_of_items = 1000  
+total_no_of_menus = 2000
+total_no_of_items = 1000
 total_no_of_tables = 2
 
 
@@ -21,7 +20,7 @@ total_no_of_users.times{
   user_id_count = user_id_count + 1
 }
 user = User.create(
-    id: "1",
+    id: 1,
     email: "u1@seed.com",
     password: "password"
   )
@@ -40,7 +39,7 @@ total_no_of_owners.times{
   owner_id_count = owner_id_count + 1
 }
 owner = Owner.create(
-    id: "1",
+    id: 1,
     email: "o1@seed.com",
     password: "password"
   )
@@ -49,7 +48,7 @@ puts "Finished creating users...."
 
 puts "Started creating Restaurant 1...."
 restaurant = Restaurant.create(
-    id: "1",
+    id: 1,
     name: Faker::Lorem.word,
     image_url: "NULL",
     description: Faker::Lorem.sentence(3),
@@ -60,37 +59,6 @@ restaurant = Restaurant.create(
     owner_id: rand(1..total_no_of_owners),
     image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
   )
-
-# puts "Started creating Menus for Rest 1...."
-# menu = Menu.create(
-#  id: "1",
-#  restaurant_id: "1",
-#  title: Faker::Lorem.word,
-#  description: Faker::Lorem.sentence(3)
-# )
-
-# puts "Started creating for Item 1...."
-# item = Item.create(
-#  id: "1",
-#  menu_id: "1",
-#  title: Faker::Lorem.word,
-#  description: Faker::Lorem.sentence(3),
-#  image_file_name: "placeholder.jpg",
-#  image_content_type: "image/jpeg",
-#  image_file_size: "6386",
-#  price: Faker::Commerce.price
-# )
-
-# puts "Started creating Table 1...."
-# table_id_count = 1
-# total_no_of_tables.times{
-# table = Table.create(
-#  id: 1*10+table_id_count,
-#  name: Faker::Lorem.word,
-#  restaurant_id: "1"
-# )
-# table_id_count = table_id_count + 1
-# }
 
 rest_id_count = 2
 
@@ -130,7 +98,6 @@ total_no_of_rest.times{
     image_content_type: "image/jpeg",
     image_file_size: "6386",
     price: Faker::Commerce.price
-    
   )
 
 
@@ -177,6 +144,7 @@ total_no_of_items.times{
     image_file_name: "placeholder.jpg",
     image_content_type: "image/jpeg",
     image_file_size: "6386",
+
     price: Faker::Commerce.price,
     menu_id: rand(2..menu_id_count)
 
