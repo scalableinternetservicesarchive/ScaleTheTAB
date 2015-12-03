@@ -1,0 +1,592 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE tsung SYSTEM "/home/ec2-user/opt/tsung-1.5.0/share/tsung/tsung-1.0.dtd">
+
+<tsung loglevel="notice" version="1.0">
+  <clients>
+    <client host="localhost" use_controller_vm="true" maxusers="15000"/>
+  </clients>
+
+  <servers>
+    <server host="ec2-52-35-78-15.us-west-2.compute.amazonaws.com" port="80" type="tcp"/>
+  </servers>
+
+
+  <load>
+    <arrivalphase phase="1" duration="30" unit="second">
+      <users arrivalrate="1" unit="second"/>
+    </arrivalphase>
+<!-- 
+          <arrivalphase phase="2" duration="30" unit="second">
+      <users arrivalrate="2" unit="second"></users>
+    </arrivalphase>
+    <arrivalphase phase="3" duration="30" unit="second">
+      <users arrivalrate="4" unit="second"></users>
+    </arrivalphase>
+
+             <arrivalphase phase="4" duration="30" unit="second">
+     <users arrivalrate="8" unit="second"></users>
+   </arrivalphase>
+   <arrivalphase phase="5" duration="30" unit="second">
+     <users arrivalrate="16" unit="second"></users>
+   </arrivalphase>
+  <arrivalphase phase="6" duration="30" unit="second">
+     <users arrivalrate="32" unit="second"></users>
+   </arrivalphase>
+   <arrivalphase phase="7" duration="30" unit="second">
+     <users arrivalrate="64" unit="second"></users>
+   </arrivalphase>
+   <arrivalphase phase="8" duration="30" unit="second">
+     <users arrivalrate="128" unit="second"></users>
+   </arrivalphase>
+   <arrivalphase phase="9" duration="30" unit="second">
+     <users arrivalrate="256" unit="second"></users>
+   </arrivalphase>
+   <arrivalphase phase="10" duration="30" unit="second">
+     <users arrivalrate="512" unit="second"></users>
+   </arrivalphase>-->
+    </load>
+
+  <options>
+    <option name="global_ack_timeout" value="2000"/>
+
+    <option type="ts_http" name="user_agent">
+      <user_agent probability="100">Mozilla/5.0 (Windows; U; Windows NT 5.2; fr-FR; rv:1.7.8) Gecko/20050511 Firefox/1.0.4</user_agent>
+    </option>
+  </options>
+
+  <sessions>
+
+
+
+
+
+    <session name="Owner sign up" type="ts_http" probability="10">
+      <setdynvars sourcetype="random_number" start="1000" end="9999999">
+        <var name="random_owner_name"/>
+      </setdynvars>
+      <request>
+        <http url="/owners" version="1.1" method="POST" contents="owner%5Bemail%5D=Owner_%%_random_owner_name%%&amp;           owner%5Bpassword%5D=12345678&amp;           owner%5Bpassword-confirmation%5D=12345678&amp;           commit=Sign+Up">
+        </http>
+      </request>
+
+      <thinktime value="2" random="true"/>
+
+      <request>
+        <http url="/owners/sign_out" version="1.1" method="DELETE"></http>
+      </request>
+
+      <thinktime value="2" random="true"/>
+    </session>
+
+
+
+
+
+ 
+    <session name="User sign up" type="ts_http" probability="10">
+      <setdynvars sourcetype="random_number" start="1000" end="9999999">
+        <var name="random_user_name"/>
+      </setdynvars>
+      <request>
+         <http url="/users" version="1.1" method="POST" contents="user%5Bemail%5D=User_%%_random_user_name%%&amp;user%5Bpassword%5D=12345678&amp;           user%5Bpassword-confirmation%5D=12345678&amp;           commit=Sign+Up">
+        </http>
+      </request>
+      <thinktime value="2" random="true"/>
+      <request>
+        <http url="/users/sign_out" version="1.1" method="DELETE"></http>
+      </request>
+      <thinktime value="2" random="true"/>
+    </session>
+
+
+
+
+
+    <session name="Restaurant Search" type="ts_http" probability="1">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url="/restaurants?utf8=%E2%9C%93&amp;search_name=Lorem&amp;search_city=&amp;search_zip_code=&amp;commit=Search" version="1.1" method="GET"/>
+        
+      </request>
+       <thinktime value="2" random="true"/>
+    </session>
+
+    <session name="Restaurant Search" type="ts_http" probability="1">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url="/restaurants?utf8=%E2%9C%93&amp;search_name=ipsum&amp;search_city=&amp;search_zip_code=&amp;commit=Search" version="1.1" method="GET"/>
+        
+      </request>
+       <thinktime value="2" random="true"/>
+    </session>
+
+    <session name="Restaurant Search" type="ts_http" probability="1">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url="/restaurants?utf8=%E2%9C%93&amp;search_name=dolor&amp;search_city=&amp;search_zip_code=&amp;commit=Search" version="1.1" method="GET"/>
+        
+      </request>
+       <thinktime value="2" random="true"/>
+    </session>
+
+    <session name="Restaurant Search" type="ts_http" probability="1">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url="/restaurants?utf8=%E2%9C%93&amp;search_name=&amp;search_city=Harlem&amp;search_zip_code=&amp;commit=Search" version="1.1" method="GET"/>
+        
+      </request>
+       <thinktime value="2" random="true"/>
+    </session>
+
+    <session name="Restaurant Search" type="ts_http" probability="1">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url="/restaurants?utf8=%E2%9C%93&amp;search_name=&amp;search_city=Glendale&amp;search_zip_code=&amp;commit=Search" version="1.1" method="GET"/>
+        
+      </request>
+       <thinktime value="2" random="true"/>
+    </session>
+
+    <session name="Restaurant Search" type="ts_http" probability="1">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url="/restaurants?utf8=%E2%9C%93&amp;search_name=&amp;search_city=Hollywood&amp;search_zip_code=&amp;commit=Search" version="1.1" method="GET"/>
+        
+      </request>
+       <thinktime value="2" random="true"/>
+    </session>
+
+    <session name="Restaurant Search" type="ts_http" probability="1">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url="/restaurants?utf8=%E2%9C%93&amp;search_name=&amp;search_city=&amp;search_zip_code=90024&amp;commit=Search" version="1.1" method="GET"/>
+        
+      </request>
+       <thinktime value="2" random="true"/>
+    </session>
+
+    <session name="Restaurant Search" type="ts_http" probability="1">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url="/restaurants?utf8=%E2%9C%93&amp;search_name=&amp;search_city=&amp;search_zip_code=92617&amp;commit=Search" version="1.1" method="GET"/>
+        
+      </request>
+       <thinktime value="2" random="true"/>
+    </session>
+
+    <session name="Restaurant Search" type="ts_http" probability="2">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+      <request>
+        <http url="/restaurants?utf8=%E2%9C%93&amp;search_name=&amp;search_city=&amp;search_zip_code=10001&amp;commit=Search" version="1.1" method="GET"/>
+        
+      </request>
+       <thinktime value="2" random="true"/>
+    </session>
+
+
+
+
+
+
+
+    <session name="Pagination" type="ts_http" probability="20">
+      <request>
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+       <thinktime value="2" random="true"/>
+      <request>
+        <http url="/restaurants?page=1" version="1.1" method="GET"></http>
+      </request>
+       <thinktime value="2" random="true"/>
+        <request>
+        <http url="/restaurants?page=2" version="1.1" method="GET"></http>
+      </request>
+       <thinktime value="2" random="true"/>
+        <request>
+        <http url="/restaurants?page=3" version="1.1" method="GET"></http>
+      </request>
+       <thinktime value="2" random="true"/>
+        <request>
+        <http url="/restaurants?page=4" version="1.1" method="GET"></http>
+      </request>
+       <thinktime value="2" random="true"/>
+    </session>
+
+
+
+    <session name="User-Brouwsing-Different-Restaurants" type="ts_http" probability="10">
+      <setdynvars sourcetype="random_number" start="1" end="5"/>
+      <request >
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+       <thinktime value="2" random="true"/>
+      <request subst="true"> 
+        <dyn_variable name="menu_path" xpath="/html/body/div[@class='container']/div[@class='row']/div[@class='col-xs-12 col-md-8']/ul/div[@class='row'][1]/li/strong/a[@class='link med-text']/@href"/>
+        <http url="/restaurants/%%_random_number%%" version="1.1" method="GET"></http>
+      </request>
+      <setdynvars sourcetype="random_number" start="1" end="5"/>
+      <request >
+        <http url='/' version='1.1' method='GET'></http>
+      </request>
+       <thinktime value="2" random="true"/>
+      <request subst="true"> 
+        <dyn_variable name="menu_path" xpath="/html/body/div[@class='container']/div[@class='row']/div[@class='col-xs-12 col-md-8']/ul/div[@class='row'][1]/li/strong/a[@class='link med-text']/@href"/>
+        <http url="/restaurants/%%_random_number%%" version="1.1" method="GET"></http>
+      </request>
+      <thinktime value="2" random="true"/>
+    </session>
+
+
+
+
+    <session name="Restaurant-Management" probability="20" type="ts_http">
+      <request subst="true">
+        <http url="/owners/sign_in" version="1.1" method="POST" contents="owner%5Bemail%5D=o1@seed.com&amp;            owner%5Bpassword%5D=password&amp;           commit=Sign In">
+        </http>
+      </request>
+      <request>
+        <http url="/" version="1.1" method="GET"></http>
+      </request>
+      <thinktime value="2" random="true"/>
+      <request>
+        <http url="/restaurants" version="1.1" method="GET"></http>
+      </request>
+      <thinktime value="2" random="true"/>
+      <request>
+        <http url="/restaurants/new" version="1.1" method="GET"></http>
+      </request>
+      <thinktime value="2" random="true"/>
+      <setdynvars sourcetype="random_number" start="1000" end="9999999">
+        <var name="random_restaurant_name"/>
+      </setdynvars> 
+      <request subst="true">
+        <dyn_variable name="created_restaurant_url" re="[Ll]ocation: (http://.*)\r"/>
+        <dyn_variable name="created_restaurant_id" re="[Ll]ocation: http://.*/restaurants/(.*)\r"/>
+        <http url="/restaurants" version="1.1" method="POST" contents="restaurant%5Bname%5D=Restaurant_%%_random_restaurant_name%%&amp;           restaurant%5Bimage%5D=%%readafile:restaurant.jpg&amp;           commit=Create+Restaurant">
+        </http>
+      </request>
+
+      <request subst="true">
+        <http url="%%_created_restaurant_url%%" version="1.1" method="GET"></http>
+      </request>
+
+
+
+
+      <request>
+        <http url="/menus/new" version="1.1" method="GET"></http>
+      </request>
+      <thinktime value="2" random="true"/>
+      <setdynvars sourcetype="random_number" start="1000" end="9999999">
+        <var name="random_menu_name"/>
+      </setdynvars>
+      <request subst="true">
+        <dyn_variable name="created_menu_url" re="[Ll]ocation: (http://.*)\r"/>
+        <dyn_variable name="created_menu_id" re="[Ll]ocation: http://.*/menus/(.*)\r"/>
+        <dyn_variable name="created_menu_id_header" re="[cC]reatedid: (.*)\r"/>
+        <http url="/menus" version="1.1" method="POST" contents="menu%5Btitle%5D=menu_%%_random_menu_name%%&amp;menu%5Bdescription%5D=some_desc_%%_random_menu_name%%&amp;menu%5Brestaurant_id%5D=%%_created_restaurant_id%%&amp;commit=Create+Menu">
+        </http>
+      </request>
+      <thinktime value="2" random="true"/>
+
+
+
+        <request subst="true">
+        <http url="/menus/%%_created_menu_id_header%%/edit" version="1.1" method="GET"></http>
+      </request>
+
+      <thinktime value="2" random="true"/>
+<!--
+           <request subst="true">
+        <http url="/menus/%%_created_menu_id_header%%" version="1.1" method="POST" contents="menu%5Btitle%5D=menu_updatedd_%%_random_menu_name%%&amp;menu%5Bdescription%5D=some_desc_%%_random_menu_name%%&amp;menu%5Brestaurant_id%5D=%%_created_restaurant_id%%&amp;commit=Create+Menu">
+        </http>
+      </request>
+      <thinktime value="2" random="true"/>
+
+-->
+      <setdynvars sourcetype="random_number" start="1000" end="9999999">
+        <var name="random_item_name"/>
+      </setdynvars>
+
+      <request subst="true">
+        <http url="/menus/%%_created_menu_id_header%%/edit" version="1.1" method="GET"></http>
+      </request>
+      <thinktime value="2" random="true"/>
+
+      
+      <request subst="true">
+        <dyn_variable name="created_item_url" re="[Ll]ocation: (http://.*)\r"/>
+        <dyn_variable name="created_item_id" re="[Ll]ocation: http://.*/items/(.*)\r"/>
+        <dyn_variable name="created_item_id_header" re="[cC]reated[iI]d: (.*)\r"/>
+        <http url="/items" version="1.1" method="POST" contents="item%5Btitle%5D=item_%%_random_item_name%%&amp;item%5Bdescription%5D=some_desc_%%_random_item_name%%&amp;           item%5Bmenu_id%5D=%%_created_menu_id_header%%&amp;           item%5Bprice%5D=9&amp;           commit=Create+Item">
+        </http>
+      </request>
+    
+
+      <thinktime value="2" random="true"/>
+       <request subst="true">
+        <http url="/items/%%_created_item_id_header%%" version="1.1" method="GET"></http>
+      </request>
+      <thinktime value="2" random="true"/>
+      <request subst="true">
+        <http url="/items/%%_created_item_id_header%%/edit" version="1.1" method="GET"></http>
+      </request>
+
+     
+
+     <!--
+                <thinktime value="2" random="true"/>
+      <request subst="true">
+        <http url="/items/%%_created_item_id_header%%" version="1.1" method="POST" contents="item%5Btitle%5D=item_updatedd_%%_random_item_name%%&amp;item%5Bdescription%5D=some_desc_%%_random_item_name%%&amp;           item%5Bmenu_id%5D=%%_created_menu_id_header%%&amp;           item%5Bprice%5D=9&amp;           commit=Create+Item">
+        </http>
+      </request>
+    -->
+      <thinktime value="2" random="true"/>
+       <setdynvars sourcetype="random_number" start="1000" end="9999999">
+        <var name="random_table_name" />
+      </setdynvars>
+
+      <request subst="true">
+        <dyn_variable name="created_table_url" re="[Ll]ocation: (http://.*)\r"/>
+        <dyn_variable name="created_table_id" re="[Ll]ocation: http://.*/tables/(.*)\r"/>
+        <dyn_variable name="created_table_id_header" re="[cC]reated[iI]d: (.*)\r"/>
+        <http
+          url='/tables'
+          version='1.1'
+          method='POST'
+          contents='table%5Bname%5D=table_%%_random_table_name%%&amp;table%5Brestaurant_id%5D=%%_created_restaurant_id%%&amp;
+          commit=Create+Table'>
+        </http>
+      </request>
+
+      <thinktime value="2" random="true"></thinktime>
+
+
+      <thinktime value="2" random="true"/>
+       <request subst="true">
+        <http url="/tables/%%_created_table_id_header%%" version="1.1" method="GET"></http>
+      </request>
+      <thinktime value="2" random="true"/>
+      <request subst="true">
+        <http url="/items/%%_created_item_id_header%%/edit" version="1.1" method="GET"></http>
+      </request>
+      <thinktime value="2" random="true"/>
+
+<!--
+            <request subst="true">
+        <http
+          url='/tables/%%_created_table_id_header%%'
+          version='1.1'
+          method='POST'
+          contents='table%5Bname%5D=table_updatedd_%%_random_table_name%%&amp;table%5Brestaurant_id%5D=%%_created_restaurant_id%%&amp;
+          commit=Create+Table'>
+        </http>
+      </request>
+    -->
+<!--
+           <request subst="true">
+        <http url="%%_created_item_url%%" method="DELETE">
+        </http>
+      </request>
+
+      <thinktime value="2" random="true"/>
+
+      <request subst="true">
+        <http url="%%_created_menu_url%%" method="DELETE">
+        </http>
+      </request>
+
+      <thinktime value="2" random="true"/>
+
+      <request subst="true">
+        <http url="%%_created_table_url%%" method="DELETE">
+        </http>
+      </request>
+
+      <thinktime value="2" random="true"/>
+      <request subst="true">
+        <http url="%%_created_restaurant_url%%" method="DELETE">
+        </http>
+      </request>
+      <thinktime value="2" random="true"/>
+
+    -->
+    <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
+        io:format([126, $p, 126, $n, 126, $n], [DynVars]),
+        ok end.">
+        <var name="dump" />
+      </setdynvars>
+      </session>
+
+
+
+
+      
+
+
+
+
+
+
+
+           <session name="Restaurant-Customer" probability="20" type="ts_http">
+          <setdynvars sourcetype="random_number" start="1" end="10">
+        <var name="random_num"/>
+      </setdynvars>
+      <request subst="true">
+        <http url="/restaurants/1?table_id=11" version='1.1' method='GET'></http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+      <request>
+        <dyn_variable name="created_line_item1_url" re="[Ll]ocation: (http://.*)\r"/>
+        <dyn_variable name="created_line_item1_id" jsonpath="$.id"/>
+        <dyn_variable name="created_line_item_id_header" re="[cC]reatedid: (.*)\r"/>
+              <dyn_variable name="cart_id_header" re="[cC]art_id: (.*)\r"/>
+        <http url='/line_items?item_id=1' version='1.1' method='POST'>
+        </http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+      <request subst="true">
+        <dyn_variable name="tab_id_header" re="[tT]ab_id: (.*)\r"/>
+                    <http url="/carts/add_to_order?id=%%_cart_id_header%%" version='1.1' method='POST'></http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+        <http url="/tabs/checkout?id=%%_tab_id_header%%" version='1.1' method='POST'></http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+        <http url="/checkouts" version='1.1' method='POST'></http>
+      </request>
+
+<!--
+                          <request subst="true">
+        <http url="/line_itens?id=%%" method="DELETE">
+        </http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+     
+-->
+
+      <request subst="true">
+        <http url="/line_items/%%_created_line_item_id_header%%" method="DELETE">
+        </http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+   <!--  <request subst="true">
+                                   <http url="/carts/%%_cart_id_header%%" method="DELETE">
+        </http>
+      </request>
+
+   -->
+      </session>
+
+
+
+
+
+
+
+<!--
+            <session name="Restaurant-Customer-LoggedIn" probability="100" type="ts_http">
+
+
+         <setdynvars sourcetype="random_number" start="1" end="100">
+        <request subst="true">
+        <http url="/users/sign_in" version="1.1" method="POST" contents="user%5Bemail%5D=u1@seed.com&amp;            user%5Bpassword%5D=password&amp;           commit=Sign In">
+        </http>
+      </request>
+      <request>
+        <http url="/restaurants/1?table_id=11%%" version='1.1' method='GET'></http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+      <request>
+        <dyn_variable name="created_line_item1_url" re="[Ll]ocation: (http://.*)\r"/>
+        <dyn_variable name="created_line_item1_id" jsonpath="$.id"/>
+        <dyn_variable name="created_line_item_id_header" re="[cC]reatedid: (.*)\r"/>
+        <dyn_variable name="cart_id_header" re="[cC]art_id: (.*)\r"/>   
+        <http url='/line_items?item_id=1' version='1.1' method='POST'>
+        </http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+      <request subst="true">
+        <dyn_variable name="tab_id_header" re="[tT]ab_id: (.*)\r"/>
+        <http url="/carts/add_to_order?id=%%_cart_id_header%%" version='1.1' method='POST'></http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+        <http url="/tabs/checkout?id=%%_tab_id_header%%" version='1.1' method='POST'></http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+
+      <request subst="true">
+        <http url="/checkouts" version='1.1' method='POST'></http>
+      </request>
+    -->
+
+<!--
+                     <request subst="true">
+        <http url="/line_itens?id=%%" method="DELETE">
+        </http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+     
+
+
+      <request subst="true">
+        <http url="/line_items/%%_created_line_item_id_header%%" method="DELETE">
+        </http>
+      </request>
+      <thinktime value="2" random="true"></thinktime> -->
+   <!--  <request subst="true">
+                          <http url="/carts/%%_cart_id_header%%" method="DELETE">
+        </http>
+      </request>
+-->
+  <!--
+             <request subst="true">
+        <http url="/user_order_historys/show" method="GET">
+        </http>
+      </request>
+      <thinktime value="2" random="true"></thinktime>
+      <setdynvars sourcetype="eval" code="fun( {Pid, DynVars} ) ->
+        io:format([126, $p, 126, $n, 126, $n], [DynVars]),
+        ok end.">
+        <var name="dump" />
+      </setdynvars>
+      </session>
+-->
+
+
+
+
+
+  </sessions>
+</tsung>
+
+
+
+
+

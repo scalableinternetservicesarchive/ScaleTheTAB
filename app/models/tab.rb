@@ -1,5 +1,5 @@
 class Tab < ActiveRecord::Base
-  has_many :carts, dependent: :destroy
+  has_many :carts#, dependent: :destroy
 	belongs_to :table
 
   def total_bill
