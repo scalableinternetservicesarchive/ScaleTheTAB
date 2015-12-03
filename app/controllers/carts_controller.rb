@@ -94,7 +94,8 @@ class CartsController < ApplicationController
     respond_to do |format|
 
       response.headers['tab_id']=@tab.id.to_s
-      format.html { redirect_to polymorphic_path(@cart.line_items[0].item.menu.restaurant, table_id => @cart.table_id )}
+      format.html { redirect_to polymorphic_path(@cart.line_items[0].item.menu.restaurant, :table_id => @tab.table.id.to_s )}
+
 
       #format.html { redirect_to :back}
       format.js

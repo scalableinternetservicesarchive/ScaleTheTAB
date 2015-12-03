@@ -1,7 +1,12 @@
 <div class="offset">
 	<h1>Your Order History</h1>
-	<% if defined?(@tabs) %>
+<<<<<<< HEAD
+	<% if defined?(@checkouts) %>
 		<table>
+=======
+	<% if defined?(@tabs) %>
+		<table class = "table">
+>>>>>>> dev
 			<th>
 				<td>Restaurant</td>
 				<td>Amount</td>

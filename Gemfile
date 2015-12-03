@@ -14,9 +14,11 @@ gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem "mailboxer"
 gem 'newrelic_rpm'
+gem 'faker'
 #For AWS
 gem 'aws-sdk', '< 2.0'
 gem 'fog-aws'
+gem 'seed_dump'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
