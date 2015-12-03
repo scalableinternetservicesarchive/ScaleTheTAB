@@ -19,16 +19,16 @@ total_no_of_tables = 2
 
 
 
-#LineItem.delete_all
-#Item.delete_all
-#Menu.delete_all
-#Cart.delete_all
-#Checkout.delete_all
-#Tab.delete_all
-#Table.delete_all
-#Restaurant.delete_all
-#User.delete_all
-#Owner.delete_all
+LineItem.delete_all
+Item.delete_all
+Menu.delete_all
+Cart.delete_all
+Checkout.delete_all
+Tab.delete_all
+Table.delete_all
+Restaurant.delete_all
+User.delete_all
+Owner.delete_all
 
 #***************************
 # Creating Users
@@ -83,6 +83,33 @@ restaurant = Restaurant.create(
     image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
   )
 
+menu = Menu.create(
+ id: "1",
+ restaurant_id: "1",
+ title: Faker::Lorem.word,
+ description: Faker::Lorem.sentence(3)
+)
+
+item = Item.create(
+ id: "1",
+ menu_id: "1",
+ title: Faker::Lorem.word,
+ description: Faker::Lorem.sentence(3),
+ image_file_name: "placeholder.jpg",
+ image_content_type: "image/jpeg",
+ image_file_size: "6386",
+ price: Faker::Commerce.price
+)
+
+table_id_count = 1
+total_no_of_tables.times{
+table = Table.create(
+ id: 1*10+table_id_count,
+ name: Faker::Lorem.word,
+ restaurant_id: "1"
+)
+table_id_count = table_id_count + 1
+}
 rest_id_count = 2
 
 total_no_of_rest.times{

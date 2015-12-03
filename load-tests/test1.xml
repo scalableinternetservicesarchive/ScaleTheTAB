@@ -302,7 +302,7 @@
       <request subst="true">
         <dyn_variable name="created_menu_url" re="[Ll]ocation: (http://.*)\r"/>
         <dyn_variable name="created_menu_id" re="[Ll]ocation: http://.*/menus/(.*)\r"/>
-	      <dyn_variable name="created_menu_id_header" re="[cC]reatedid: (.*)\r"/>
+        <dyn_variable name="created_menu_id_header" re="[cC]reated[iI]d: (.*)\r"/>
         <http url="/menus" version="1.1" method="POST" contents="menu%5Btitle%5D=menu_%%_random_menu_name%%&amp;menu%5Bdescription%5D=some_desc_%%_random_menu_name%%&amp;menu%5Brestaurant_id%5D=%%_created_restaurant_id%%&amp;commit=Create+Menu">
         </http>
       </request>
@@ -378,7 +378,7 @@
         </http>
       </request>
 
-	    <thinktime value="2" random="true"></thinktime>
+      <thinktime value="2" random="true"></thinktime>
 
 
       <thinktime value="2" random="true"/>
@@ -459,8 +459,8 @@
       <request>
         <dyn_variable name="created_line_item1_url" re="[Ll]ocation: (http://.*)\r"/>
         <dyn_variable name="created_line_item1_id" jsonpath="$.id"/>
-        <dyn_variable name="created_line_item_id_header" re="[cC]reatedid: (.*)\r"/>
-              <dyn_variable name="cart_id_header" re="[cC]art_id: (.*)\r"/>
+        <dyn_variable name="created_line_item_id_header" re="[cC]reated[iI]d: (.*)\r"/>
+              <dyn_variable name="cart_id_header" re="[cC]art_[iI]d: (.*)\r"/>
         <http url='/line_items?item_id=1' version='1.1' method='POST'>
         </http>
       </request>
@@ -488,12 +488,12 @@
       <thinktime value="2" random="true"></thinktime>
      
 -->
-
+<!--
       <request subst="true">
         <http url="/line_items/%%_created_line_item_id_header%%" method="DELETE">
         </http>
       </request>
-      <thinktime value="2" random="true"></thinktime>
+      <thinktime value="2" random="true"></thinktime>-->
    <!--  <request subst="true">
                           <http url="/carts/%%_cart_id_header%%" method="DELETE">
         </http>
