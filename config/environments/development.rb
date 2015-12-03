@@ -50,7 +50,7 @@ Rails.application.configure do
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     },
     :s3_host_name => 's3-us-west-2.amazonaws.com',
-    :path => 'ScaleTheTAB/images/:class/:attachment/:style/:filename',
-    :url => '/images/:class/:attachment/:style/:filename'
+    :path => 'ScaleTheTAB/images/:attachment/:style/:filename',
+    :url => '/images/:attachment/:style/:filename'
   }
 end
