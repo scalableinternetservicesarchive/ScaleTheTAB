@@ -1,11 +1,11 @@
 
 
-total_no_of_users = 1000
-total_no_of_owners = 1000
-total_no_of_rest = 1000
+total_no_of_users = 100
+total_no_of_owners = 100
+total_no_of_rest = 100
 
-total_no_of_menus = 1000
-total_no_of_items = 1000  
+total_no_of_menus = 100
+total_no_of_items = 100  
 
 total_no_of_tables = 2
 
