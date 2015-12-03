@@ -58,7 +58,20 @@ total_no_of_owners.times{
 #***************************
 # Creating Restaurants
 #***************************
-rest_id_count = 1
+restaurant = Restaurant.create(
+    id: 1,
+    name: Lorem.word,
+    image_url: "NULL",
+    description: Lorem.sentence(3),
+    address: Address.city,
+    city: Address.city_prefix,
+    zip_code: Address.zip_code,
+    tell: PhoneNumber.phone_number,
+    owner_id: rand(1..total_no_of_owners),
+    image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
+  )
+
+rest_id_count = 2
 total_no_of_rest.times{
   restaurant = Restaurant.create(
     id: rest_id_count,
@@ -70,7 +83,9 @@ total_no_of_rest.times{
     zip_code: Address.zip_code,
     tell: PhoneNumber.phone_number,
     owner_id: rand(1..total_no_of_owners),
-    image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
+    image_file_name: "placeholder.jpg",
+    image_content_type: "image/jpeg",
+    image_file_size: "6386"
   )
   rest_id_count = rest_id_count + 1
 }
@@ -98,7 +113,9 @@ total_no_of_items.times{
     id: item_id_count,
     title: Lorem.word,
     description: Lorem.sentence(3),
-    image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
+    image_file_name: "placeholder.jpg",
+    image_content_type: "image/jpeg",
+    image_file_size: "6386",
     price: Commerce.price,
     menu_id: rand(1..total_no_of_menus)
   )
