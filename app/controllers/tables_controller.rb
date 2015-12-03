@@ -11,7 +11,7 @@ class TablesController < ApplicationController
   # GET /tables/1
   # GET /tables/1.json
   def show
-    @qr_url = request.protocol + request.host_with_port + "/restaurants/" + @table.restaurant_id.to_s + "?table_id:" + @table.id.to_s
+    @qr_url = request.protocol + request.host_with_port + "/restaurants/" + @table.restaurant_id.to_s + "?table_id=" + @table.id.to_s
   end
 
   # GET /tables/new
