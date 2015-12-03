@@ -201,18 +201,4 @@ ActiveRecord::Schema.define(version: 20151202234057) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "carts", "tabs"
-  add_foreign_key "checkouts", "tabs"
-  add_foreign_key "items", "menus"
-  add_foreign_key "checkouts", "users"
-  add_foreign_key "line_items", "carts"
-  add_foreign_key "line_items", "items"
-  add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
-  add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
-  add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
-  add_foreign_key "menus", "restaurants"
-  add_foreign_key "restaurants", "owners"
-  add_foreign_key "tables", "restaurants"
-  add_foreign_key "tabs", "tables"
-  add_foreign_key "tabs", "users"
 end
