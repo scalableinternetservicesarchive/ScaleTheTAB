@@ -2,10 +2,14 @@
 	<h1>Your Order History</h1>
 	<% if defined?(@tabs) %>
 		<table>
-			<% @info.each do |info| %>
+			<th>
+				<td>Restaurant</td>
+				<td>Amount</td>
+			</th>
+			<% @checkouts.each do |co| %>
 			<tr>
-				<td><%= info[0] %></td>
-				<td><%= info[1] %></td>
+				<td><%= co.restaurant_name %></td>
+				<td><%= co.amount %></td>
 			</tr>
 			<% end %>
 		</table>
