@@ -1,10 +1,10 @@
 
 
-total_no_of_users = 40
-total_no_of_owners = 40
-total_no_of_rest = 40
-total_no_of_menus = 40
-total_no_of_items = 40  
+
+total_no_of_users = 1000
+total_no_of_owners = 1000
+total_no_of_rest = 1000
+total_no_of_menus = 2000
 total_no_of_tables = 2
 
 
@@ -60,37 +60,6 @@ restaurant = Restaurant.create(
     owner_id: rand(1..total_no_of_owners),
     image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
   )
-
-# puts "Started creating Menus for Rest 1...."
-# menu = Menu.create(
-#  id: "1",
-#  restaurant_id: "1",
-#  title: Faker::Lorem.word,
-#  description: Faker::Lorem.sentence(3)
-# )
-
-# puts "Started creating for Item 1...."
-# item = Item.create(
-#  id: "1",
-#  menu_id: "1",
-#  title: Faker::Lorem.word,
-#  description: Faker::Lorem.sentence(3),
-#  image_file_name: "placeholder.jpg",
-#  image_content_type: "image/jpeg",
-#  image_file_size: "6386",
-#  price: Faker::Commerce.price
-# )
-
-# puts "Started creating Table 1...."
-# table_id_count = 1
-# total_no_of_tables.times{
-# table = Table.create(
-#  id: 1*10+table_id_count,
-#  name: Faker::Lorem.word,
-#  restaurant_id: "1"
-# )
-# table_id_count = table_id_count + 1
-# }
 
 rest_id_count = 2
 
@@ -176,6 +145,7 @@ total_no_of_items.times{
     image_file_name: "placeholder.jpg",
     image_content_type: "image/jpeg",
     image_file_size: "6386",
+
     price: Faker::Commerce.price,
     menu_id: rand(2..menu_id_count)
 
