@@ -70,7 +70,20 @@ owner = Owner.create(
 #***************************
 # Creating Restaurants
 #***************************
-rest_id_count = 1
+restaurant = Restaurant.create(
+    id: "1",
+    name: Faker::Lorem.word,
+    image_url: "NULL",
+    description: Faker::Lorem.sentence(3),
+    address: Faker::Address.city,
+    city: Faker::Address.city_prefix,
+    zip_code: Faker::Address.zip_code,
+    tell: Faker::PhoneNumber.phone_number,
+    owner_id: rand(1..total_no_of_owners),
+    image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
+  )
+
+rest_id_count = 2
 
 total_no_of_rest.times{
   restaurant = Restaurant.create(
@@ -83,7 +96,10 @@ total_no_of_rest.times{
     zip_code: Faker::Address.zip_code,
     tell: Faker::PhoneNumber.phone_number,
     owner_id: rand(1..total_no_of_owners),
-    image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
+    image_file_name: "placeholder.jpg",
+    image_content_type: "image/jpeg",
+    image_file_size: "6386"
+    #image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
   )
   
   puts restaurant.inspect
@@ -100,7 +116,10 @@ total_no_of_rest.times{
     menu_id: rest_id_count,
     title: Faker::Lorem.word,
     description: Faker::Lorem.sentence(3),
-    image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
+    image_file_name: "placeholder.jpg",
+    image_content_type: "image/jpeg",
+    image_file_size: "6386"
+    #image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
     price: Faker::Commerce.price,
     
   )
@@ -143,7 +162,10 @@ total_no_of_items.times{
     id: item_id_count,
     title: Faker::Lorem.word,
     description: Faker::Lorem.sentence(3),
-    image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
+    image_file_name: "placeholder.jpg",
+    image_content_type: "image/jpeg",
+    image_file_size: "6386"
+    #image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
 
     price: Faker::Commerce.price,
     menu_id: rand(1..menu_id_count)
