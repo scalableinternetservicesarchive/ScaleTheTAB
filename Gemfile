@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use mysql as the database for Active Record
-#gem 'mysql2', '~> 0.3.13'
+gem 'mysql2', '~> 0.3.13'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass', '~> 3.2.0'
@@ -16,7 +16,7 @@ gem "mailboxer"
 gem 'newrelic_rpm'
 gem 'ruby-prof'
 gem 'faker'
-gem "psych", '~> 2.0.0'
+gem "psych", '~> 2.0.5'
 
 #For AWS
 gem 'aws-sdk', '< 2.0'
