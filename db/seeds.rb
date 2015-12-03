@@ -29,8 +29,6 @@ user = User.create(
 puts "Finished creating users...."
 
 
-puts "Finished creating users...."
-
 
 puts "Started creating owners...."
 owner_id_count = 2
@@ -47,7 +45,7 @@ owner = Owner.create(
     email: "o1@seed.com",
     password: "password"
   )
-puts "Finished creating users...."
+puts "Finished creating owners...."
 
 
 puts "Started creating Restaurant 1...."
