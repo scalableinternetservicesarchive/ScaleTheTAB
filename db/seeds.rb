@@ -142,7 +142,7 @@ total_no_of_rest.times{
 #***************************
 # Creating Menus
 #***************************
-menu_id_count = total_no_of_rest + 1
+menu_id_count = total_no_of_rest + 100
 total_no_of_menus.times{
   menu = Menu.create(
     id: menu_id_count,
@@ -156,7 +156,7 @@ menu_id_count = menu_id_count - 1
 # #***************************
 # # Creating Items
 # #***************************
-item_id_count = total_no_of_rest + 1
+item_id_count = total_no_of_rest + 100
 total_no_of_items.times{
   item = Item.create(
     id: item_id_count,
