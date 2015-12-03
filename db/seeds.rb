@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-
-
-total_no_of_users = 2
-total_no_of_owners = 2
-total_no_of_rest = 2
-total_no_of_menus = 2
-total_no_of_items = 2  
-total_no_of_tables = 2
-
-
-
-
-puts "Started creating users...."
-user_id_count = 2
-=======
 #********************************************
 # Steps:
 # 1. add gem 'faker' into gemfile
