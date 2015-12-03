@@ -5,6 +5,7 @@ total_no_of_users = 1000
 total_no_of_owners = 1000
 total_no_of_rest = 1000
 total_no_of_menus = 2000
+total_no_items = 1000
 total_no_of_tables = 2
 
 
