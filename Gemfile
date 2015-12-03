@@ -15,6 +15,8 @@ gem 'will_paginate'
 gem "mailboxer"
 gem 'newrelic_rpm'
 gem 'ruby-prof'
+gem 'faker'
+
 #For AWS
 gem 'aws-sdk', '< 2.0'
 gem 'fog-aws'
