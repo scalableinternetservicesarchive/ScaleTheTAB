@@ -22,6 +22,10 @@ module ScaleTheTab
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+
+    # Turn off CSRF protection for load test.
+
     config.action_controller.allow_forgery_protection = false
   end
 end

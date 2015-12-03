@@ -1,12 +1,10 @@
 
 
-total_no_of_users = 100
-total_no_of_owners = 100
-total_no_of_rest = 100
-
-total_no_of_menus = 100
+total_no_of_users = 1000
+total_no_of_owners = 1000
+total_no_of_rest = 1000
+total_no_of_menus = 2000
 total_no_of_items = 100  
-
 total_no_of_tables = 2
 
 
@@ -23,10 +21,13 @@ total_no_of_users.times{
   user_id_count = user_id_count + 1
 }
 user = User.create(
-    id: "1",
+    id: 1,
     email: "u1@seed.com",
     password: "password"
   )
+
+puts "Finished creating users...."
+
 
 puts "Finished creating users...."
 
@@ -41,8 +42,8 @@ total_no_of_owners.times{
   )
   owner_id_count = owner_id_count + 1
 }
-owner = Owner.create(
-    id: "1",
+owner = Owner.create( 
+    id: 1,
     email: "o1@seed.com",
     password: "password"
   )
@@ -52,7 +53,7 @@ puts "Finished creating users...."
 puts "Started creating Restaurant 1...."
 
 restaurant = Restaurant.create(
-    id: "1",
+    id: 1,
     name: Faker::Lorem.word,
     image_url: "NULL",
     description: Faker::Lorem.sentence(3),
@@ -63,6 +64,7 @@ restaurant = Restaurant.create(
     owner_id: rand(1..total_no_of_owners),
     image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
   )
+
 
 
 # puts "Started creating Menus for Rest 1...."
@@ -97,7 +99,9 @@ restaurant = Restaurant.create(
 # }
 
 
+
 rest_id_count = 2
+
 
 puts "Creating remaining restaurants...."
 total_no_of_rest.times{
@@ -135,7 +139,7 @@ total_no_of_rest.times{
     image_content_type: "image/jpeg",
     image_file_size: "6386",
     price: Faker::Commerce.price
-    
+
   )
 
 
@@ -184,10 +188,8 @@ total_no_of_items.times{
     image_file_name: "placeholder.jpg",
     image_content_type: "image/jpeg",
     image_file_size: "6386",
-
     price: Faker::Commerce.price,
     menu_id: rand(2..menu_id_count)
-
 
   )
   item_id_count = item_id_count + 1

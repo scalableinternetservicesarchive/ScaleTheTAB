@@ -1,7 +1,9 @@
 class CartsController < ApplicationController
   include CurrentTab
+
   include ApplicationHelper
   before_action :set_tab, only: [:add_to_order]
+
   before_action :set_cart, only: [:show, :edit, :update, :destroy, :add_to_order]
 
   # GET /carts
@@ -17,7 +19,7 @@ class CartsController < ApplicationController
 
   # GET /carts/new
   def new
-    @cart = Cart.new
+    @cart = Cart.new(round_number: '2')
   end
 
   # GET /carts/1/edit
@@ -61,7 +63,8 @@ class CartsController < ApplicationController
       session[:cart_id] = nil
     end
     respond_to do |format|
-      format.html { redirect_to :back, notice: 'Cart was successfully destroyed.' }
+
+      format.html { redirect_to :back , notice: 'Cart was successfully destroyed.' }
       format.js
       format.json { head :no_content }
     end
@@ -92,8 +95,8 @@ class CartsController < ApplicationController
     
     session[:cart_id] = nil
     respond_to do |format|
-
       response.headers['tab_id']=@tab.id.to_s
+
       format.html { redirect_to polymorphic_path(@cart.line_items[0].item.menu.restaurant, :table_id => @tab.table.id.to_s )}
 
 
