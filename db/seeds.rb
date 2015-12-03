@@ -3,8 +3,8 @@
 total_no_of_users = 1000
 total_no_of_owners = 1000
 total_no_of_rest = 1000
-total_no_of_menus = 2000
-total_no_of_items = 10000  
+total_no_of_menus = 1000
+total_no_of_items = 1000  
 total_no_of_tables = 2
 
 
@@ -60,7 +60,6 @@ restaurant = Restaurant.create(
     owner_id: rand(1..total_no_of_owners),
     image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
   )
-
 rest_id_count = 2
 
 puts "Creating remaining restaurants...."
@@ -146,7 +145,6 @@ total_no_of_items.times{
     image_file_name: "placeholder.jpg",
     image_content_type: "image/jpeg",
     image_file_size: "6386",
-
     price: Faker::Commerce.price,
     menu_id: rand(2..menu_id_count)
 
