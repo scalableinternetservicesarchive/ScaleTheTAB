@@ -24,7 +24,7 @@ class RestaurantsController < ApplicationController
         search_zip_code_field = params[:search_zip_code]
       end
 			@cache_key = "#{search_name_field}-#{search_city_field}-#{search_zip_code_field}-#{params[:page]}"
-      @restaurants = Rails.cache.fetch(@cache_key, expires_in: 24.hours) do
+      @restaurants = Rails.cache.fetch(@cache_key, expires_in: 12.hours) do
 				Restaurant.search(search_name_field, search_city_field, search_zip_code_field).paginate(page: params[:page], per_page: 5)
 			end
     else
