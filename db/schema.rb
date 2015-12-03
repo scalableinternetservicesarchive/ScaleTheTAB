@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151202054434) do
+ActiveRecord::Schema.define(version: 20151202234057) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at",             null: false
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 20151202054434) do
     t.integer  "owner_id",           limit: 4
   end
 
-  add_index "restaurants", ["address"], name: "index_restaurants_on_address", type: :fulltext
+  add_index "restaurants", ["city"], name: "index_restaurants_on_city", type: :fulltext
   add_index "restaurants", ["name"], name: "index_restaurants_on_name", type: :fulltext
   add_index "restaurants", ["owner_id"], name: "index_restaurants_on_owner_id", using: :btree
   add_index "restaurants", ["zip_code"], name: "index_restaurants_on_zip_code", using: :btree

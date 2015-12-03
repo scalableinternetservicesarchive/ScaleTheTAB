@@ -5,10 +5,21 @@ class Restaurant < ActiveRecord::Base
 	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
 	def self.search(name_field, city_field, zip_code_field)
-		if not zip_code_field == ''
-			where("name LIKE ? AND city LIKE ? AND zip_code = ?", "%#{name_field}%", "%#{city_field}%", "#{zip_code_field}")
+		if zip_code_field == '' and city_field == '' and name_field == '';
+		elsif zip_code_field == '' and city_field == ''
+			where("MATCH(name) AGAINST(? IN BOOLEAN MODE)", "#{name_field}*")
+		elsif zip_code_field == '' and name_field == '';
+			where("MATCH(city) AGAINST(? IN BOOLEAN MODE)", "#{city_field}*")
+		elsif city_field == '' and name_field == '';
+			where("zip_code = ?", "#{zip_code_field}")
+		elsif zip_code_field == ''
+			where("MATCH(name) AGAINST(? IN BOOLEAN MODE) AND MATCH(city) AGAINST(? IN BOOLEAN MODE)", "#{name_field}*", "#{city_field}*")
+		elsif city_field == ''
+			where("MATCH(name) AGAINST(? IN BOOLEAN MODE) AND zip_code = ?", "#{name_field}*", "#{zip_code_field}")
+		elsif name_field == ''
+			where("MATCH(city) AGAINST(? IN BOOLEAN MODE) AND zip_code = ?", "#{city_field}*", "#{zip_code_field}")
 		else
-			where("name LIKE ? AND city LIKE ?", "%#{name_field}%", "%#{city_field}%")
+			where("MATCH(name) AGAINST(? IN BOOLEAN MODE) AND MATCH(city) AGAINST(? IN BOOLEAN MODE) AND zip_code = ?", "#{name_field}*", "#{city_field}*", "#{zip_code_field}")
 		end
 	end
 end
