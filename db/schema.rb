@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126033247) do
+ActiveRecord::Schema.define(version: 20151202021527) do
 
   create_table "carts", force: :cascade do |t|
     t.datetime "created_at",             null: false
@@ -55,12 +55,14 @@ ActiveRecord::Schema.define(version: 20151126033247) do
     t.decimal  "price",                            precision: 8, scale: 2
     t.datetime "created_at",                                               null: false
     t.datetime "updated_at",                                               null: false
-    t.integer  "menu_id",            limit: 4
     t.string   "image_file_name",    limit: 255
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+    t.integer  "menu_id",            limit: 4
   end
+
+  add_index "items", ["menu_id"], name: "index_items_on_menu_id", using: :btree
 
   create_table "line_items", force: :cascade do |t|
     t.integer  "item_id",    limit: 4
@@ -127,12 +129,14 @@ ActiveRecord::Schema.define(version: 20151126033247) do
   add_index "mailboxer_receipts", ["receiver_id", "receiver_type"], name: "index_mailboxer_receipts_on_receiver_id_and_receiver_type", using: :btree
 
   create_table "menus", force: :cascade do |t|
-    t.integer  "restaurant_id", limit: 4
     t.string   "title",         limit: 255
     t.text     "description",   limit: 65535
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.integer  "restaurant_id", limit: 4
   end
+
+  add_index "menus", ["restaurant_id"], name: "index_menus_on_restaurant_id", using: :btree
 
   create_table "owners", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -160,21 +164,25 @@ ActiveRecord::Schema.define(version: 20151126033247) do
     t.string   "city",               limit: 255
     t.integer  "zip_code",           limit: 4
     t.string   "tell",               limit: 255
-    t.integer  "owner_id",           limit: 4
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
     t.string   "image_file_name",    limit: 255
     t.string   "image_content_type", limit: 255
     t.integer  "image_file_size",    limit: 4
     t.datetime "image_updated_at"
+    t.integer  "owner_id",           limit: 4
   end
+
+  add_index "restaurants", ["owner_id"], name: "index_restaurants_on_owner_id", using: :btree
 
   create_table "tables", force: :cascade do |t|
     t.string   "name",          limit: 255
-    t.integer  "restaurant_id", limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.integer  "restaurant_id", limit: 4
   end
+
+  add_index "tables", ["restaurant_id"], name: "index_tables_on_restaurant_id", using: :btree
 
   create_table "tabs", force: :cascade do |t|
     t.datetime "created_at",           null: false
@@ -206,11 +214,15 @@ ActiveRecord::Schema.define(version: 20151126033247) do
 
   add_foreign_key "carts", "tabs"
   add_foreign_key "checkouts", "tabs"
+  add_foreign_key "items", "menus"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "items"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
   add_foreign_key "mailboxer_notifications", "mailboxer_conversations", column: "conversation_id", name: "notifications_on_conversation_id"
   add_foreign_key "mailboxer_receipts", "mailboxer_notifications", column: "notification_id", name: "receipts_on_notification_id"
+  add_foreign_key "menus", "restaurants"
+  add_foreign_key "restaurants", "owners"
+  add_foreign_key "tables", "restaurants"
   add_foreign_key "tabs", "tables"
   add_foreign_key "tabs", "users"
 end
