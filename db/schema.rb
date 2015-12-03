@@ -205,7 +205,6 @@ ActiveRecord::Schema.define(version: 20151202234057) do
   add_foreign_key "checkouts", "tabs"
   add_foreign_key "checkouts", "users"
   add_foreign_key "items", "menus"
-  add_foreign_key "checkouts", "users"
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "items"
   add_foreign_key "mailboxer_conversation_opt_outs", "mailboxer_conversations", column: "conversation_id", name: "mb_opt_outs_on_conversations_id"
