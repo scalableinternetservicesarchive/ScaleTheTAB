@@ -8,25 +8,12 @@ class RestaurantsController < ApplicationController
   # GET /restaurants.json
   def index
     if params[:search_name] or params[:search_city] or params[:search_zip_code]
-      if not params[:search_name]
-        search_name_field = '%'
-      else
-        search_name_field = params[:search_name]
-      end
-      if not params[:search_city]
-        search_city_field = '%'
-      else
-        search_city_field = params[:search_city]
-      end
-      if not params[:search_zip_code]
-        search_zip_code_field = '%'
-      else
-        search_zip_code_field = params[:search_zip_code]
-      end
-			@cache_key = "#{search_name_field}-#{search_city_field}-#{search_zip_code_field}-#{params[:page]}"
+
+			@cache_key = "#{params[:search_name]}-#{params[:search_city]}-#{params[:search_zip_code]}-#{params[:page]}"
       @restaurants = Rails.cache.fetch(@cache_key, expires_in: 12.hours) do
-				Restaurant.search(search_name_field, search_city_field, search_zip_code_field).paginate(page: params[:page], per_page: 5)
+			 @restaurants = Restaurant.search(params[:search_name], params[:search_city], params[:search_zip_code]).paginate(page: params[:page], per_page: 5)
 			end
+
     else
       if owner_signed_in?
         @restaurants = Restaurant.where("owner_id = ?", current_owner.id).paginate(page: params[:page], per_page: 5)

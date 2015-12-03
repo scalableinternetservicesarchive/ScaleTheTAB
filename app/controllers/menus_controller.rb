@@ -9,7 +9,7 @@ class MenusController < ApplicationController
   # GET /menus
   # GET /menus.json
   def index
-    @menus = Menu.all
+    @menus = Menu.includes(:items).all
   end
 
   # GET /menus/1
