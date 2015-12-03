@@ -1,10 +1,10 @@
 
 
-total_no_of_users = 1000
-total_no_of_owners = 1000
-total_no_of_rest = 1000
-total_no_of_menus = 1000
-total_no_of_items = 1000  
+total_no_of_users = 40
+total_no_of_owners = 40
+total_no_of_rest = 40
+total_no_of_menus = 40
+total_no_of_items = 40  
 total_no_of_tables = 2
 
 
@@ -21,7 +21,7 @@ total_no_of_users.times{
   user_id_count = user_id_count + 1
 }
 user = User.create(
-    id: "1",
+    id: 1,
     email: "u1@seed.com",
     password: "password"
   )
@@ -40,7 +40,7 @@ total_no_of_owners.times{
   owner_id_count = owner_id_count + 1
 }
 owner = Owner.create(
-    id: "1",
+    id: 1,
     email: "o1@seed.com",
     password: "password"
   )
@@ -49,7 +49,7 @@ puts "Finished creating users...."
 
 puts "Started creating Restaurant 1...."
 restaurant = Restaurant.create(
-    id: "1",
+    id: 1,
     name: Faker::Lorem.word,
     image_url: "NULL",
     description: Faker::Lorem.sentence(3),
@@ -130,7 +130,6 @@ total_no_of_rest.times{
     image_content_type: "image/jpeg",
     image_file_size: "6386",
     price: Faker::Commerce.price
-    
   )
 
 
