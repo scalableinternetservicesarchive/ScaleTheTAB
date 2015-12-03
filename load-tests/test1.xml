@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!DOCTYPE tsung SYSTEM "/home/ec2-user/opt/tsung-1.5.0/share/tsung/tsung-1.0.dtd">
+<!DOCTYPE tsung SYSTEM "/home/ec2-user/opt/tsung-1.5.0/share/tsung/tsung-1.0.dtd">x
 
 <tsung loglevel="notice" version="1.0">
   <clients>
@@ -234,7 +234,7 @@
 
 
     <session name="User-Brouwsing-Different-Restaurants" type="ts_http" probability="10">
-      <setdynvars sourcetype="random_number" start="1" end="5"/>
+      <setdynvars sourcetype="random_number" start="2" end="500"/>
       <request >
         <http url='/' version='1.1' method='GET'></http>
       </request>
@@ -243,7 +243,7 @@
         <dyn_variable name="menu_path" xpath="/html/body/div[@class='container']/div[@class='row']/div[@class='col-xs-12 col-md-8']/ul/div[@class='row'][1]/li/strong/a[@class='link med-text']/@href"/>
         <http url="/restaurants/%%_random_number%%" version="1.1" method="GET"></http>
       </request>
-      <setdynvars sourcetype="random_number" start="1" end="5"/>
+      <setdynvars sourcetype="random_number" start="2" end="500"/>
       <request >
         <http url='/' version='1.1' method='GET'></http>
       </request>
