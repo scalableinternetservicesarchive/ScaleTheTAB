@@ -10,11 +10,11 @@
 #require 'Faker'
 #include Faker
 
-total_no_of_users = 2
-total_no_of_owners = 2
-total_no_of_rest = 10
-total_no_of_menus = 2
-total_no_of_items = 20  
+total_no_of_users = 1000
+total_no_of_owners = 1000
+total_no_of_rest = 1000
+total_no_of_menus = 200
+total_no_of_items = 200  
 total_no_of_tables = 3
 
 
