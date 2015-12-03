@@ -1,14 +1,4 @@
 
-#********************************************
-# Steps:
-# 1. add gem 'faker' into gemfile
-# 2. bundle install
-# 3. Place the AWS credentials in 'aws.yml' & 'aws_export.sh' before doing rake db:seed
-# 4. Run rake db:seed
-#********************************************
-
-#require 'Faker'
-#include Faker
 
 total_no_of_users = 1000
 total_no_of_owners = 1000
@@ -19,20 +9,8 @@ total_no_of_tables = 2
 
 
 
-LineItem.delete_all
-Item.delete_all
-Menu.delete_all
-Cart.delete_all
-Checkout.delete_all
-Tab.delete_all
-Table.delete_all
-Restaurant.delete_all
-User.delete_all
-Owner.delete_all
 
-#***************************
-# Creating Users
-#***************************
+puts "Started creating users...."
 user_id_count = 2
 total_no_of_users.times{
   user = User.create(
@@ -48,10 +26,10 @@ user = User.create(
     password: "password"
   )
 
+puts "Finished creating users...."
 
-#***************************
-# Creating Owners 
-#***************************
+
+puts "Started creating owners...."
 owner_id_count = 2
 total_no_of_owners.times{
   owner = Owner.create(
@@ -66,10 +44,10 @@ owner = Owner.create(
     email: "o1@seed.com",
     password: "password"
   )
+puts "Finished creating users...."
 
-#***************************
-# Creating Restaurants
-#***************************
+
+puts "Started creating Restaurant 1...."
 restaurant = Restaurant.create(
     id: "1",
     name: Faker::Lorem.word,
@@ -83,6 +61,7 @@ restaurant = Restaurant.create(
     image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
   )
 
+puts "Started creating Menus for Rest 1...."
 menu = Menu.create(
  id: "1",
  restaurant_id: "1",
@@ -90,6 +69,7 @@ menu = Menu.create(
  description: Faker::Lorem.sentence(3)
 )
 
+puts "Started creating for Item 1...."
 item = Item.create(
  id: "1",
  menu_id: "1",
@@ -101,6 +81,7 @@ item = Item.create(
  price: Faker::Commerce.price
 )
 
+puts "Started creating Table 1...."
 table_id_count = 1
 total_no_of_tables.times{
 table = Table.create(
@@ -110,8 +91,10 @@ table = Table.create(
 )
 table_id_count = table_id_count + 1
 }
+
 rest_id_count = 2
 
+puts "Creating remaining restaurants...."
 total_no_of_rest.times{
   restaurant = Restaurant.create(
     id: rest_id_count,
@@ -126,7 +109,7 @@ total_no_of_rest.times{
     image_file_name: "placeholder.jpg",
     image_content_type: "image/jpeg",
     image_file_size: "6386"
-    #image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample)
+    
   )
   
   puts restaurant.inspect
@@ -146,7 +129,6 @@ total_no_of_rest.times{
     image_file_name: "placeholder.jpg",
     image_content_type: "image/jpeg",
     image_file_size: "6386",
-    #image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
     price: Faker::Commerce.price
     
   )
@@ -162,13 +144,15 @@ total_no_of_rest.times{
   puts table.inspect
   table_id_count = table_id_count + 1
 
-}#end of tables
+}
   rest_id_count = rest_id_count + 1
 }
 
-#***************************
-# Creating Menus
-#***************************
+
+puts "Finished creating restaurants...."
+
+
+puts "Started creating extra menus...."
 menu_id_count = total_no_of_rest + 2
 total_no_of_menus.times{
   menu = Menu.create(
@@ -180,9 +164,10 @@ total_no_of_menus.times{
 menu_id_count = menu_id_count + 1
 }
 menu_id_count = menu_id_count - 1 
-# #***************************
-# # Creating Items
-# #***************************
+puts "Finished creating menus...."
+
+
+puts "Started creating items...."
 item_id_count = total_no_of_rest + 2
 total_no_of_items.times{
   item = Item.create(
@@ -192,7 +177,6 @@ total_no_of_items.times{
     image_file_name: "placeholder.jpg",
     image_content_type: "image/jpeg",
     image_file_size: "6386",
-    #image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
 
     price: Faker::Commerce.price,
     menu_id: rand(1..menu_id_count)
@@ -200,28 +184,4 @@ total_no_of_items.times{
   )
   item_id_count = item_id_count + 1
 }
-
-#***************************
-# Creating Tables
-#***************************
-# <<<<<<< HEAD
-# table_id_count = 1
-# total_no_of_tables.times{
-#   table = Table.create(
-#     id: table_id_count,
-#     name: Faker::Lorem.word,
-#     restaurant_id: rand(1..total_no_of_rest)
-#   )
-#   table_id_count = table_id_count + 1
-# }
-
-# =======
-# total_no_of_tables.times{
-#   table = Table.create(
-#     id: table_id_count,
-#     name: Lorem.word,
-#     restaurant_id: rand(1..total_no_of_rest)
-#   )
-#   table_id_count = table_id_count + 1
-# }
-# >>>>>>> dev
+puts "Finished creating items...."
