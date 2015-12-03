@@ -1,4 +1,6 @@
 <% cache(cache_key_for_items_row(item)) do %>
+
+<tr >
   <td><%= item.title %></td>
   <td><%= item.description %></td>
   <td><%= image_tag(item.image.url(:medium), class: 'img-rounded', size: "150x100") %></td>

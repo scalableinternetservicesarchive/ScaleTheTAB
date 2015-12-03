@@ -7,7 +7,9 @@ class RestaurantsController < ApplicationController
   # GET /restaurants
   # GET /restaurants.json
   def index
+
     if params[:search_name] or params[:search_city] or params[:search_zip_code]
+
 
 			@cache_key = "#{params[:search_name]}-#{params[:search_city]}-#{params[:search_zip_code]}-#{params[:page]}"
       @restaurants = Rails.cache.fetch(@cache_key, expires_in: 12.hours) do
@@ -16,17 +18,24 @@ class RestaurantsController < ApplicationController
 
     else
       if owner_signed_in?
-        @restaurants = Restaurant.where("owner_id = ?", current_owner.id).paginate(page: params[:page], per_page: 5)
+        @restaurants = Restaurant.where("owner_id = ?", current_owner.id).paginate(page: params[:page], per_page: 6)
       else
+
 	      @restaurants = Restaurant.all.paginate(page: params[:page], per_page: 5)
+
       end
     end
+    
+    #Client Side Caching using etag
+    fresh_when(:etag => [@restaurants, current_owner, current_user])
+
   end
 
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
     @restaurant = Restaurant.find(params[:id])
+
     @table_id = params[:table_id]
 		if @table_id
     	@set_tableid = true
@@ -34,6 +43,23 @@ class RestaurantsController < ApplicationController
     	@set_tableid = false
   	end
 		
+
+   
+    @menus = @restaurant.menus
+    
+    @items = []
+    @menus.each do |m|
+      @items << m.items
+    end
+    
+
+    @tables = @restaurant.tables
+    @table_id = params[:table_id]
+
+    
+
+		fresh_when(:etag => [@restaurant, @menus, @items, @tables, params[:table_id]])
+
 		#create tab and cart if user is signed in or is in guest mode AND table_id is set
 		if not owner_signed_in? and @table_id
 			@tab = set_tab

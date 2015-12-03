@@ -14,13 +14,15 @@ gem 'bootstrap-will_paginate'
 gem 'will_paginate'
 gem "mailboxer"
 gem 'newrelic_rpm'
+gem 'ruby-prof'
 gem 'faker'
 gem "psych"
+
 #For AWS
 gem 'aws-sdk', '< 2.0'
 gem 'fog-aws'
 gem 'seed_dump'
-
+gem 'faker'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
