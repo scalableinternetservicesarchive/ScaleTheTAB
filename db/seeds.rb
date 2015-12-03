@@ -118,9 +118,9 @@ total_no_of_rest.times{
     description: Faker::Lorem.sentence(3),
     image_file_name: "placeholder.jpg",
     image_content_type: "image/jpeg",
-    image_file_size: "6386"
+    image_file_size: "6386",
     #image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
-    price: Faker::Commerce.price,
+    price: Faker::Commerce.price
     
   )
 
@@ -164,7 +164,7 @@ total_no_of_items.times{
     description: Faker::Lorem.sentence(3),
     image_file_name: "placeholder.jpg",
     image_content_type: "image/jpeg",
-    image_file_size: "6386"
+    image_file_size: "6386",
     #image: File.open(Dir.glob(File.join(Rails.root, 'load-tests', '*')).sample),
 
     price: Faker::Commerce.price,
