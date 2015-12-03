@@ -16,7 +16,7 @@ gem "mailboxer"
 gem 'newrelic_rpm'
 gem 'ruby-prof'
 gem 'faker'
-gem "psych"
+gem "psych", '~> 2.0.0'
 
 #For AWS
 gem 'aws-sdk', '< 2.0'
